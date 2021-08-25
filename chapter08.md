@@ -1956,3 +1956,119 @@ AttributeError: Can't delete attribute
 >
 > 还有，要“胆子大一些”，敢于自己设计（或者是“想象”）一些项目，并动手尝试“做一做”，哪怕最后不成功，自己也有了经验。
 
+## 8.8 命名空间
+
+Python 之禅中有这样一句：命名空间是个绝妙的主意，我们应好好利用它（参阅第1章1.4节）。官方文档中定义**命名空间**（Namespce）：A *namespace* is a mapping from names to objects（命名空间是名称和对象的映射集合）。
+
+一般解释“命名空间”的资料中，都会以上述内容开头，然后逐项介绍内置命名空间、全局命名空间和本地命名空间。本节也基本遵循此顺序，但是要提一个小问题，“空间是什么”。这个问题其实很难回答，我们通过直觉能“感受到”空间，比如人和其他物体所在的某个三维范围。但是，对空间进行概念化，成了千古话题，从古希腊开始至今，在哲学、物理学、数学等方面对空间给予了各种定义和研究。亚里士多德认为事务所在场所就是空间。物理学家则把空间和时间合并成“时空”进行研究，最有名的就是相对论了。数学里面的欧几里得空间、线性空间等各种术语也不少。还有更多学科的术语中以“空间”为后缀，比如“外层空间”、“存储空间”、“个人空间”等等。
+
+按照经典物理学的思想，物体存在于一定的空间内，它们之间的相对位置构成了所在的空间。移植此思想，由于 Python 中的对象是用名称来引用，或者说名称与特定对象之间有映射关系，这类对象称为**命名对象**（named object），一些命名对象组成了的集合就形成了“由命名对象构建的空间”，简称**命名空间**（Namespace）。
+
+进入到交互模式，按照下述方式定义 `lst` 、`book` 、`Science` 、`phy` 这些名称以及它们所引用的对象。
+
+```python
+>>> lst = ['python', 'math', 'physics']
+>>> def book():
+...     author = "laoqi"
+...     print(locals())
+...
+>>> class Science: pass
+...
+>>> phy = Science()
+>>> import math
+```
+
+这些命名对象所构成的命名空间称为**全局命名空间**（global namespace）。
+
+```python
+>>> globals()
+{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, 'lst': ['python', 'math', 'physics'], 'book': <function book at 0x7f916ce6b550>, 'Science': <class '__main__.Science'>, 'phy': <__main__.Science object at 0x7f916b72a6d0>, 'math': <module 'math' from '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/lib-dynload/math.cpython-39-darwin.so'>}
+```
+
+在第7章7.3.3节中， `globals()` 函数的返回值是含有当前作用域全局变量的字典，字典中的成员即表示了命名对象（名称与对象之间的映射），于是此字典也表示了当前的全局命名空间中的所有命名对象。
+
+同样在第7章7.3.3节曾使用过的 `locals()` 内置函数，返回的字典包含了本地（局部）作用域内的命名对象，这些对象构成的命名空间是**局部命名空间**（local namespace，或译为“本地命名空间”）
+
+观察执行函数 `book()` 所得结果，在此函数中即执行了 `locals()` 函数，返回了函数 `book()` 内的名称和对象。
+
+```
+>>> book()
+{'author': 'laoqi'}
+```
+
+在 Python 中，除了全局命名空间和局部命名空间之外，还有**内置命名空间**（built-in namespace），其中包含了各种内置命名对象。如下，显示了所有内置命名空间的对象名称。
+
+```
+>>> dir(__builtins__)
+['ArithmeticError', 'AssertionError', 'AttributeError', 'BaseException', 'BlockingIOError', 'BrokenPipeError', 'BufferError', 'BytesWarning', 'ChildProcessError', 'ConnectionAbortedError', 'ConnectionError', 'ConnectionRefusedError', 'ConnectionResetError', 'DeprecationWarning', 'EOFError', 'Ellipsis', 'EnvironmentError', 'Exception', 'False', 'FileExistsError', 'FileNotFoundError', 'FloatingPointError', 'FutureWarning', 'GeneratorExit', 'IOError', 'ImportError', 'ImportWarning', 'IndentationError', 'IndexError', 'InterruptedError', 'IsADirectoryError', 'KeyError', 'KeyboardInterrupt', 'LookupError', 'MemoryError', 'ModuleNotFoundError', 'NameError', 'None', 'NotADirectoryError', 'NotImplemented', 'NotImplementedError', 'OSError', 'OverflowError', 'PendingDeprecationWarning', 'PermissionError', 'ProcessLookupError', 'RecursionError', 'ReferenceError', 'ResourceWarning', 'RuntimeError', 'RuntimeWarning', 'StopAsyncIteration', 'StopIteration', 'SyntaxError', 'SyntaxWarning', 'SystemError', 'SystemExit', 'TabError', 'TimeoutError', 'True', 'TypeError', 'UnboundLocalError', 'UnicodeDecodeError', 'UnicodeEncodeError', 'UnicodeError', 'UnicodeTranslateError', 'UnicodeWarning', 'UserWarning', 'ValueError', 'Warning', 'ZeroDivisionError', '_', '__build_class__', '__debug__', '__doc__', '__import__', '__loader__', '__name__', '__package__', '__spec__', 'abs', 'all', 'any', 'ascii', 'bin', 'bool', 'breakpoint', 'bytearray', 'bytes', 'callable', 'chr', 'classmethod', 'compile', 'complex', 'copyright', 'credits', 'delattr', 'dict', 'dir', 'divmod', 'enumerate', 'eval', 'exec', 'exit', 'filter', 'float', 'format', 'frozenset', 'getattr', 'globals', 'hasattr', 'hash', 'help', 'hex', 'id', 'input', 'int', 'isinstance', 'issubclass', 'iter', 'len', 'license', 'list', 'locals', 'map', 'max', 'memoryview', 'min', 'next', 'object', 'oct', 'open', 'ord', 'pow', 'print', 'property', 'quit', 'range', 'repr', 'reversed', 'round', 'set', 'setattr', 'slice', 'sorted', 'staticmethod', 'str', 'sum', 'super', 'tuple', 'type', 'vars', 'zip']
+```
+
+图8-8-1显示了上述三种命名空间之间的关系——近似于第7章图7-3-2。
+
+![image-20210825092709217](./images/chapter8-8-1.png)
+
+<center>图8-8-1 命名空间的关系</center>
+
+阅读至此，不知读者是否迷惑于命名空间与作用域的关系？的确，很多资料将二者合并一起介绍，还会引用官方文档中的一句话以显示二者差别（A *scope* is a textual region of a Python program where a namespace is directly accessible. 用 Google 翻译为“作用域是 Python 程序的文本区域，可以直接访问命名空间。”）。如果没有深入解读，恐难以从字面上理解这句话的深刻含义。下面以一己拙见，抛砖引玉。
+
+分别编写名为 `namespace_1.py` 和 `namespace_2.py` 的两个文件，其内部代码分别如下。
+
+```python
+#coding:utf-8
+'''
+filename: namespace_1.py
+'''
+lang = 'Python'
+print(globals())
+```
+
+```python
+#coding:utf-8
+'''
+filename: namespace_2.py
+'''
+lang = 'Chinese'
+print(globals())
+```
+
+进入到交互模式（参阅8.5.2节），将这两个文件视为模块（参阅第11章11.1节），用 `import` 引入，执行 `import` 语句的同时会分别打印出 `globals()` 的执行结果，显示全局命名空间中的所有命名对象。
+
+```python
+>>> import namespace_1
+{'__name__': 'namespace_1', ...(省略大部分内容), 'lang': 'Python'}
+>>> import namespace_2
+{'__name__': 'namespace_2', ...(省略大部分内容), 'lang': 'Chinese'}
+```
+
+根据命名空间的定义可知，命名空间是命名对象的容器。上述操作中，说明现在有两个全局命名空间的容器，它们彼此是独立的。在这两个命名空间中，都有名称 `lang` ，但是不能用下面的方式访问到：
+
+```python
+>>> lang
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'lang' is not defined
+```
+
+很显然，当前的 `>>>` 环境和引入的模块，虽然都是全局命名空间，但它们之间有边界，或者说每个命名对象都处于一个封闭结构中，这个封闭结构就是**作用域**（Scope）。作用域规定了可以访问特定对象的边界。
+
+```python
+>>> namespace_1.lang
+'Python'
+>>> namespace_2.lang
+'Chinese'
+```
+
+由于以作用域为边界，命名空间之间实现了彼此独立，即便是同样的名称，也可以使它们之间不发生冲突。图8-8-2显示了作用域和命名空间的关系，并且对应显示了它们所具有的层级特点。
+
+![image-20210825150108190](./images/chapter8-8-2.png)
+
+<center>图8-8-2 作用域和命名空间的关系</center>
+
+> **自学建议**
+>
+> 至此关于 Python 语言的最基本知识，已经自学完毕，但并不意味着应用这些基本知识的能力也同步实现，就一般情况而言，还需要学习者通过足量的练习，才能具备解决实际问题的能力。
+>
+> 练习可以有两类，一类是单项的知识技能训练，比如与本书配套的在线资料（参阅 www.itdiffer.com）中提供的练习题目，这类练习的目的在于加强对相关知识的理解和运用。另一类是解决实际问题，这类练习具有实践性、综合性的特征，旨在通过项目实战提升解决实际问题的综合能力。后者是在前者基础上开展的，所以建议学习者务必不要好高骛远。
+
+
+

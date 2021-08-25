@@ -1032,7 +1032,18 @@ UnboundLocalError: local variable 'a' referenced before assignment
 2
 ```
 
-要想其所以然，必须要从两个内置函数 `globals()` 和 `locals()` 说起。为了看得清爽，请读者重启你的交互模式，再按照如下演示进行操作：
+要想其所以然，必须要从两个内置函数 `globals()` 和 `locals()` 说起。先看对这两个函数的最权威说明（分别来自之后 `help(globals)` 和 `help(locals)` 后的帮助文档）。
+
+```shell
+globals()
+    Return the dictionary containing the current scope's global variables.
+    # 返回含有当前作用域全局变量的字典
+locals()
+    Return a dictionary containing the current scope's local variables.
+    # 返回含有当前作用域的局部（本地）变量的字典
+```
+
+下面就用这两函数一探究竟。为了看得清爽，请重启交互模式，再按照如下演示进行操作：
 
 ```python
 Python 3.9.4 (v3.9.4:1f2e3088f3, Apr  4 2021, 12:32:44)
@@ -1043,7 +1054,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 {'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, 'x': 'foo'}
 ```
 
-首先创建一个名为 `x` 的变量——它在全局作用域。然后执行 `globals()` 函数，返回的是一个字典，在这个字典中包含了刚才创建的变量及其所引用的对象。这就是 `globals()` 的作用，它以字典的形式返回当前全局作用域的成员。
+首先创建一个名为 `x` 的变量（严格地，变量 `x` 处于全局命名空间，此处暂不太严格地认为它在全局作用域）。然后执行 `globals()` 函数，返回的是一个字典，在这个字典中包含了刚才创建的变量及其所引用的对象。这就是 `globals()` 的作用，它以字典的形式返回当前全局作用域的成员。
 
 通常，我们通过变量的名称 `x` 访问它引用的对象，现在看到了上述返回的字典，可以通过它间接得到：
 
