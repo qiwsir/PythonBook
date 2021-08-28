@@ -517,7 +517,7 @@ this is finally.
 
 虽然内置异常已经涵盖了通常的需求，毕竟不能面面俱到，在实际情况中，还有力所不及之处。例如就没有专门针对负数的异常，这应该是实际中比较常见的一类需要吧，年龄、体重、身高等都不能是负数。为了解决内置异常所不及的问题，必须自定义异常。
 
-由于异常，也是对象或对象类型，那么自定义异常的方法就与第8章和第9章自定义对象类型的方法一样。
+由于异常也是对象或对象类型，那么自定义异常的方法就与第8章和第9章自定义对象类型的方法一样。
 
 ```python
 >>> class CustomError(Exception): pass    # (1)
@@ -559,7 +559,7 @@ class MyCustomError(Exception):
             return 'MyCustomError has been raised'
 ```
 
-在当前位置进入交互模式（参阅第8章8.5.2节），执行如下操作：
+在文件当前位置进入交互模式（参阅第8章8.5.2节），执行如下操作：
 
 ```python
 >>> from customexception import *
@@ -591,7 +591,8 @@ class CustomIntFloatDict(dict):
     def __init__(self, key=None, value=None):
         if key is None or value is None:
             self.get_dict()
-        elif not isinstance(key, (tuple, list,)) or not isinstance(value, (tuple, list)):    # (2)
+        elif not isinstance(key, (tuple, list,)) or \
+             not isinstance(value, (tuple, list)):    # (2)
             raise KeyValueContructError(key, value)
         else:
             zipped = zip(key, value)
@@ -609,7 +610,7 @@ class CustomIntFloatDict(dict):
         return dict.__setitem__(self, key, value)
 ```
 
-在初始化方法 `__init__()` 中，注释（2）的条件分支判断所输入的 `key` 和 `value` 的参数，如果不是元组或列表，则抛出异常 `KeyValueContructError` ——此异常需要定义，即只能用类似 `CustomIntFloatDict(['a', 'b'], [1, 2])` 的形式创建这个类的实例（自定义的类字典对象）。
+在初始化方法 `__init__()` 中，注释（2）的条件分支判断所输入的 `key` 和 `value` 的参数（注意区别于 `dict` 类型中的键和值），如果不是元组或列表，则抛出异常 `KeyValueContructError` ——此异常需要定义，即只能用类似 `CustomIntFloatDict(['a', 'b'], [1, 2])` 的形式创建这个类的实例（自定义的类字典对象）。
 
 注释（3）和（4）中判断实例中键值对的值是否是整数或浮点数，若不满足条件则抛出异常 `IntFloatValueError` ——另外一个待定义的异常类。
 
@@ -642,7 +643,8 @@ class CustomIntFloatDict(dict):
     def __init__(self, key=None, value=None):
         if key is None or value is None:
             self.get_dict()
-        elif not isinstance(key, (tuple, list,)) or not isinstance(value, (tuple, list)):    # (2)
+        elif not isinstance(key, (tuple, list,)) or \
+             not isinstance(value, (tuple, list)):    # (2)
             raise KeyValueContructError(key, value)
         else:
             zipped = zip(key, value)
@@ -674,7 +676,7 @@ class CustomIntFloatDict(dict):
 >>> d2 = CustomIntFloatDict({"a", "b"}, [7, 28])
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-  File "/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/mydict.py", line 30, in __init__
+  File "/Users/qiwsir/Documents/my_books/codes/mydict.py", line 30, in __init__
     raise KeyValueContructError(key, value)
 mydict.KeyValueContructError: keys and values need to be passed as either list or tuple
  {'b', 'a'} is of type: <class 'set'>
@@ -684,11 +686,11 @@ mydict.KeyValueContructError: keys and values need to be passed as either list o
  >>> d3 = CustomIntFloatDict(("a", "b"), ['seven', 28])
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-  File "/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/mydict.py", line 35, in __init__
+  File "/Users/qiwsir/Documents/my_books/codes/mydict.py", line 35, in __init__
     raise IntFloatValueError(val)
 mydict.IntFloatValueError: seven is invalid input, CustomIntFloatDict can only accept integers and floats as its values
 
-# 正确地操作
+# 正确操作
 >>> d3 = CustomIntFloatDict(("a", "b"), [7, 28])
 >>> d3
 {'a': 7, 'b': 28}
@@ -696,11 +698,11 @@ mydict.IntFloatValueError: seven is invalid input, CustomIntFloatDict can only a
 >>> d3
 {'a': 7, 'b': 28, 'c': 11.11}
 
-# 这样也允许
+# 这样不允许
 >>> d3['d'] = 'laoqi'
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-  File "/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/mydict.py", line 43, in __setitem__
+  File "/Users/qiwsir/Documents/my_books/codes/mydict.py", line 43, in __setitem__
     raise IntFloatValueError(value)
 mydict.IntFloatValueError: laoqi is invalid input, CustomIntFloatDict can only accept integers and floats as its values
 ```
@@ -711,9 +713,285 @@ mydict.IntFloatValueError: laoqi is invalid input, CustomIntFloatDict can only a
 
 通过异常处理，可以对用户在程序中的非法输入进行控制和提示，以防程序崩溃。
 
+> **自学建议**
+>
+> 正在写本节内容时，收到一位读者的信息，他（在 QQ 群里的不晓得性别）问是否能提供一些经典的代码案例，让他来深入研读，从而掌握写代码的常用技能。就如参加“考研”辅导的时候，老师在考试前提供了一些经典的英语作文，只要背下来，考试的时候就能用上。
+>
+> 或许还会有其他人有类似的需要吧。对那种“应试”之法是否有利于个人发展，此处不给予评论，但是若把该方法搬到这里，还有待商榷。用本书学习，不是为了考试（如果以考试为目的，请参阅考试指定丛书和考试大纲之类的），是为了提升个人的编程能力，进而能解决实际问题。实际问题，不能依靠“背诵本本”解决（参阅第7章7.1.4节【自学建议】）。所谓的“经典代码”，在致力于解决实际问题的程序中，是不存在的。所有代码都是因着某个具体情况（包括人、物等）而出现的。
+>
+> 没有“经典代码”，并不意味着没有“相对好的代码”。对初学者而言，有经验开发者编写的代码就是“相对好的代码”，可供参考学习。当学习者站在了有经验开发者的肩膀上之后，还会发现自己佩服过的那些代码也是可以或者应该继续优化的。
+>
+> 在编程领域，没有“经典代码”，不要奢望“代码大全”能解决问题。“三更灯火五更鸡”，唯闻鸡起舞，方一览众山小。
+
 ## 10.4 调试
 
+在计算机程序中，**调试**（Debug）是发现和较少程序错误的过程。显然，这是一项实践性非常强的工作，不是看几页书就能完全掌握的，需要“久经考验”，不断总结经验，才能练就火眼金睛。但是，这也不意味着调试的技巧就无从学起。本节就根据经验介绍几种常用方法，供读者参考练习——当然是以 Python 程序为例，其他编程语言的程序会有所不同。
 
+**1. 使用 print() 函数**
 
- 
+这是一种非常简单、直观的调试方法，也是在开发实践中应用最普遍的方法。使用 `print()` 函数，将代码中必要的内容输出到控制台，通过观察输出结果，判断代码可能存在的问题。例如：
 
+```python
+#coding:utf-8
+'''
+filename: debugprint.py
+'''
+def mean(x, y):
+    return x + y / 2
+
+if __name__ == "__main__":
+    a = input('input an integer：')
+    b = input('input an other integer: ')
+    aver = mean(a, b)
+    print(f"{aver} is the average of {a} and {b}")
+```
+
+如果运行上述程序，会抛出异常。
+
+```python
+% python debugprint.py
+input an integer：2
+input an other integer: 4
+Traceback (most recent call last):
+  File "/Users/qiwsir/Documents/my_books/codes/debugprint.py", line 11, in <module>
+    aver = mean(a, b)
+  File "/Users/qiwsir/Documents/my_books/codes/debugprint.py", line 6, in mean
+    return x + y / 2
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
+```
+
+根据已学知识，“一眼”就知道异常出现的原因了。暂请佯装不知，以便能“演下去”。
+
+从回溯（Traceback）中可知，最终出问题的在 `line 6 ` 中的 `return x + y / 2` 。因为这里就是用到了函数的两个参数，所以应该先看看传给函数 `mean()` 的两个参数的值是什么。于是可以在函数中增加 `print()` （注意，只增加打印输出，不对程序做任何其他修改）。
+
+```python
+#coding:utf-8
+'''
+filename: debugprint.py
+'''
+def mean(x, y):
+    print(f"{x}==>{type(x)}")
+    print(f"{y}==>{type(y)}")
+    return x + y / 2
+
+if __name__ == "__main__":
+    a = input('input an integer：')
+    b = input('input an other integer: ')
+    aver = mean(a, b)
+    print(f"{aver} is the average of {a} and {b}")
+```
+
+执行后后的结果为：
+
+```python
+% python debugprint.py
+input an integer：2
+input an other integer: 4
+2==><class 'str'>
+4==><class 'str'>
+Traceback (most recent call last):
+  File "/Users/qiwsir/Documents/my_books/self-learning-python-codes/codes/debugprint.py", line 13, in <module>
+    aver = mean(a, b)
+  File "/Users/qiwsir/Documents/my_books/self-learning-python-codes/codes/debugprint.py", line 8, in mean
+    return x + y / 2
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
+```
+
+从上述输出结果可知，传给 `mean()` 的两个实参，与输入的一样，其类型是字符串类型。这就找到了导致 `TypeError: unsupported operand type(s) for /: 'str' and 'int'` 异常的原因，也就能制定修改方案了。
+
+当将输入变量 `a` 和 `b` 分别转化为整数或浮点数之后，虽然没有上述异常信息了，但程序还有“逻辑错误”——请读者自行调试并修改。
+
+**2. 使用 pdb 模块**
+
+Python 标准库中的 pdb 模块是一个交互式的代码调试器，利用它能实现设置断点、单步执行等操作（官方文档：https://docs.python.org/zh-cn/3/library/pdb.html）。
+
+在 Python 交互模式中，执行如下操作。
+
+```python
+>>> import pdb
+>>> def fun(x, y):
+...     z = x + y
+...     k = x * y
+...     r = z / k
+...     return r
+...
+>>> pdb.run("fun(1, 0)")      # (1)
+> <string>(1)<module>()->None
+(Pdb)
+```
+
+注释（1）用 `pdb.run()` 函数来执行前面定义的函数 `fun()` ——必须要给函数提供实参。写入注释（1）所示的代码之后，敲回车，出现后面的信息，光标停留在 `(Pdb)` 的后面，等待输入指令。输入 `n` （next），表示继续运行，出现如下所示结果：
+
+```python
+>>> pdb.run("fun(1, 0)")       # (1)
+> <string>(1)<module>()->None
+(Pdb) n
+ZeroDivisionError: division by zero
+> <string>(1)<module>()->None
+(Pdb)
+```
+
+说明函数中抛出了 `ZeroDivisionError` 异常。继续输入 `n` 直到调试结束，返回到 `>>>` 状态。
+
+```python
+> <string>(1)<module>()->None
+(Pdb) n
+--Return--
+> <string>(1)<module>()->None
+(Pdb) n
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/pdb.py", line 1597, in run
+    Pdb().run(statement, globals, locals)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/bdb.py", line 580, in run
+    exec(cmd, globals, locals)
+  File "<string>", line 1, in <module>
+  File "<stdin>", line 4, in fun
+ZeroDivisionError: division by zero
+>>>
+```
+
+如果用 `pdb` 模块调试程序，以前述编写的 `debugprint.py` 文件为例，在文件所在位置，执行下述指令，并进入到 `(Pdb)` 状态。
+
+```shell
+% python3 -m pdb debugprint.py
+> /Users/qiwsir/Documents/my_books/codes/debugprint.py(2)<module>()
+-> '''
+(Pdb) 
+```
+
+显示已经执行到 `debugprint.py` 文件的第二行的程序文档。而后等待输入后续调试指令。
+
+输入 `l` ，显示当前所调试程序的所有代码（此处省略显示）。
+
+输入 `n` ，进行单步执行。
+
+```shell
+(Pdb) n
+> /Users/qiwsir/Documents/my_books/codes/debugprint.py(5)<module>()
+-> def mean(x, y):
+(Pdb) 
+```
+
+这样就进入到函数 `mean()` 部分。如此，一步一步地调试下去。
+
+```shell
+> /Users/qiwsir/Documents/my_books/codes/debugprint.py(10)<module>()
+-> if __name__ == "__main__":
+(Pdb) n
+> /Users/qiwsir/Documents/my_books/codes/debugprint.py(11)<module>()
+-> a = input('input an integer：')
+(Pdb) n
+input an integer：2
+> /Users/qiwsir/Documents/my_books/codes/debugprint.py(12)<module>()
+-> b = input('input an other integer: ')
+(Pdb) n
+input an other integer: 4
+> /Users/qiwsir/Documents/my_books/codes/debugprint.py(13)<module>()
+-> aver = mean(a, b)
+(Pdb) n
+2==><class 'str'>
+4==><class 'str'>
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
+> /Users/qiwsir/Documents/my_books/codes/debugprint.py(13)<module>()
+-> aver = mean(a, b)
+(Pdb) n
+--Return--
+> <string>(1)<module>()->None
+(Pdb) 
+```
+
+直到发现异常。
+
+在 `(Pdb)` 状态下输入 `q` 退回到 `>>>` Python 交互模式。
+
+除了一步一步地调试，也可以在程序中使用 `pdb` 模块，例如下面的修改：
+
+```python
+#coding:utf-8
+'''
+filename: debugprint.py
+'''
+import pdb
+def mean(x, y):
+    print(f"{x}==>{type(x)}")
+    print(f"{y}==>{type(y)}")
+    pdb.set_trace()            # (2) 到此则自动暂停
+    return x + y / 2
+
+if __name__ == "__main__":
+    a = input('input an integer：')
+    b = input('input an other integer: ')
+    aver = mean(a, b)
+    print(f"{aver} is the average of {a} and {b}")
+```
+
+ 执行此程序，到注释（2）处程序会自动暂停。
+
+```shell
+% python debugprint.py
+input an integer：2
+input an other integer: 4
+2==><class 'str'>
+4==><class 'str'>
+> /Users/qiwsir/Documents/my_books/self-learning-python-codes/codes/debugprint.py(10)mean()
+-> return x + y / 2
+(Pdb) 
+```
+
+输入 `p a` 则会显示变量 `a` 的值，输入 `p b` 显示变量 `b` 的值。
+
+```python
+(Pdb) p a
+'2'
+(Pdb) p b
+'4'
+(Pdb) n
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
+> /Users/qiwsir/Documents/my_books/self-learning-python-codes/codes/debugprint.py(10)mean()
+-> return x + y / 2
+```
+
+这样也定位到了问题之所在。
+
+此处仅以简要的示例说明 `pdb` 模块在调试中的应用，更复杂的有关调试命令，请参阅官方文档。
+
+**3. 使用 IDE 的调试功能**
+
+目前常用的 IDE 都提供了非常友好的调试功能，恐怕这才是除了 `print()` 之外，开发者更常用的。下面就以 Visual Studio Code（）为例，说明调试方法（其他 IDE 也有调试功能，可以参阅有关专门资料）。
+
+如果已经按照第1章1.8.3节所述，在 Visual Studio Code 上安装了 Python 扩展，其中就包含了调试功能。
+
+如图10-4-1所示，单击左侧活动栏的 Run and Debug（运行和调试，如箭头（1）所示）按钮，进入到调试界面，点击箭头（2）所示的按钮或者按下快捷键 `F5` ，即可运行当前的 Python 程序（仍然以 `debugprint.py` 为例）。
+
+![image-20210828133718960](./images/chapter10-4-1.png)
+
+<center>图10-4-1 VS Code 的调试按钮</center> 
+
+注意观察终端，会提示输入两个整数，依次输入之后，呈现图10-4-2所示的状态。
+
+![image-20210828134554364](./images/chapter10-4-2.png)
+
+<center>图10-4-2 VS Code 调试效果</center>
+
+中间最显眼的地方，显示当前抛出异常的行和有关异常信息；左侧显示了有关调试信息；顶部还有几个按钮，能够实现单步执行。
+
+“打断点”（Breakpoint）是调试程序的重要技能，在 VS Code 中，可以在任意逻辑行左侧点一下鼠标（如图10-4-3所示），则设置改行为断点，程序运行到此即暂停。
+
+![image-20210828135621150](./images/chapter10-4-3.png)
+
+<center>图10-4-3 打断点</center>
+
+执行程序，当运行到图10-4-3所示的断点位置是，即显示图10-4-4所示的效果。
+
+![image-20210828135935056](./images/chapter10-4-4.png)
+
+<center>图10-4-4 在断点处暂停</center>
+
+此后可以继续通过点击顶部的按钮向下执行。
+
+在 VS Code 中，可以通过配置 launch.json 文件，制定更复杂的调试功能。对 VS Code 的引用介绍，已经超出了本书范畴，读者可以参考有关专门资料。总之，各种 IDE 提供了简单、直观调试功能，是调试程序的好工具。
+
+> **自学建议**
+>
+> 第1章1.8.3节的【自学建议】中不推荐读者把太多精力花在对 IDE 的选择和配置上，因为那是刚刚开始变成，注意力不能过于分散。时过境迁，现在已经敲过很多代码了，有了足够的编程经验，且对自己的计算机也比较熟悉了，非常有必要将生产代码的工具弄得先进一些。故特别建议读者应该花一些时间深入研究一番自己选定的 IDE ，配置好各种提升效率的功能，并应用于编写代码、调试程序的实践。
