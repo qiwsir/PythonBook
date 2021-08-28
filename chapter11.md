@@ -4,15 +4,13 @@
 >
 > ——杜甫
 
-Python 语言如今能居于各类编程语言排行榜前列，除了它简单易学之外，开放的生态系统也是不容忽视的因素。所谓“开放”，就是每个人都可以根据自己的意愿编写和发布 Python 模块或包；所谓“生态系统”，是指基于 Python 语言的模块和包已经涵盖了能够编写软件的各个领域，即不论做哪方面的开发，都能找到可以使用的 Python 模块和包作为开发中的“轮子”。虽然“是否重复造轮子”是一个在开发者中争论不休的话题，但作为开始自学的读者，还是应该掌握“造轮子”的基本方法——是不是要亲自动手造，应该“具体问题具体分析”。
-
-【知识结构图】
+Python 语言如今能居于各类编程语言排行榜前列，除了它简单易学之外，开放的生态系统也是不容忽视的因素。所谓“开放”，就是每个人都可以根据自己的意愿编写和发布 Python 模块或包；所谓“生态系统”，是指基于 Python 语言的模块和包已经涵盖了能够编写软件的各个领域，不论做哪方面的开发，都能找到可以使用的 Python 模块和包作为开发中的“轮子”。虽然“是否重复造轮子”在开发者中争论不休，但作为开始自学的读者，还是应该掌握“造轮子”的基本方法——是不是要亲自动手造，应该“具体问题具体分析”。
 
 ## 11.1 模块
 
-Python 的模块（英文：module）就是扩展名为 `.py` 的文件。是不是觉得太简单了？还有更简单的，其实各位读者此前已经使用它了。自从第8章8.5.2节开始，我们已经不止一次“在文件当前位置进入交互模式”，而后执行形式为 `from filename import *` 的操作，于是就可以使用文件 `filename.py` 中所定义的类。这里的 `filename.py` 文件，就是一个模块，而 `from filename import *` 就是从该文件中引入所定义的对象，即模块里面的对象。
+Python 的**模块**（Module）就是扩展名为 `.py` 的文件。是不是觉得太简单了？还有更简单的，其实各位读者此前已经使用它了。自从第8章8.5.2节开始，已经不止一次“在文件当前位置进入交互模式”，而后执行形式为 `from filename import *` 的操作，于是就可以使用文件 `filename.py` 中所定义的类、函数、变量等。这里的 `filename.py` 文件，就是一个模块，而 `from filename import *` 就是从该文件中引入所定义的对象，即模块里面的对象。
 
-尽管已经熟悉，还是用一个示例基于完整说明，不能总结巩固，还能提升认知。在 IDE 中编写如下文件：
+尽管已经熟悉，还是用一个示例给予完整说明，温故而知新。在 IDE 中编写如下文件：
 
 ```python
 #coding:utf-8
@@ -36,9 +34,9 @@ x = 2
 mul_result = foo(x)
 ```
 
-保存文件后，要牢记文件所在目录。本书中所使用的代码目录是：`/Users/qiwsir/Documents/my_books/Python完全自学手册/codes` （请读者特别注意，如此路径表示形式为 Linux 或 MacOS 操作系统中，如果读者使用的是 Windows 操作系统，会与此不同，请读者熟悉自己的操作系统——有关操作系统的内容，超出了本书范畴）。
+保存文件后，要牢记文件所在目录。本书中所使用的代码目录是：`/Users/qiwsir/Documents/my_books/codes` （请特别注意，如此路径表示形式为 Linux 或 MacOS 操作系统中的，如果是 Windows 操作系统，会与此不同。请读者熟悉自己的操作系统）。
 
-然后进入到 Python 交互模式——不一定非要按照第8章8.5.2节中那样“在当前位置进入交互模式”，可以在任何目录位置，进入到 Python 交互模式，然后执行如下操作：
+然后进入到 Python 交互模式——不一定非要按照第8章8.5.2节中那样“在当前位置进入交互模式”，可以在任何目录位置，进入到 Python 交互模式。执行如下操作：
 
 ```python
 >>> import sys
@@ -46,7 +44,7 @@ mul_result = foo(x)
 ['', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python39.zip', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/lib-dynload', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages']
 ```
 
-模块 `sys` 是标准库中的一员（就如同此前用过的 `math` 模块一样，参阅第3章3.3.2节），执行 `sys.path` 后显示的内容会因不同的计算机和操作系统而异。返回值以列表的形式显示了搜索模块的路径，即在这些目录中查找程序中使用的模块（和包）。搜索路径列表的第一项 `sys.path[0]` 是一个空字符串（ `' '` ），表示进入交互模式是的目录，即所谓的“当前位置”——所以在第8章8.5.2节以及之后的很多操作中，强调“从当前位置进入交互模式”。后续其他项都是在本地安装 Python 后默认的搜索目录。
+模块 `sys` 是标准库中的一员（就如同此前用过的 `math` 模块一样，参阅第3章3.3.2节），执行 `sys.path` 后显示的内容会因不同的计算机和操作系统而异。返回值以列表的形式显示了搜索模块的路径，即在这些目录中查找程序所使用的模块（和包）。搜索路径列表的第一项 `sys.path[0]` 是一个空字符串（ `' '` ），表示进入交互模式是的目录，即所谓的“当前位置”——所以在第8章8.5.2节以及之后的很多操作中，强调“从当前位置进入交互模式”。后续其他项都是在本地安装 Python 后默认的搜索目录。
 
 ```python
 % pwd
@@ -71,7 +69,7 @@ ModuleNotFoundError: No module named 'mymodule'
 
 Python 解释器会按照 `sys.path` 列表中的搜索目录顺序，依次查找是否有 `mymodule.py` 文件，即 `mymodule` 模块。首先看当前位置 `/Users/qiwsir` 目录，肯定没有 `mymodule.py` 文件，然后是后面个各个目录，也当然没有。最后就抛出了 `ModuleNotFoundError` 异常，虽然已经编写并保存了 `mymodule.py` 文件，但它所在的目录没有列入 `sys.path` 中，Python 解释器还是找不到的——这是一个常见的异常，只要出现此异常，就说明是“搜索路径问题”。
 
-如何解决 `ModuleNotFoundError` 异常？既然 `sys.path` 是一个列表，就可以用列表的操作，将我们所编辑的文件 `mymodule.py` 所在的目录，加入到此列表中。接续前面继续操作：
+如何解决 `ModuleNotFoundError` 异常？既然 `sys.path` 是一个列表，就可以通过列表的方法，将文件 `mymodule.py` 所在的目录加入其中。接续前面继续操作：
 
 ```python
 >>> import sys
@@ -79,7 +77,7 @@ Python 解释器会按照 `sys.path` 列表中的搜索目录顺序，依次查�
 ['', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python39.zip', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/lib-dynload', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages']
 
 # 追加 mymodule.py 所在目录 
->>> sys.path.append('/Users/qiwsir/Documents/my_books/Python完全自学手册/codes')
+>>> sys.path.append('/Users/qiwsir/Documents/my_books/codes')
 >>> sys.path
 ['', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python39.zip', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/lib-dynload', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages', '/Users/qiwsir/Documents/my_books/Python完全自学手册/codes']
 ```
@@ -92,7 +90,7 @@ Python 解释器会按照 `sys.path` 列表中的搜索目录顺序，依次查�
 ['Book', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'foo', 'mul_result', 'python', 'python_name', 'x']
 ```
 
-如此则愿望达成。但要注意，必须是在执行了 `sys.path.append()` 之后的当前交互模式中执行上述操作。否则，`sys.path` 没有该搜索路径。
+如此则达成愿望。但要注意，必须是在执行了 `sys.path.append()` 之后的当前交互模式中执行上述操作（也可以用列表的 `insert()` 方法）。否则，`sys.path` 没有该搜索路径。
 
 正确地引入自己编写的模块之后，执行 `dir(mymodule)` 可以查看此模块能提供的东西，与 `mymodule.py` 文件对照：
 
@@ -113,7 +111,7 @@ Python 解释器会按照 `sys.path` 列表中的搜索目录顺序，依次查�
 6
 ```
 
-其他的变量，如 `python` 、`python_name` 、`mul_result` 、`x` ，实则没有什么用，因为它们是在 `mymodule.py` 文件中调用类 `Book` 和函数 `foo()` 时所使用的，对于使用该模块的程序环境而言，它们都是多余的。所以，在 `mymodule.py` 中就不应该有它们，即刻在 IDE 中将其删除，只保留类 `Book` 和函数 `foo()` ，并保存 `mymodule.py` 文件。再次引入模块：
+其他的变量，如 `python` 、`python_name` 、`mul_result` 、`x` ，实则没有什么用，因为它们是在 `mymodule.py` 文件中调用类 `Book` 和函数 `foo()` 时所使用的，对于使用该模块的程序环境而言，它们都是多余的。所以，在 `mymodule.py` 中就不应该有它们，可以将其删除，只保留类 `Book` 和函数 `foo()` ，并保存 `mymodule.py` 文件。再次引入模块：
 
 ```python
 >>> import mymodule
@@ -121,17 +119,17 @@ Python 解释器会按照 `sys.path` 列表中的搜索目录顺序，依次查�
 ['Book', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'foo', 'mul_result', 'python', 'python_name', 'x']
 ```
 
-会发现，引入的模块内容并没有因为修改了 `mymodule.py` 文件而改变，必须要使用第8章8.5.2节中所提到的“重载”模块方法——最灵验的方法是退出交互模式，再重新进入，并将 `mymodule.py` 的路径加入到 `sys.path` 中。
+会发现，引入的模块内容并没有因为修改了 `mymodule.py` 文件而改变，这里必须要使用第8章8.5.2节中所提到的“重载”模块方法——最灵验的方法是退出交互模式，重新进入，并将 `mymodule.py` 的路径加入到 `sys.path` 中。
 
 ```python
 >>> import sys
->>> sys.path.append('/Users/qiwsir/Documents/my_books/Python完全自学手册/codes')
+>>> sys.path.append('/Users/qiwsir/Documents/my_books/codes')
 >>> import mymodule
 >>> dir(mymodule)
 ['Book', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'foo']
 ```
 
-现在看到的 `mymodule` 模块中就不再包含那些变量了。这才达到了创建和引入 `mymodule` 的最终目的。
+现在看到的 `mymodule` 模块不再包含那些变量了。这才达到了创建和引入 `mymodule` 的最终目的。
 
 其实，之前我们写的程序文件，都不是像前面那样调用该文件中的函数或者类，而是这样做的（参阅第7章7.1.1节的注释（2），从那之后的很多程序都如法炮制）：
 
@@ -185,7 +183,7 @@ print(f"foo __name__ is set to {__name__}")
 foo __name__ is set to __main__
 ```
 
-在 `foo.py` 中使用了一个变量 `__name__` ，但其中的用法有点特殊，因为并没有将该变量引用任何对象，像这样的情况如果出现在其他变量中必然会抛出 `NameError` 异常，同时会提示该变量没有定义。然而，`__name__` 是一个特殊的变量，更准确地说，它是当前模块（文件 `foo.py` 就是一个 Python 模块）一个属性，当在模块文件的空间执行时（此处即在 `foo.py` 的空间），`__name__` 的值是 `__main__` 。
+在 `foo.py` 中使用了一个变量 `__name__` ，但其中的用法有点特殊，因为并没有将该变量引用任何对象，像这样的情况如果出现在其他变量中必然会抛出 `NameError` 异常，同时会提示该变量没有定义。然而，`__name__` 是一个特殊的变量，更准确地说，它是当前模块（文件 `foo.py` 就是一个 Python 模块）的一个属性，当在模块文件的空间执行时（此处即在 `foo.py` 的空间），`__name__` 的值是 `__main__` 。
 
 再创建一个名为 `bar.py` 的文件，并与 `foo.py` 在同一个目录中。
 
@@ -242,19 +240,24 @@ Do not execute main() funciton!
 
 从执行结果的比较中会发现，当 `foo.py` 作为模块在另外一个文件中被引入后（不在同一个文件空间），`__name__` 的值不再是 `__main__` ，if 分支下的代码块不再被执行，因此它们所产生的各种对象都不会代入到 `foo` 模块中。
 
-所以，可以在 `.py` 文件中用 `if __name__ == '__main__'` 调用本文件中的各类对象，当本文件作为模块被其他文件引入是，并不会为模块增加累赘之物。有的资料，会仿照 C 语言等的说法，称 `if __name__ == '__main__'` 是 Python 程序的入口，当然这并不是典型的 Python 开发者的话语系统。 
+所以，可以在 `.py` 文件中用 `if __name__ == '__main__'` 调用本文件中的各类对象，当本文件作为模块被其他文件引入是，并不会为模块增加累赘之物。有的资料，会仿照 C 语言等的说法，称 `if __name__ == '__main__'` 是 Python 程序的入口，当然这并不是典型的 Python 开发者的术语。 
 
 > **自学建议**
 >
-> 
+> 每一个 `.py` 文件都可以作为一个模块，因此开发实践中，常常会把功能类似的代码组织到一个文件中，或者每个文件实现某类功能（可能是一个，也可能是多个）。这样做的优势在于：
+>
+> - 便于代码的维护。
+> - 将每个文件当做模块，在最终执行的程序中引入后即可使用，使得代码更整洁、便于阅读。
+>
+> 所以，工程实践中提倡以模块为单元组织代码。
 
 ## 11.2 包
 
-包（英文：package），顾名思义，应该比模块“大”。
+包（Package），顾名思义，应该比模块“大”。
 
-通常，“包”有一定层次的目录结构，它由一些 `.py` 文件或者子目录组成，并且，每个目录中要包含名为 `__init__.py` 的文件。如图11-2-1所示，创建了一个名为 `mypack` 的目录，在该目录内有一个`__init__.py` 文件和一个名为 `rust.py` 的文件，另外有两个子目录 `a_pack` 和 `b_pack` ——即两个“子包”，在这两个子目录中分别创建了图中所显示的 `.py` 文件（注意：图示中的 `tree` 是 Linux 命令，用于显示目录结构。使用 Windows 操作系统的读者不要搬用）。
+通常，“包”是有一定层次的目录结构，它由一些 `.py` 文件或者子目录组成，并且，每个目录中要包含名为 `__init__.py` 的文件。如图11-2-1所示，创建了一个名为 `mypack` 的目录，在该目录内有一个`__init__.py` 文件和一个名为 `rust.py` 的文件，另外有两个子目录 `a_pack` 和 `b_pack` ——即两个“子包”，在这两个子目录中分别创建了图中所显示的 `.py` 文件（注意：图示中的 `tree` 是 Linux 命令，用于显示目录结构。使用 Windows 操作系统的读者不要搬用）。
 
-![image-20210724090418868](/Users/qiwsir/Documents/my_books/Python完全自学手册/images/chapter11-2-1.png)
+![image-20210724090418868](./images/chapter11-2-1.png)
 
 <center>图11-2-1 mypack 包的目录结构</center> 
 
@@ -323,7 +326,7 @@ Traceback (most recent call last):
 AttributeError: module 'mypack' has no attribute 'rust'
 ```
 
-抛出了 `AttributeError` 异常。分明已经定义了，为什么找不到？——此时请不要怀疑是 Python 的问题，更不要怀疑是本书写错了。其原因在于我们没有告诉 Python 解释器，那个模块 `rust` 在哪里——难道它不会自己找吗？不会。因为它弗晓得贵计算机中有几个 `rust.py` 文件，亦弗晓得贵开发者想要的是哪一个 `rust` 模块。所以，在 Python 之禅中有一句：面对不确定性，拒绝妄加猜测（参阅第1章1.4节）。
+抛出了 `AttributeError` 异常。分明已经定义了，为什么找不到？——此时请不要怀疑是 Python 的问题，更不要怀疑是本书写错了。其原因在于我们没有告诉 Python 解释器模块 `rust` 在哪里——难道它不会自己找吗？不会。Python 不知道贵计算机中有几个 `rust.py` 文件，也不知道贵开发者想要的是哪一个 `rust` 模块。所以，在《Python 之禅》中有一句：面对不确定性，拒绝妄加猜测（参阅第1章1.4节）。
 
 ```python
 >>> import mypack.rust    # (1)
@@ -345,7 +348,7 @@ AttributeError: module 'mypack' has no attribute 'rust'
 
 注释（1）和注释（2）本质是一样的方法，均是以 `mypack` 包为路径，指明所引入的模块位置和名称。
 
-如果这么这样，`import mypack` 就没有什么价值了？至少目前是。为了让 `import mypack` 能有价值，需要编辑其下的 `__init__.py` 文件（注意，是 `./mypack` 目录下的，不是子目录下的）。
+如果用 `import mypack` 就没有什么价值了吗？至少目前是。为了让 `import mypack` 能有价值，需要编辑其下的 `__init__.py` 文件（注意，是 `./mypack` 目录下的，不是子目录下的）。
 
 ```python
 '''
@@ -434,15 +437,19 @@ from . import b_pack
 
 与图11-2-1相比，多了扩展名为 `.pyc` 的文件，这是什么？请参阅第2章2.1.3节的内容。
 
+> **自学建议**
+>
+> 包比模块有更复杂的代码组织结构，读者可以到 github.com 或者 gitee.com 这些代码托管网站，浏览其他人或机构开源的程序，很多都是以包的方式提供。特别建议读者选择一款不太大、不太复杂的包，对其中的结构进行深入研究，初步理解该程序的代码组织方式。
+
 ## 11.3 标准库举例
 
-库（library）听起来是一个比包（package）还要“大”的概念了。事实上，这两个概念没有什么区别，“库”可以看过是“包”的集合（当然，看作是“模块”的集合也未尝不可）。也有资料认为“库”不是 Python 的概念，是编译型语言的概念，Python 中只不过是借用这个说法，其本质就是模块（module）。
+库（Library）听起来是一个比包还要“大”的概念了。事实上，这两个概念没有什么区别，“库”可以看作“包”的集合（当然，看作是“模块”的集合也未尝不可）。也有资料认为“库”不是 Python 的概念，是从其他语言中借过来的说法，其本质就是模块。
 
 “不争论”，重点看它对编程有什么作用。
 
-Python中一个很重要的库：标准库（standard library），即：选择一些重要的 Python 模块，将它们视为 Python 语言的重要组成部分，并在安装 Python 的同时也将它们安装在本地计算机。
+Python 中一个很重要的库：标准库（Standard Library）。选择一些重要的 Python 模块，将它们视为 Python 语言的重要组成部分，在安装 Python 的同时也将它们安装在本地计算机。这就构成了标准库。
 
-被选入 Python 标准库的模块都是编程中常用的，为通常的开发工作带来了便利，所以开发者应该了解标准库基本组成，包括但不限于以下内容：
+被选入 Python 标准库的模块都是编程中常用的，为通常的开发工作带来了便利。标准库包括但不限于以下内容：
 
 - 基本支持模块
 - 操作系统接口
@@ -452,20 +459,20 @@ Python中一个很重要的库：标准库（standard library），即：选择�
 - 线程和进程
 - 数据存储
 
-在 Python 官方文档中，对标准库有非常完整的归类索引和内容介绍，读者可以参考（网址：https://docs.python.org/3/library/）。本节仅选择标准库中的三个模块，主要是以它们为载体，学习使用标准的方法。
+在 Python 官方文档中，对标准库有非常完整的归类索引和内容介绍，读者可以参考（网址：https://docs.python.org/3/library/）。本节仅选择标准库中的三个模块，主要是以它们为载体，简要介绍如何学习使用标准库中的模块。
 
 ### 11.3.1 sys
 
 前面已经使用过标准库中的 `sys` 模块，用于显示 Python 对模块的搜索路径，即 `sys.path` 。下面再使用模块中的 `sys.argv` 捕获命令行参数。
 
-从我们已经编写过的 Python 程序中任选一个文件，比如选择第7章7.1.2节中曾经创建的 `fibonacci.py` 文件，然后执行这个程序文件。在第2章2.1.2节曾经学习过，执行此文件的途径有二：一是利用 IDE 提供的命令（通常快捷键是 F5），二是在命令行中，执行如下所示的命令（这是本书演示中最常用的方法）。
+从已经编写过的 Python 程序中任选一个文件，比如选择第7章7.1.2节创建的 `fibonacci.py` 文件，然后执行这个程序文件。在第2章2.1.2节学习过执行此文件的途径有二：一是利用 IDE 提供的命令（通常快捷键是 F5 或 Ctrl+F5），二是在命令行中，执行如下所示的命令（这是本书演示中最常用的方法）。
 
 ```shell
 % python fibonacci.py
 [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 ```
 
-这已司空见惯，但神奇会在平淡中产生。在 IDE 中创建一个名为 `test.txt` 的文件，并在其中写入如下内容：
+虽已司空见惯，但神奇会在平淡中产生。在 IDE 中创建一个名为 `test.txt` 的文件，并在其中写入如下内容：
 
 ```tex
 我最喜欢读老齐写的书
@@ -476,7 +483,7 @@ Python中一个很重要的库：标准库（standard library），即：选择�
 ```python
 % python test.txt
 Traceback (most recent call last):
-  File "/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/test.txt", line 1, in <module>
+  File "/Users/qiwsir/Documents/my_books/codes/test.txt", line 1, in <module>
     我最喜欢读老齐写的书
 NameError: name '我最喜欢读老齐写的书' is not defined
 ```
@@ -526,7 +533,7 @@ print(“I am in word.docx”)
 
 ```python
  % python test3.docx
-/usr/local/bin/python: can't find '__main__' module in '/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/test3.docx'
+/usr/local/bin/python: can't find '__main__' module in '/Users/qiwsir/Documents/my_books/codes/test3.docx'
 ```
 
 这就不再“神奇”了，此时可以很痛快地说出“流行语”。
@@ -561,7 +568,7 @@ print(f"{x} + {y} = {float(x) + float(y)}")
 ```python
 % python cmdlinearg.py
 Traceback (most recent call last):
-  File "/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/cmdlinearg.py", line 7, in <module>
+  File "/Users/qiwsir/Documents/my_books/codes/cmdlinearg.py", line 7, in <module>
     x = sys.argv[1]
 IndexError: list index out of range
 ```
@@ -611,7 +618,7 @@ os 提供了面向操作系统的访问接口，其官方文档（https://docs.p
 ```python
 >>> import os
 >>> os.getcwd()
-'/Users/qiwsir/Documents/my_books/Python完全自学手册/codes'
+'/Users/qiwsir/Documents/my_books/codes'
 ```
 
 用 `os.getcwd()` 得到了当前的位置（对于 Python 交互模式，即进入交互模式时所在的位置）。
@@ -620,12 +627,12 @@ os 提供了面向操作系统的访问接口，其官方文档（https://docs.p
 >>> os.mkdir("./newdir")    # (3)
 >>> os.chdir("./newdir")    # (4)
 >>> os.getcwd()
-'/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/newdir'
+'/Users/qiwsir/Documents/my_books/codes/newdir'
 ```
 
 注释（3）在当前目录内创建一个名为 `newdir` 的子目录，注释（4）即从当前位置进入到指定的目录，以 `./newdir` 表示相对路径。
 
-至此读者可能想在这个目录中创建新文件了，且慢！这个操作我们放在第12章实现。现在使用如下方式创建一个文件，并写入相应内容。
+至此读者可能想在这个目录中创建新文件了，且慢！这个操作我们放在第12章12.1.1节实现。现在使用如下方式创建一个文件，并写入相应内容。
 
 ```python
 >>> command = "echo 'I learn Python' > python.txt"
@@ -650,7 +657,7 @@ I learn Python
 0
 ```
 
-此处的参数 `"cat python.txt"` 所包含的命令是 Linux 中的命令，读者若使用的是 Windows 操作系统恐怕不能执行，可以用其他途径确认内容是否写入。
+此处的参数 `"cat python.txt"` 所包含的命令是 Linux 中的命令。
 
 以上演示了两次调用 `os.system()` 函数，在返回值中都有一个默认的值 `0` ，它不是程序执行的返回值，它是什么呢？此问题留给读者利用网络资料进行探究。
 
@@ -729,7 +736,9 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
 此外，在使用 `json.dumps()` 对 Python 数据对象进行序列化的时候，还有其他参数，可以对序列化之后的 “JSON 字符串”的形式进行控制。
 
 ```python
->>> d = {"author": "laoqi", "age": 30, 'book':{1: "跟老齐学Python系列", 2: "数据准备和特征工程", 3: "机器学习数学基础"}, "city":"soochow"}
+>>> d = {"author": "laoqi", "age": 30, 
+         'book':{1: "跟老齐学Python系列", 2: "数据准备和特征工程", 3: "机器学习数学基础"}, 
+         "city":"soochow"}
 >>> dj = json.dumps(d, sort_keys=True, indent=2, ensure_ascii=False)
 >>> print(dj)
 {
@@ -750,7 +759,7 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
 >
 > Python 标准库的模块数量足够多——据不完全统计，目前已经超过了 200 个；所涵盖的领域也足够广——涉及到常见的各个开发领域。因此常形象地称 Python “自带电池”。这对学习者和开发者而言既是好事情，也带来了“富人的烦恼”：怎么学这么多模块？
 >
-> 古人慨叹“吾生也有涯，而知也无涯”，如今我们也遇到了同样的困境。怎么办？最重要的就是本书一贯倡导的：提升自学能力，会读文档。当然，这不是提倡就能有的能力，需要读者在学习中不断实践。所以，根据开发需要阅读标准库的官方文档就是应对琳琅满目的标准库的不二法门。
+> 古人慨叹“吾生也有涯，而知也无涯”，如今我们也遇到了同样的困境。怎么办？最重要的就是本书一贯倡导的：提升自学能力，会读文档。当然，这不是提倡就能有的能力，需要读者在学习中不断实践。所以，根据开发需要官方文档就是应对琳琅满目的标准库的不二法门。
 
 ## 11.4 第三方包
 
