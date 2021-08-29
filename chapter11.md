@@ -765,7 +765,7 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
 
 在 Python 的生态系统中，如果仅有官方认定的标准库，还不能说它是一个开放系统。开发系统的重要特征是每个开发者都有权编辑和发布模块（或包），人人能够为这个系统增砖添瓦。这些标准库之外的模块（或包）统称为“第三方包”。
 
-Python 第三方包都会在指定网站 https://pypi.org/ 上发布，如图11-4-1所示，为网站首页截图，从中可以看到当前网站的项目数量（读者阅读本书时，此数量会有所不同。在第1章1.4节也提到了 PyPI 网站，编写那部分内容时对网站的截图如第1章1.4节的图1-4-3所示，图中所显示的项目数量即与图11-4-1所示不同，这两张截图的时间间隔大约半年左右，由此读者可以体会到 Python 生态体系的快速发展之势）。
+Python 第三方包都会在指定网站 https://pypi.org/ 上发布，图11-4-1为网站首页截图，从中可以看到当前网站的项目数量（读者阅读本书时，此数量会有所不同。在第1章1.4节也提到了 PyPI 网站，编写那部分内容时对网站的截图如第1章1.4节的图1-4-3所示，图中所显示的项目数量与图11-4-1所示不同，这两张截图的时间间隔大约半年左右，由此读者可以体会到 Python 生态体系的快速发展之势）。
 
 ![image-20210727104427299](./images/chapter11-4-1.png)
 
@@ -773,9 +773,9 @@ Python 第三方包都会在指定网站 https://pypi.org/ 上发布，如图11-
 
 ### 11.4.1 管理第三方包
 
-标准库的模块不需要单独安装，第三方包则要在用到时单独安装到本地计算机。本书推荐使用 `pip` 指令安装。
+标准库的模块不需要单独安装，第三方包则要在用到时单独安装到本地计算机。本书推荐使用 `pip` 安装。
 
-pip 是 Python 的包管理工具，一般在安装 Python 的时候，它已经被安装到本地了。可以用下面的方式检查本地是否已经安装（注意，是在命令行中执行如下操作）：
+pip 是 Python 的包管理工具，一般在安装 Python 的时候，它已经被安装到本地了。可以用下面的方式检查本地是否已经安装（注意，在命令行中执行如下操作）：
 
 ```shell
 % pip --version
@@ -806,7 +806,7 @@ pip 21.1.3 from /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/
 
 pip 安装好之后，就可以用它管理本地的第三方包，比如安装、卸载等操作。
 
-在安装某个第三方包之前，特别建议先到 PyPI 官方网站找到该包，对其基本情况给予了解，特别是它能支持的 Python 版本，以及最新版本的发布时间。例如 `requests` 包（提醒：要非常认真地在搜索结果中观察名称，避免“李鬼”冒充“李逵”），在 PyPI 上显示了如图11-4-2所示的内容。
+在安装某个第三方包之前，特别建议先到 PyPI 官方网站找到该包，了解其基本情况，特别是它能支持的 Python 版本，以及最新版本的发布时间。例如 `requests` 包（提醒：要非常认真地在搜索结果中观察名称，避免“李鬼”冒充“李逵”），在 PyPI 上显示了如图11-4-2所示的内容。
 
 ![image-20210727134608720](./images/chapter11-4-2.png)
 
@@ -820,9 +820,9 @@ pip 安装好之后，就可以用它管理本地的第三方包，比如安装�
 - 点击导航（Navigation）的 Release history ，可以查看所发布的历史版本，如果需要安装某个历史版本，可以在此查找。
 - 点击导航（Navigation）的 Download files ，可以下载当前发布版的分发文件（distribution file） `.whl` 文件和 `.tar.gz` 文件。
 - 点击项目链接（Project links）的 Homepage ，可以打开包的官方网站（https://docs.python-requests.org/en/master/），其中包括对包的完整说明和使用文档——有中文链接。
-- 点击项目链接（Project links）的 Source ，可以打开包的源码仓库（https://github.com/psf/requests，一般情况下 PyPI 的源码都在 github.com网站）。这里的源码一般是最新开发版（注意，开发版不是不能用的版本，也可以正常使用，只是尚未正式发布，可能会在发布之前对某些项目进行调整）
+- 点击项目链接（Project links）的 Source ，可以打开包的源码仓库（https://github.com/psf/requests，一般情况下 PyPI 的源码在 github.com 网站）。这里的源码一般是最新开发版（注意，开发版可以正常使用，只是尚未正式发布，可能会在发布之前对某些项目进行调整）
 
-从安装的角度来看，由以上内容就得到了一下三种安装方法：
+从安装的角度来看，可以用以下三种安装方法安装 requests 包：
 
 1. 使用 `pip` 指令安装，这是最常用的安装方法。
 
@@ -830,7 +830,7 @@ pip 安装好之后，就可以用它管理本地的第三方包，比如安装�
 % pip install requests
 ```
 
-特别注意——很多初学者容易犯的错误——不要在 Python 交互模式中执行此指令（如图下所示），这不是 Python 语言的语句。
+特别注意——很多初学者容易犯的错误——不要在 Python 交互模式中执行此指令（如下操作所示），这不是 Python 语言的语句。
 
 ```python
 >>> pip install requests
@@ -868,7 +868,7 @@ SyntaxError: invalid syntax
 
 <center>图11-4-4 下载分发文件</center>
 
-然后进入文下载的文件所在的目录，并执行：
+然后进入下载的文件所在的目录，并执行：
 
 ```shell
 % ls *.whl
@@ -923,7 +923,7 @@ Required-by: translate
 % pip install --upgrade requests
 ```
 
-有 `pip` 本身也在维护发展中，所以用它安装第三方包的时候，如果当前所使用的 `pip` 版本低于当前最新发布版，会提示对 `pip` 升级，可以这样：
+有 `pip` 本身也在维护发展中，所以用它安装第三方包的时候，如果当前所使用的 `pip` 版本低于最新发布版，会提示对 `pip` 升级，可以这样：
 
 ```shell
 % pip install --upgrade pip
@@ -964,7 +964,7 @@ pip 21.2.1 from /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/
 
 ### 11.4.2 发布包
 
-PyPI 网站的第三方包都是开发者发布的。本节就向读者介绍发布包的方法。如果能够被更多人使用自己写的程序，是一件非常爽的事情。
+PyPI 网站的第三方包都是开发者发布的，本节就向读者介绍发布包的方法。如果能够有更多人使用自己写的程序，是一件非常爽的事情。
 
 在本地找一个适当位置，创建一个目录（例如： `laoqipackage` ），此目录的结构如下所示（其中的文件均为空文件）：
 
@@ -1033,7 +1033,7 @@ setuptools.setup(
     )
 ```
 
-在 `setup.py` 文件中，主要实现包的有关参数配置。注释（2）中利用内置函数 `open()` 打开 `README.md` 文件（这种打开文件的方式，在第12章会详细讲述），这个文件不是必须的，但通常要有。在此文件中，对包或模块的功能进行必要说明，`.md` 表示文件是 markdown 类型的文件。
+在 `setup.py` 文件中，主要实现包的有关参数配置。注释（2）中利用内置函数 `open()` 打开 `README.md` 文件（这种打开文件的方式，在第12章12.1节会详细讲述），这个文件不是必须的，但通常要有。在此文件中，对包或模块的功能进行必要说明，`.md` 表示文件是 markdown 类型的文件。
 
 对于 `setuptools.setup()` 的参数配置，是这个“包”能不能成功的关键，以下几个要点特别要注意：
 
@@ -1089,9 +1089,9 @@ Required-by:
 
 以上测试说明，本地安装和使用这个包都没有问题，下面就开始把它发到 PyPI 上。
 
-先将源码上传到 github 的仓库上（其他源码托管网站也可以，这里以 github 为例），上传之后，还可以将 `setup.py` 中的 url 值补充完整。
+先将源码上传到 github 的仓库上（其他源码托管网站也可以，这里以 github 为例）。上传之后，还可以将 `setup.py` 中的 url 值补充完整。
 
-再为所编写的包增加许可（英文：LICENSE）。其实，在 `setup.py` 的配置中，已经设定了包的许可，即 `classifiers` 的值中所定义的 “License”。此外，还要在与 `setup.py` 同一级的目录中创建一个名为 LICENSE 的文件，并且可以从网站 https://choosealicense.com/ 中将MIT License的内容复制过来，放到此文件中。https://choosealicense.com/ 是专门提供各种开源许可的网站，如果读者使用其它许可，可以到这里来查找。
+再为所编写的包增加许可（英文：LICENSE）。其实，在 `setup.py` 的配置中，已经设定了包的许可，即 `classifiers` 的值中所定义的 “License”。此外，还要在与 `setup.py` 同一级的目录中创建一个名为 LICENSE 的文件，并且从网站 https://choosealicense.com/ 中将MIT License的内容复制过来，放到此文件中。https://choosealicense.com/ 是专门提供各种开源许可的网站，如果读者使用其它许可，可以到这里来查找。
 
 以上都是准备工作。接下来生成所发布包的文档，具体操作如下。
 
@@ -1125,7 +1125,7 @@ Required-by:
 
 ```shell
 laoqipackage % pwd
-/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/laoqipackage
+/Users/qiwsir/Documents/my_books/codes/laoqipackage
 ```
 
 前面提到的 `./dist` 目录就在当前位置。然后执行（需要输入在网站 https://test.pypi.org 上注册的用户名和密码）：
@@ -1156,23 +1156,25 @@ https://test.pypi.org/project/laoqipackage/1.0.0/
 
 > **自学建议**
 >
-> 在自学的过程中，难免会遇到百思不解问题，反复修改也无法去除的 bug 。如果你碰巧遇到了，千万不要气馁，因为这是进步的阶梯。不妨在经过苦苦思索、阅读很多资料和多番尝试之后，暂时放一放——注意前提，必须是苦苦思索、阅读很多资料和多番尝试之后。这不是临阵脱逃，而是战略转移。过一段时间后再来看看它，那时必然“灵光一现”，或许就找到了解决方法——没找到也很正常，但只要“灵光一现”，就已经“更上一层楼”了。
+> 善于思考，敢于尝试和实践，是开发者的优秀品质。如果读者在学习过程中有了“灵光乍现”的思维火花，一定要立刻记录下来，而后到网上搜索，检查自己的想法是否“前无古人”。
+>
+> 在确定了独创性，欣喜之后，还要冷静对待。首先将创意分解为可实施的若干部分，然后用已有知识判断实现该部分的可能性，并且还要利用网络搜索是否有对应的第三方包支持，有则实行“拿来主义”。若有必要，自己编写第三方包发布到 PyPI 网站，填补空白。
 
 ## 11.5 创建虚拟环境
 
- 安装模块或包，是不是越最新版的越好？不一定。实际的项目要求往往比较复杂，比如有一个比较“古老的”网站项目中使用了 Django 2.2（参阅第12章），现在又要新建一个网站，要求使用 Django 3 。如此，在本地计算机的开发环境中就出现了同一个包的不同版本冲突，如何解决？
+在实际的项目中，是不是像有的学习者那样，一定要学“最新版”的？不一定。实际的项目要求往往比较复杂，比如有一个比较“古老的”网站项目中使用了 Django 2.2（参阅第12章12.3节），现在又要新建一个网站，要求使用 Django 3 。如此，在本地计算机的开发环境中就出现了同一个包的不同版本冲突，如何解决？
 
-我们希望是每个项目都有相对独立的开发环境，与系统配置、其他项目的配置都有隔离，从而能在该项目中“为所欲为”。这种相对独立的开发环境就是 Python 中的虚拟环境（virtual environment）。
+我们希望是每个项目都有相对独立的开发环境，与系统配置、其他项目的配置之间相隔离，从而能在该项目中“为所欲为”。这种相对独立的开发环境就是 Python 中的**虚拟环境**（virtual environment）。
 
 在 Python 标准库中已经提供了创建虚拟环境的模块 `venv` ，下面就应用此模块演示创建虚拟环境的过程。
 
-虚拟环境，其表现是一个目录，首先要确定此目录的位置。以下演示中，准备将虚拟环境的目录放在 `/Users/qiwsir/Documents/my_books/Python完全自学手册/codes` 内，并且虚拟环境目录的名字是 `myvenv` （即目录名称）。然后执行：
+虚拟环境，其表现是一个目录，首先要创建此目录。以下演示中，准备将虚拟环境的目录放在 `/Users/qiwsir/Documents/my_books/codes` 内，并且虚拟环境目录的名称是 `myvenv` 。然后执行：
 
 ```shell
- % python -m venv /Users/qiwsir/Documents/my_books/Python完全自学手册/codes/myvenv
+ % python -m venv /Users/qiwsir/Documents/my_books/codes/myvenv
 ```
 
-为了避免那么长的路径，可以先进入目录 `../codes` 内，再执行：
+为了避免那么长的路径，可以先进入到目录 `../codes` 内，再执行：
 
 ```shell
  % python -m venv myvenv
@@ -1188,7 +1190,7 @@ qiwsir@qiwsirs-MacBook-Pro myvenv % ls
 bin		include		lib		pyvenv.cfg
 ```
 
-指令 `ls` 是 Linux 命令，即查看本目录中的文件和子目录（用 Windows 操作系统的用户不能照抄此命令，改用 `dir` ，并且目录名称可能稍有差别），发现这个目录里面非空，而是已经有了基本配置。
+指令 `ls` 是 Linux 命令，即查看本目录中的文件和子目录（用 Windows 操作系统的用户不能照抄此命令，改用 `dir` ，并且显示出的目录名称可能稍有差别），发现这个目录里面非空，而是已经有了基本配置。
 
 在子目录 `bin` 中（ Windows 系统是 `Scripts` ），会看到如下内容：
 
@@ -1210,7 +1212,7 @@ qiwsir@qiwsirs-MacBook-Pro myvenv % source ./bin/activate
 (myvenv) qiwsir@qiwsirs-MacBook-Pro myvenv %
 ```
 
-执行了 `source ./bin/activate` 指令之后，当前的命令行前面出现了 `(myvenv)` ，即表示已经进入了（或者已经启动了）`myvenv` 虚拟环境。
+执行了 `source ./bin/activate` 指令之后，当前的命令行前面出现了 `(myvenv)` ，表示已经进入了（或者已经启动了）`myvenv` 虚拟环境。
 
 ```shell
 (myvenv) qiwsir@qiwsirs-MacBook-Pro myvenv % pip list
@@ -1222,7 +1224,7 @@ WARNING: You are using pip version 20.2.3; however, version 21.2.1 is available.
 You should consider upgrading via the '/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/myvenv/bin/python -m pip install --upgrade pip' command.
 ```
 
-由上述操作发现，当前虚拟环境中除了列出来的两项，尚未安装其它模块，并且此环境中的 pip 是20.2.3 。在11.4.1节，已经将本地计算机系统所安装的 pip 升级到 21.2.1 ，此处还是 Python 3.9 默认的 pip 版本，由此可见，虚拟环境相对系统环境是隔离的。
+由上述操作发现，当前虚拟环境中除了列出来的两项，尚未安装其它模块，并且此环境中的 pip 版本是 20.2.3 。在11.4.1节，已经将本地计算机系统所安装的 pip 升级到 21.2.1 ，此处还是 Python 3.9 默认的 pip 版本，由此可见，虚拟环境相对系统环境是隔离的。
 
 ```shell
 (myvenv) qiwsir@qiwsirs-MacBook-Pro myvenv % pip install django
@@ -1240,9 +1242,9 @@ Installing collected packages: pytz, asgiref, sqlparse, django
 Successfully installed asgiref-3.4.1 django-3.2.5 pytz-2021.1 sqlparse-0.4.1
 ```
 
-在这个虚拟环境中安装了 Django 3.2.5 ——记住这个安装方法，在第12章会用到。
+在这个虚拟环境中安装了 Django 3.2.5 ——记住这个安装方法，在第12章12.3节会用到。
 
-如果不再 `myvenv` 目录里面，是不是就意味着退出了虚拟环境？
+如果不在 `myvenv` 目录里面，是不是就意味着退出了虚拟环境？
 
 ```shell
 (myvenv) qiwsir@qiwsirs-MacBook-Pro myvenv % cd
@@ -1288,7 +1290,9 @@ qiwsir@qiwsirs-MacBook-Pro ~ %
 
 现在没有了 `(myvenv)` 标记，回到了系统环境中。
 
-
+> **自学建议**
+>
+> 到目前为止，读者已经学完了 Python 的基础知识，这些知识虽然已经能够支持一般的项目开发，但我认为重点不在于此，而在于通过借助本书学习，自学能力得到了培养和提升，才是最大的收获。从此之后，读者面对项目中所遇到的任何新知识，都有有信心和能力快速掌握。
 
 
 
