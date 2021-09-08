@@ -221,7 +221,7 @@ if __name__ == "__main__":
     print(fib_lst)
 ```
 
-递归（recursion）是一种算法，在函数的定义中使用函数自身，如上面定义的函数 `fibo_recur()` 所示，在函数体内的语句中使用本函数。虽然只要讲解递归算法，必然会以斐波那契数列函数为例，但不能由此认为斐波那契数列只能用递归方法实现，也不能认为用递归方法所实现的斐波那契数列函数就是最好的——恰恰相反。更何况，Python 发明人吉多·范罗索姆更讨厌在 Python 中使用递归（http://neopythonic.blogspot.com/2009/04/tail-recursion-elimination.html）。当然，对他的观点，业界也是有争论的。从学习者的角度看，以上列举的两种方法都应当理解和掌握——艺不压身。
+递归（recursion）是一种算法，在函数的定义中使用函数自身，如上面定义的函数 `fibo_recur()` 所示，在函数体内的语句中使用本函数。虽然只要讲解递归算法，必然会以斐波那契数列函数为例，但不能由此认为斐波那契数列只能用递归方法实现，也不能认为用递归方法所实现的斐波那契数列函数就是最好的——恰恰相反。更何况，Python 发明人吉多·范罗索姆更讨厌在 Python 中使用递归（http://neopythonic.blogspot.com/2009/04/tail-recursion-elimination.html）。当然，对他的观点，业界也是有争论的。从学习者的角度看，以上列举的两种方法都应当理解和掌握——艺不压身，为此本书在7.5节专门介绍递归。
 
 ### 7.1.3 参数
 
@@ -1648,3 +1648,505 @@ filter(function or None, iterable) --> filter object
 > 不使用本节的内容，也可以完成编程任务。为什么还要单独用一节来介绍呢？首先是给读者们以“装酷”的工具，本节的所介绍的这三个函数在形式上都非常简洁，能够让你的代码看起来更紧凑。再有，这些内容，在编程实践中也经常用到，即使你不用，别人可能会用，特别是在阅读一些代码的时候，看到了这三个函数不应诧异。
 >
 > 特别要注意，代码写出来之后，很多时候是给人看的，所以，其“可读性”永远占据重要地位的，不能追求让人“不明白但觉得很厉害”的代码效果。
+
+## 7.5 递归
+
+在7.1.2节编写斐波那契数列函数的时候，使用了 Python 中的递归（recursion）。固然 Python 创始人对递归有个人的看法，此处还是要用单独一节专门给予介绍。等读者阅读完本节内容，也能理解之所以如此重视递归的原因了。
+
+### 7.5.1 了解递归
+
+递归（recursion）这个单词来自拉丁语中的 recurre，意思是：匆匆而归、返回、还原或重现。各类资料中对递归的定义虽有所不同，但综合来看，都有“在被定义的对象中使用定义本身”的含义，例如：
+
+```python
+>>> def func():
+...     x = 7
+...     func()
+...
+```
+
+在所定义的函数 `func()` 内调用 `func()` 自身，这就是递归的表现形式。运用7.3.3节有关变量作用域的知识来理解函数 `func()` 的执行过程，第一次执行的时候，会创建 `x = 7` ；然后调用 `func()` 自身，这是第二次运行，再次创建 `x = 7` ，但是与前面的 `x` 处于不同的作用域，所以二者必会发生冲突。
+
+不幸的是，如果真的执行执行上面的所定义的 `func()` 函数，会得到不太好的结果，如下所示：
+
+```python
+>>> func()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 3, in func
+  File "<stdin>", line 3, in func
+  File "<stdin>", line 3, in func
+  [Previous line repeated 996 more times]
+RecursionError: maximum recursion depth exceeded
+```
+
+理论上将，`func()` 函数会永远执行，一遍又一遍地调用自己，而没有任何返回值。在实践中，绝对不允许出现这样的递归。Python 解释器会自动限制递归的深度，当达到该极限值时，会引发 `RecursionError` 异常，如上所示。如果想了解当前 Python 解释器的限制是多少，可以使用 sys 模块中的 `getrecursionlimit()` 函数。
+
+```python
+>>> from sys import getrecursionlimit
+>>> getrecursionlimit()
+1000
+```
+
+以上所得到的返回值 `1000` 是 Python 解释器默认的对的递归次数的限制值，即最多能够重复调用 `func()` 函数自身的次数。也可以用此模块中的 `setrecursionlimit()` 函数修改此值。
+
+```python
+>>> from sys import setrecursionlimit
+>>> setrecursionlimit(200)
+>>> getrecursionlimit()
+200
+>>> func()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 3, in func
+  File "<stdin>", line 3, in func
+  File "<stdin>", line 3, in func
+  [Previous line repeated 196 more times]
+RecursionError: maximum recursion depth exceeded
+```
+
+从返回的异常信息中，可以看到修改后的效果。
+
+在真正的递归算法中，如同7.1.2节的斐波那契数列函数那样，必须有一个终止条件，即不需要进一步递归，就可以直接得到结果。在不满足终止条件时，每次递归都是逐渐接近此终止条件。例如编写一个“倒数计数”的函数——所谓“倒计时”，`5, 4, 3, 2, 1, 0` 。
+
+```python
+>>> def count_down(n):
+...     print(n)
+...     if n == 0: return     # (1)
+...     else:
+...         count_down(n-1)   # (2)
+...
+>>> count_down(5)
+5
+4
+3
+2
+1
+0
+```
+
+其中，注释（1）就是终止条件，当 `n` 为 `0` 时停止递归；否则，如注释（2），调用所定义的函数，其参数为 `n-1` ，逐渐接近终止条件。
+
+注意，上面的写法纯粹是为了突出递归和终止条件，还可以有一种更简洁的表达方式：
+
+```python
+>>> def count_down(n):
+...     print(n)
+...     if n > 0: count_down(n-1)
+...
+>>> count_down(5)
+5
+4
+3
+2
+1
+0
+```
+
+当然，因为以上函数中没有对 `n` 做任何检查和限制，如果执行 `count_down(-5)` ，则不会执行“倒计时”。读者如果有兴趣，可以继续对上述函数进行优化。
+
+其实，在大多数情况下，编程中可以不用递归，即递归通常是不必须的——所以会有“递归已死”的观点。比如上面的“倒计时”，也可以用 while 循环实现。
+
+```python
+>>> def count_down(n):
+...     while n >= 0:
+...         print(n)
+...         n -= 1
+...
+>>> count_down(5)
+5
+4
+3
+2
+1
+0
+```
+
+比较两种不同的实现方式，从可读性角度来看，都一样清晰直观。
+
+### 7.5.2 阶乘
+
+阶乘是所有介绍递归的资料中都必须要选择的案例，本书也不免俗。其数学定义如下：
+
+$$n! = 1\times2\times\cdots\times n$$
+
+如果用适合于应用递归的方式表示，则为：
+
+$$n!=\begin{cases}1 & n=0,1\\n\times(n-1)! & n\ge 2\end{cases}$$
+
+与上面的示例一样，基本事件是不需要递归就可以实现的；更复杂的事件则可简化，也就是将其简化为基本事件之一:
+
+其中：
+
+- $n = 0$​ 或 $n = 1$​ 时是终止条件，此时不需要递归就可以得到阶乘的结果。
+
+- 如果 $n\ge2$​ ，要调用 $(n - 1)!$​  ，通过递归逐步接近终止条件。
+
+例如计算 $4!$​​ ，用递归算法，其过程如图7-5-1所示。依次计算 $4!$​​ 、$3!$​​ 和 $2!$​​  ，直到 $n = 1$​​ 时的终止条件，无需进一步递归就可以计算 $1!$​​ 。
+
+![](./images/chapter7-5-1.png)
+
+<center>图7-5-1 4! 递归计算过程</center>
+
+根据上述分析，编写如下实现函数：
+
+```python
+>>> def factorial(n):
+...     return 1 if n <= 1 else n * factorial(n-1)
+...
+>>> factorial(4)
+24
+```
+
+在 `factorial()` 函数中使用了第6章6.2节的“三元操作”，将条件语句写成了一行。要想看到函数内部的执行过程，可以增加 `print()` 函数，将参数 `n` 以及返回值打印出来。
+
+```python
+>>> def factorial(n):
+...     print(f"factorial() called with n = {n}")
+...     value = 1 if n <= 1 else n * factorial(n-1)
+...     print(f"--> factorial({n}) returns {value}")
+...     return value
+...
+>>> factorial(4)
+factorial() called with n = 4
+factorial() called with n = 3
+factorial() called with n = 2
+factorial() called with n = 1
+--> factorial(1) returns 1
+--> factorial(2) returns 2
+--> factorial(3) returns 6
+--> factorial(4) returns 24
+24
+```
+
+将上述输出结果与图7-5-1进行对比，从而理解此函数中的递归过程。
+
+同样，不用递归，也能实现阶乘，下面的示例就是用 for 循环编写的阶乘函数。
+
+```python
+>>> def factorial_for(n):
+...     value = 1
+...     for i in range(2, n+1):
+...         value *= i
+...     return value
+...
+>>> factorial_for(4)
+24
+```
+
+除此之外，还可以用一个名为 `reduce()` 的函数实现阶乘——注意，`reduce()` 在当前版本的 Python 中已经不是内置函数，它在模块 `functools` 内。
+
+```python
+>>> from functools import reduce
+>>> reduce(lambda x, y: x+y, [1, 2, 3, 4, 5])
+15
+```
+
+在上述示例中，使用 `reduce()` 函数，将列表 `[1, 2, 3, 4, 5]` 中的各项从做向右，依次累加相加，即实现计算 ` ((((1+2)+3)+4)+5)` 的结果。将之用于阶乘函数：
+
+```python
+>>> def factorial_reduce(n):
+...     return reduce(lambda x, y: x*y, range(1, n+1) or [1])
+...
+>>> factorial_reduce(4)
+24
+```
+
+这表明一个问题通常有多个解决方案——现实世界没有标准答案，如何选择？要具体问题具体分析。假如比较看重函数的执行速度，可以使用7.3.4节中创建的文件 `timing.py` 中的装饰器 `timing_func()` 测量以上三种实现阶乘的函数的性能——这仅仅是一种方法。测量程序执行速度也有多种方法，下面就介绍另外一种：使用 `timeit` 模块中的 `timeit()` 的函数，这个函数支持多种不同的调用形式，此处将用下面的方式调用:
+
+```python
+timeit(<command>, setup=<setup_string>, number=<iterations>)
+```
+
+执行 `timeit() ` 函数时，首先调用 `setup` 参数的值 `<setup_string>` 中指令，然后按照 `number` 参数的值执行 `<command>` 操作  `<iterations>` 次，并报告累计的执行时间（以秒为单位）。
+
+```python
+>>> timeit('print(s)', setup="s='python'", number=3)
+python
+python
+python
+2.855300044757314e-05
+```
+
+不同的本地计算机，所显示的执行时间会有所差异。上述代码中，`setup` 参数实现了对变量 `s` 赋值为字符串 `'python'` 的操作。然后将 `print(string)` 指令执行 `number=3` 次。最终显示执行时间是 `2.855300044757314e-05` s （大于 $2.8553\times 10^{-5} s$​​ ）。
+
+下面使用 `timeit()` 来比较实现阶乘的三种方式的性能。
+
+```python
+>>> setup_string = """
+... print("recursive:")
+... def factorial(n):
+...     return 1 if n <= 1 else n * factorial(n-1)
+... """
+>>> timeit("factorial(4)", setup=setup_string, number=10000000)
+recursive:
+5.70697866699993
+```
+
+变量 `setup_string` 是字符串，其中定义了相关的 ` factorial()` 函数。然后，`timeit()` 执行 `factorial(4)` 总共1000万次，得到上述结果（不同计算机会有差异）。
+
+再用同样的形式，测试另外两个实现阶乘的函数。
+
+```python
+# for 循环
+>>> setup_string = """
+... print('for loop:')
+... def factorial(n):
+...     value = 1
+...     for i in range(2, n+1):
+...         value *= 1
+...     return value
+... """
+>>> timeit("factorial(4)", setup=setup_string, number=10000000)
+for loop:
+4.367680199000461
+
+# reduce() 函数
+>>> setup_string = """
+... from functools import reduce
+... print("reduce():")
+... def factorial(n):
+...     return reduce(lambda x, y: x*y, range(1, n+1) or [1])
+... """
+>>> timeit("factorial(4)", setup=setup_string, number=10000000)
+reduce():
+8.28644317600265
+```
+
+从上述测试可知，用 for 循环的最快，递归解决方案也不算太慢，倒是 `reduce()` 的实现是最慢的。当然，必须要注意，上述测试是在执行了1000万次 `factorial(4)` 才显现出来的。是否以此为编程实际中的取舍依据，是值得讨论的。毕竟在编程实践中，“可读性”的原则要由于“执行速度”——这是我和一部分的观点，也有的开发者不认同此观点。
+
+总而言之，递归可能会导致代码执行时间变长。
+
+其实，真正的 Python 开发中，根本不需要我们编写一个实现阶乘的函数，因为标准库的 `math` 模块中已经提供了。
+
+```python
+>>> from math import factorial
+>>> factorial(4)
+24
+>>> setup_string = "from math import factorial"
+>>> timeit("factorial(4)", setup=setup_string, number=10000000)
+0.4651583060003759
+```
+
+是不是很惊讶，`math.factorial()` 的运行时间大约是 for 循环的十分之一，因为用 C 语言实现的函数几乎总是比用纯 Python 实现的相应函数运行速度更快。
+
+### 7.5.3 快速排序算法
+
+算法，对于编程而言，其重要性不言而喻，只是不在本书的范畴之内。由于本节旨在介绍递归，用递归理解快速排序算法又是一件顺手牵羊的事情，故安排本小节。
+
+快速排序（Quicksort）英国计算机科学家 Tony Hoare 于1959年提出的。下面通过一个示例理解这个算法的基本步骤。假设有列表  `lst = [1, 3, 9, 7, 2, 5, 4, 8]` ，根据快速排序算法：
+
+1. 从列表中选出一项，称之为**基准**（pivot）。基准可以是列表中的任何一项，理论上可以任意选择，但实践中有一定的规则——留待后话。此处先从 `lst` 列表中任选一项，假设是 `lst[5]` 所对应的成员 `5` 。
+
+2. 根据基准 `5` ，可以将列表 `lst` 分为两个子列表，一个子列表中的成员都小于 `5` ，另一个子列表的成员都大于 `5` ，将这称为**分区**（partition）。其实还有一个由基准 `5` 组成的列表。
+
+   1. `lst_1 = [1, 3, 2, 4]`
+
+      继续使用前述方法，从 `lst_1` 中选定基准（假设是 `3`），并生成如下列表：
+
+      1. `lst_11 = [1, 2]`
+
+         继续使用前述方法，从 `lst_11` 中选定基准（假设是 `1` ），并生成如下列表：
+
+         1. `lst_111 = []`
+         2. `lst_112 = [1]`
+         3. `lst_113 = [2]`
+
+      2. `lst_12 = [3]`
+
+      3. `lst_13 = [4]`
+
+   2. `lst_2 = [5]`
+
+   3. `lst_3 = [9, 7, 8]`
+
+      继续使用前述方法，从 `lst_3` 中选定基准（假设是 `8` ），并生成如下列表：
+
+      1. `lst_31 = [7]`
+      2. `lst_32 = [8]`
+      3. `lst_33 = [9]`
+
+当最终得到的子列表中为空或只有一个成员时，就达到了递归的终止条件。然后将所有达到终止条件的非空子列表链接起来，即得到了对 `lst` 的排序结果：`lst_112 + lst_113 + lst_12 + lst_13 + lst_2 + lst_31 + lst_32 + lst_33 = [1, 2, 3, 4, 5, 7, 8, 9]` 。
+
+由上述演示过程可知：
+
+- 快速排序中使用了递归；
+
+- 基准的选择，关系到递归的次数，不能太任性。比如 `lst_3` ，如果用 `9` 做基准，在得到了子列表之后，还要再次迭代，才能最终达到终止条件。
+
+  `lst_3 = [9, 7, 8]` ，以 `9` 为基准，生成子列表：
+
+  1. `lst_31 = [7, 8]`
+
+     以 `7` 为基准，生成子列表：
+
+     1. `lst_311 = []`
+     2. `lst_312 = [7]`
+     3. `lst_313 = [8]`
+
+  2. `lst_32 = [9]`
+
+  3. `lst_33 = []`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+在第一种情况下，Quicksort 算法将更有效。但是，为了从全局着手选择最佳基准项，需要提前了解用于排序的数据的特点。在任何情况下，没有任何一个选择对所有情况都是最好的。因此，如果要编写一个 Quicksort 函数来处理一般情况，那么基准的选择就有点随意了。
+
+如果列表中的数据是随机分布的，那么以第一项与最后一项为基准是常见的选择。然而，如果数据已经被排序，或者几乎被排序了，这种方法将导致像上面所示的次优分区。为了避免这种情况，一些 Quicksort 算法选择列表中的中间项作为基准。
+
+
+另一个做法是找到列表中第一项、最后一项和中间项的中位数，并将其用作基准，这是下面的示例代码中所用的策略。
+
+### 实现分区
+
+一旦选择了基准，下一步就是对列表进行分区。同样，目标是创建两个子列表，一个子列表包含小于透视项的项，另一个子列表包含大于透视项的项。
+
+你可以直接在原有列表上完成。换言之，通过对列表成员项进行交换，打乱列表中的项的次序，直到基准项位于中间，所有小于它的项位于其左侧，所有大于它的项位于其右侧。然后，运用递归算法对子列表进行 Quicksort 排序，就会将列表的切片传递到基准项的左侧和右侧。
+
+或者，你可以使用 Python 的列表的方法来创建新的列表，而不是在原来的列表上进行操作。这是下面代码中采用的方法。算法如下：
+
+- 以第一项、最后一项和中间项的中位数（中值）作为所选定的基准。
+
+- 通过基准创建三个子列表：
+  1. 子列表1的成员是原始列表中小于基准的项
+  2. 子列表2是由基准项本身构成
+  3. 子列表3的成员是原始列表中大于基准的项
+- 对子列表1和子列表3分布进行递归式 Quicksort 。
+- 将所有三个列表重新连接在一起。
+
+请注意，这里创建了一个仅含有基准的子列表，这种方法的一个优点是，它可以顺利地处理基准项多次出现在列表中的情况。在这种情况下，子列表2将有多个元素。
+
+### 实现 Quicksort
+
+
+现在基础工作已经就绪，就可以编写 Quicksort 算法的代码了。
+
+```python
+import statistics
+
+def quicksort(numbers):
+    if len(numbers) <= 1:
+        return numbers
+    else:
+        pivot = statistics.median(
+            [
+                numbers[0],
+                numbers[len(numbers) // 2],
+                numbers[-1]
+            ]
+        )
+        items_less, pivot_items, items_greater = (
+            [n for n in numbers if n < pivot],
+            [n for n in numbers if n == pivot],
+            [n for n in numbers if n > pivot]
+        )
+
+        return (
+            quicksort(items_less) +
+            pivot_items +
+            quicksort(items_greater)
+        )
+```
+
+以下对 `quicksort()` 做必要的解释：
+
+- **第4行：**列表为空或只有一个元素的基本事件
+
+- **第7行至第13行：**用三个数的中位数（中值）计算基准项
+
+- **第14行到第18行：**创建表示三个分区的列表
+
+- **第20至24行：**分区列表的递归排序和重新组合
+
+**注：**这个例子的优点是简洁易懂。然而，它并不是最有效的实现。特别是：在第14行到第18行创建分区的部分，需要对列表进行三次独立的循环。从执行时间的角度来看，这不是最佳方案。
+
+Here are some examples of `quicksort()` in action:
+
+下面是调用 `quicksort()` 函数的示例：
+
+```python
+>>> # Base cases
+>>> quicksort([])
+[]
+>>> quicksort([42])
+[42]
+
+>>> # Recursive cases
+>>> quicksort([5, 2, 6, 3])
+[2, 3, 5, 6]
+>>> quicksort([10, -3, 21, 6, -8])
+[-8, -3, 6, 10, 21]
+```
+
+为了便于测试，你可以定义一个简短的函数来生成一个由 `1` 到 `100` 的随机数字列表:
+
+```python
+import random
+
+def get_random_numbers(length, minimum=1, maximum=100):
+    numbers = []
+    for _ in range(length):
+        numbers.append(random.randint(minimum, maximum))
+
+    return numbers
+```
+
+现在可以使用 `get_random_numbers()` 函数生成的结果测试排序函数 `quicksort()` 。
+
+```python
+>>> numbers = get_random_numbers(20)
+>>> numbers
+[24, 4, 67, 71, 84, 63, 100, 94, 53, 64, 19, 89, 48, 7, 31, 3, 32, 76, 91, 78]
+>>> quicksort(numbers)
+[3, 4, 7, 19, 24, 31, 32, 48, 53, 63, 64, 67, 71, 76, 78, 84, 89, 91, 94, 100]
+
+>>> numbers = get_random_numbers(15, -50, 50)
+>>> numbers
+[-2, 14, 48, 42, -48, 38, 44, -25, 14, -14, 41, -30, -35, 36, -5]
+>>> quicksort(numbers)
+[-48, -35, -30, -25, -14, -5, -2, 14, 14, 36, 38, 41, 42, 44, 48]
+
+>>> quicksort(get_random_numbers(10, maximum=500))
+[49, 94, 99, 124, 235, 287, 292, 333, 455, 464]
+>>> quicksort(get_random_numbers(10, 1000, 2000))
+[1038, 1321, 1530, 1630, 1835, 1873, 1900, 1931, 1936, 1943]
+```
+
+要进一步理解 `quicksort()` 的工作原理，请参见下图。这里显示了对含有 12 个元素的列表进行排序时的递归过程。
+
+![](https://gitee.com/qiwsir/images/raw/master/2021-9-7/1631011983139-qsort.png)
+
+<center>Quicksort 算法原理解析</center>
+
+如上图所示，在原始列表中，第一个成员是 `31` 、中间的是 `92`、最后一个是 `28` , 这三个数值的中位数（中值）是 `31` ，故以它为基准。第一个分区由以下子列表组成:
+
+| 子列表                     | 说明           |
+| -------------------------- | -------------- |
+| `[18, 3, 18, 11, 28]`      | 小于基准的成员 |
+| `[31]`                     | 基准本身       |
+| `[72, 79, 92, 44, 56, 41]` | 大于基准的成员 |
+
+每个子列表随后以相同的方式再实施递归，并获得分区，直到所有子列表要么包含单个成员，要么为空。当递归调用返回时，列表将按排序的结果重组。注意，在左边倒数第二步中，基准项 `18` 在列表中出现了两次，因此基准项的子列表有两个成员。
+
+## 结论
+
+**递归**之旅到此就要结束了，递归的核心就是：函数对自身的调用。递归并非对所有的任务都适用，有些编程问题迫切需要使用递归，此时递归是一种很好用的技巧。
+
+你现在应该能够很好地认识到何时调用递归，并准备好在需要递归时自信地使用它了。 如果你想了解更多关于Python递归的知识，请查看[Python递归思维](https://realpython.com/python-thinking-recursively/)。
+
+## 参考文献
+
+[1]. https://realpython.com/python-recursion/
