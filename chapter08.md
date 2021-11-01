@@ -1256,6 +1256,8 @@ AttributeError: 'RightPyramid' object has no attribute 'height'
 (<class 'rectangle.RightPyramid'>, <class 'rectangle.Triangle'>, <class 'rectangle.Square'>, <class 'rectangle.Rectangle'>, <class 'object'>)
 ```
 
+属性 `RightPyramid.__mro__` 也可以用方法 `RightPyramid.mro()` 替代，两者等效。
+
 上述结果说明，对于类 `RightPyramid` 而言，首先会搜索它自己内部是否有该方法和属性；然后按照继承顺序，分别搜索两个父类 `Triangle` 和 `Square` （注意顺序）；如果仍然未果，则继续搜索 `Square` 的父类 `Rectangle` ；还是一无所获，则最终要搜索 `object` 类。
 
 按照上述顺序，执行 `RightPyramid` 类中的注释（6）的 `super().area()` 时，就会在父类 `Triangle` 中搜索到 `Triangle.area(self)` 。这个方法中用到两个实例属性 `self.base` 和 `self.height` ，`self.base` 在实例化的时候已经建立（ `self.base = 2` ），但是 `self.height` 没有定义。所以抛出了前述 `AttributeError` 异常。
@@ -1305,7 +1307,40 @@ class RightPyramid(Square, Triangle):         # 修改父类顺序
 
 综上，可以总结一下，在多继承中，如果使用 `super()` 函数调用父类的属性和方法，务必要了解 MRO 的查找顺序。
 
-如果读者仔细观察上述 `RightPyramid` 类，会发现一个问题，虽然继承了 `Triangle` 类，实际上所有的 `super()` 都没有真正调用到它。
+对于任何类（或类型），都可以通过 `__mro__` 属性查看其“方法解析顺序”——包括但不限于上面的多重继承。例如：
+
+```python
+>>> int.__mro__
+(<class 'int'>, <class 'object'>)
+>>> float.__mro__
+(<class 'float'>, <class 'object'>)
+>>> str.__mro__
+(<class 'str'>, <class 'object'>)
+>>> list.__mro__
+(<class 'list'>, <class 'object'>)
+>>> dict.__mro__
+(<class 'dict'>, <class 'object'>)
+```
+
+再观察以上各种类的 MRO，不论是自定义的类还是内置类，都有共同的“祖先” `object` 类——命名为**基类**（Base Class）。在下面的操作中会看到一种很有趣的结果：
+
+```python
+>>> bool.__mro__
+(<class 'bool'>, <class 'int'>, <class 'object'>)
+```
+
+`bool` 类继承了 `int` 类，这就揭示了在第3章3.7节曾学到的下述结论的深层原因。
+
+```python
+>>> True == 1
+True
+>>> False == 0
+True
+>>> 2 + True
+3
+```
+
+再回到对 `RightPyramid` 类的研究上，如果读者仔细观察，会发现它虽然继承了 `Triangle` 类，实际上并没有通过 `super()` 函数调用 `Triangle` 类中的方法。
 
 对于四棱锥的三角形面积，为什么不使用 `Triangle` 类中的 `area()` 方法计算呢？当然可以，但是由于在类 `Rectangle` 和 `Triangle` 中都有 `area()` 方法，且两个都要在 `RightPyramid` 中调用，如果还用 `super()` ，势必造成混乱。于是可以换一种方法，直接用类名称调用对应方法。
 
