@@ -46,7 +46,7 @@ mul_result = foo(x)
 ['', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python39.zip', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/lib-dynload', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages']
 ```
 
-模块 `sys` 是标准库中的一员（就如同此前用过的 `math` 模块一样，参阅第3章3.3.2节），执行 `sys.path` 后显示的内容会因不同的计算机和操作系统而异。返回值以列表的形式显示了搜索模块的路径，即在这些目录中查找程序所使用的模块（和包）。搜索路径列表的第一项 `sys.path[0]` 是一个空字符串（ `' '` ），表示进入交互模式是的目录，即所谓的“当前位置”——所以在第8章8.5.2节以及之后的很多操作中，强调“从当前位置进入交互模式”。后续其他项都是在本地安装 Python 后默认的搜索目录。
+模块 `sys` 是标准库中的一员（就如同此前用过的 `math` 模块一样，参阅第3章3.3.2节），执行 `sys.path` 后显示的内容会因不同的计算机和操作系统而异。返回值以列表的形式显示了搜索模块的路径，即在这些目录中查找程序所使用的模块（和包）。搜索路径列表的第一项 `sys.path[0]` 是一个空字符串（ `' '` ），表示进入交互模式时的目录，即所谓的“当前位置”——所以在第8章8.5.2节以及之后的很多操作中，强调“从当前位置进入交互模式”。后续其他项都是在本地安装 Python 后默认的搜索目录。
 
 ```python
 % pwd
@@ -71,7 +71,7 @@ ModuleNotFoundError: No module named 'mymodule'
 
 Python 解释器会按照 `sys.path` 列表中的搜索目录顺序，依次查找是否有 `mymodule.py` 文件，即 `mymodule` 模块。首先看当前位置 `/Users/qiwsir` 目录，肯定没有 `mymodule.py` 文件，然后是后面个各个目录，也当然没有。最后就抛出了 `ModuleNotFoundError` 异常，虽然已经编写并保存了 `mymodule.py` 文件，但它所在的目录没有列入 `sys.path` 中，Python 解释器还是找不到的——这是一个常见的异常，只要出现此异常，就说明是“搜索路径问题”。
 
-如何解决 `ModuleNotFoundError` 异常？既然 `sys.path` 是一个列表，就可以通过列表的方法，将文件 `mymodule.py` 所在的目录加入其中。接续前面继续操作：
+如何解决 `ModuleNotFoundError` 异常？既然 `sys.path` 是一个列表，就可以通过列表的方法，将文件 `mymodule.py` 所在的目录加入其中。接着前面继续操作：
 
 ```python
 >>> import sys
@@ -81,7 +81,7 @@ Python 解释器会按照 `sys.path` 列表中的搜索目录顺序，依次查�
 # 追加 mymodule.py 所在目录 
 >>> sys.path.append('/Users/qiwsir/Documents/my_books/codes')
 >>> sys.path
-['', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python39.zip', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/lib-dynload', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages', '/Users/qiwsir/Documents/my_books/Python完全自学手册/codes']
+['', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python39.zip', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/lib-dynload', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages', '/Users/qiwsir/Documents/my_books/codes']
 ```
 
 在 Python 搜索目录中增加了 `mymodule.py` 文件所在的目录，再在当前的交互模式中引入模块 `mymodule` ——不要写成 `import mymodule.py` ：
@@ -133,7 +133,7 @@ Python 解释器会按照 `sys.path` 列表中的搜索目录顺序，依次查�
 
 现在看到的 `mymodule` 模块不再包含那些变量了。这才达到了创建和引入 `mymodule` 的最终目的。
 
-其实，之前我们写的程序文件，都不是像前面那样调用该文件中的函数或者类，而是这样做的（参阅第7章7.1.1节的注释（2），从那之后的很多程序都如法炮制）：
+其实，之前我们写的程序文件，都不是像前面那样使用该文件中的函数或者类，而是这样做的（参阅第7章7.1.1节的注释（2），从那之后的很多程序都如法炮制）：
 
 ```python
 #coding:utf-8
@@ -158,7 +158,7 @@ if __name__ == '__main__':
     mul_result = foo(x)
 ```
 
-将使用了 `if__name__ == '__main__'` 之后的 `mymodule.py` 文件作为模块引入，会有什么不同？再次重载之后，执行下述操作。
+将增加了 `if__name__ == '__main__'` 的 `mymodule.py` 文件作为模块引入，会有什么不同？再次重载之后，执行下述操作。
 
 ```python
 >>> import mymodule
@@ -206,7 +206,7 @@ foo __name__ is set to foo
 
 依照前面所述，在 `bar.py` 文件空间，`__name__` 的值应该为 `__main__` 。然而，在 `bar.py` 中实施了 `import foo` ，则此时 `__name__` 的值就变为了 `foo` 。
 
-再修改 `foo.py` 文件，最终效果如下所示：
+再修改 `foo.py` 文件，最终代码如下所示：
 
 ```python
 #coding:utf-8
@@ -242,7 +242,7 @@ Do not execute main() funciton!
 
 从执行结果的比较中会发现，当 `foo.py` 作为模块在另外一个文件中被引入后（不在同一个文件空间），`__name__` 的值不再是 `__main__` ，if 分支下的代码块不再被执行，因此它们所产生的各种对象都不会代入到 `foo` 模块中。
 
-所以，可以在 `.py` 文件中用 `if __name__ == '__main__'` 调用本文件中的各类对象，当本文件作为模块被其他文件引入是，并不会为模块增加累赘之物。有的资料，会仿照 C 语言等的说法，称 `if __name__ == '__main__'` 是 Python 程序的入口，当然这并不是典型的 Python 开发者的术语。 
+所以，可以在 `.py` 文件中用 `if __name__ == '__main__'` 调用本文件中的各类对象，当本文件作为模块被其他文件引入是，并不会为模块增加累赘之物。有的资料，会仿照 C 语言等的说法，称“ `if __name__ == '__main__'` ”是 Python 程序的入口，当然这并不是典型的 Python 开发者的术语。 
 
 > **自学建议**
 >
@@ -255,7 +255,7 @@ Do not execute main() funciton!
 
 ## 11.2 包
 
-包（Package），顾名思义，应该比模块“大”。
+**包**（Package），顾名思义，应该比模块“大”。
 
 通常，“包”是有一定层次的目录结构，它由一些 `.py` 文件或者子目录组成，并且，每个目录中要包含名为 `__init__.py` 的文件。如图11-2-1所示，创建了一个名为 `mypack` 的目录，在该目录内有一个`__init__.py` 文件和一个名为 `rust.py` 的文件，另外有两个子目录 `a_pack` 和 `b_pack` ——即两个“子包”，在这两个子目录中分别创建了图中所显示的 `.py` 文件（注意：图示中的 `tree` 是 Linux 命令，用于显示目录结构。使用 Windows 操作系统的读者不要搬用）。
 
@@ -366,7 +366,7 @@ from . import rust    # (3)
 >>> dir(mypack)
 ['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__', 'rust']
 >>> mypack.rust       # (4)
-<module 'mypack.rust' from '/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/mypack/rust.py'>
+<module 'mypack.rust' from '/Users/qiwsir/Documents/my_books/codes/mypack/rust.py'>
 >>> mypack.rust.rust_func()
 'I learn Rust.'
 ```
@@ -445,11 +445,11 @@ from . import b_pack
 
 ## 11.3 标准库举例
 
-库（Library）听起来是一个比包还要“大”的概念了。事实上，这两个概念没有什么区别，“库”可以看作“包”的集合（当然，看作是“模块”的集合也未尝不可）。也有资料认为“库”不是 Python 的概念，是从其他语言中借过来的说法，其本质就是模块。
+**库**（Library）听起来是一个比包还要“大”的概念了。事实上，这两个概念没有什么区别，“库”可以看作“包”的集合（当然，看作是“模块”的集合也未尝不可）。也有资料认为“库”不是 Python 的概念，是从其他语言中借过来的说法。
 
 “不争论”，重点看它对编程有什么作用。
 
-Python 中一个很重要的库：标准库（Standard Library）。选择一些重要的 Python 模块，将它们视为 Python 语言的重要组成部分，在安装 Python 的同时也将它们安装在本地计算机。这就构成了标准库。
+Python 有一个很重要的库：**标准库**（Standard Library）。选择一些重要的 Python 模块，将它们视为 Python 语言的重要组成部分，在安装 Python 的同时也将它们安装在本地计算机。这就构成了标准库。
 
 被选入 Python 标准库的模块都是编程中常用的，为通常的开发工作带来了便利。标准库包括但不限于以下内容：
 
@@ -490,7 +490,7 @@ Traceback (most recent call last):
 NameError: name '我最喜欢读老齐写的书' is not defined
 ```
 
-看到这里，估计你会用一个非常简洁的“流行语”评价我了。我真的如你所说吗？继续看：
+看到这里，估计你会用一个非常简洁的“鄙视流行语”评价我了。我真的如你所说吗？继续看：
 
 ```tex
 # 我最喜欢读老齐写的书
@@ -540,7 +540,7 @@ print(“I am in word.docx”)
 
 这就不再“神奇”了，此时可以很痛快地说出“流行语”。
 
-形如 `python filename.extension` 的指令中的 `filename.extension` 就类似于第7章中所学过的函数的参数，只不过它是在命令行中，称之为“命令行参数”。指令 `python` 会把命令行参数交付给 Python 解释器。
+形如 `python filename.extension` 的指令中的 `filename.extension` 就类似于第7章中所学过的函数的参数，只不过它是在命令行中，称之为**命令行参数**。指令 `python` 会把命令行参数交付给 Python 解释器。
 
 指令 `python` 后面的命令行参数，还可有其他形式，比如：
 
@@ -634,7 +634,7 @@ os 提供了面向操作系统的访问接口，其官方文档（https://docs.p
 
 注释（3）在当前目录内创建一个名为 `newdir` 的子目录，注释（4）即从当前位置进入到指定的目录，以 `./newdir` 表示相对路径。
 
-至此读者可能想在这个目录中创建新文件了，且慢！这个操作我们放在第12章12.1.1节实现。现在使用如下方式创建一个文件，并写入相应内容。
+至此读者可能想在这个目录中创建新文件了，此处用如下方式创建，并写入相应内容（在第12章12.1.1节还会介绍另外一种创建文件的方法）。
 
 ```python
 >>> command = "echo 'I learn Python' > python.txt"
@@ -659,7 +659,7 @@ I learn Python
 0
 ```
 
-此处的参数 `"cat python.txt"` 所包含的命令是 Linux 中的命令。
+此处的参数 `"cat python.txt"` 所包含的是 Linux 中的命令（若读者在 Windows 操作系统中调试，则不能如本示例这样执行）。
 
 以上演示了两次调用 `os.system()` 函数，在返回值中都有一个默认的值 `0` ，它不是程序执行的返回值，它是什么呢？此问题留给读者利用网络资料进行探究。
 
@@ -738,8 +738,11 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
 此外，在使用 `json.dumps()` 对 Python 数据对象进行序列化的时候，还有其他参数，可以对序列化之后的 “JSON 字符串”的形式进行控制。
 
 ```python
->>> d = {"author": "laoqi", "age": 30, 
-         'book':{1: "跟老齐学Python系列", 2: "数据准备和特征工程", 3: "机器学习数学基础"}, 
+>>> d = {"author": "laoqi", 
+         "age": 30, 
+         'book':{1: "跟老齐学Python系列", 
+                 2: "数据准备和特征工程", 
+                 3: "机器学习数学基础"}, 
          "city":"soochow"}
 >>> dj = json.dumps(d, sort_keys=True, indent=2, ensure_ascii=False)
 >>> print(dj)
@@ -759,13 +762,13 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
 
 > **自学建议**
 >
-> Python 标准库的模块数量足够多——据不完全统计，目前已经超过了 200 个；所涵盖的领域也足够广——涉及到常见的各个开发领域。因此常形象地称 Python “自带电池”。这对学习者和开发者而言既是好事情，也带来了“富人的烦恼”：怎么学这么多模块？
+> Python 标准库的模块数量足够多——据不完全统计，目前已经超过了 200 个；所涵盖的领域也足够广——涉及到常见的各个开发领域。因此，形象地称 Python “自带电池”。这对学习者和开发者而言既是好事情，也带来了“富人的烦恼”：怎么学这么多模块？
 >
-> 古人慨叹“吾生也有涯，而知也无涯”，如今我们也遇到了同样的困境。怎么办？最重要的就是本书一贯倡导的：提升自学能力，会读文档。当然，这不是提倡就能有的能力，需要读者在学习中不断实践。所以，根据开发需要官方文档就是应对琳琅满目的标准库的不二法门。
+> 古人慨叹“吾生也有涯，而知也无涯”，如今我们也遇到了同样的困境。怎么办？最重要的就是本书一贯倡导的：提升自学能力，会读文档。当然，这不是提倡就能有的能力，需要读者在学习中不断实践。所以，根据开发需要阅读官方文档，就是应对琳琅满目的标准库的不二法门。
 
 ## 11.4 第三方包
 
-在 Python 的生态系统中，如果仅有官方认定的标准库，还不能说它是一个开放系统。开发系统的重要特征是每个开发者都有权编辑和发布模块（或包），人人能够为这个系统增砖添瓦。这些标准库之外的模块（或包）统称为“第三方包”。
+在 Python 的生态系统中，如果仅有官方认定的标准库，还不能说它是一个开放系统。开放系统的重要特征是每个开发者都有权编辑和发布模块（或包），人人能够为这个系统增砖添瓦。因此就有了标准库之外的模块（或包），统称为“第三方包”。
 
 Python 第三方包都会在指定网站 https://pypi.org/ 上发布，图11-4-1为网站首页截图，从中可以看到当前网站的项目数量（读者阅读本书时，此数量会有所不同。在第1章1.4节也提到了 PyPI 网站，编写那部分内容时对网站的截图如第1章1.4节的图1-4-3所示，图中所显示的项目数量与图11-4-1所示不同，这两张截图的时间间隔大约半年左右，由此读者可以体会到 Python 生态体系的快速发展之势）。
 
@@ -925,7 +928,7 @@ Required-by: translate
 % pip install --upgrade requests
 ```
 
-有 `pip` 本身也在维护发展中，所以用它安装第三方包的时候，如果当前所使用的 `pip` 版本低于最新发布版，会提示对 `pip` 升级，可以这样：
+由于 `pip` 本身也在不断地维护发展，所以用它安装第三方包的时候，如果当前所使用的 `pip` 版本低于最新发布版，会提示对 `pip` 升级，可以这样完成升级：
 
 ```shell
 % pip install --upgrade pip
@@ -968,7 +971,7 @@ pip 21.2.1 from /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/
 
 PyPI 网站的第三方包都是开发者发布的，本节就向读者介绍发布包的方法。如果能够有更多人使用自己写的程序，是一件非常爽的事情。
 
-在本地找一个适当位置，创建一个目录（例如： `laoqipackage` ），此目录的结构如下所示（其中的文件均为空文件）：
+在本地找个适当位置，创建一个目录（例如： `laoqipackage` ），此目录的结构如下所示（其中的文件均为空文件）：
 
 ```shell
 qiwsir@qiwsirs-MacBook-Pro laoqipackage % tree
@@ -1013,8 +1016,8 @@ class JavaSpeak:
 ```python
 import setuptools
 import os
-os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))  #①
-with open("README.md", "r") as fh:  #②
+os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))  # (1)
+with open("README.md", "r") as fh:  # (2)
     long_description = fh.read()
 setuptools.setup(
     name="laoqipackage",  
@@ -1037,11 +1040,11 @@ setuptools.setup(
 
 在 `setup.py` 文件中，主要实现包的有关参数配置。注释（2）中利用内置函数 `open()` 打开 `README.md` 文件（这种打开文件的方式，在第12章12.1节会详细讲述），这个文件不是必须的，但通常要有。在此文件中，对包或模块的功能进行必要说明，`.md` 表示文件是 markdown 类型的文件。
 
-对于 `setuptools.setup()` 的参数配置，是这个“包”能不能成功的关键，以下几个要点特别要注意：
+对于 `setuptools.setup()` 的参数配置，是这个“包”能不能成功的关键，以下几项特别要注意：
 
 - name：将来发布到 PyPI 上之后显示的名称。注意，不是安装这个包后引入的名称，也不一定与表示本包的顶级目录名称相同。
 - py_modules：在目录结构中，`langspeak.py` 与 `setup.py` 在同一级目录中，这一级的 `.py` 文件就是模块。如果这个包安装成功之后，可以使用 `import langspeak` 的方式直接引入模块。`py_modules` 的值就是声明包中的模块。
-- packages：用于声明包里面的“子包”。在目录结构中可以看到，`javaspeak`  是子目录，即“子包”，它们都需要在这里进行声明。如果子包数量较少，声明方式可以使用 `packages = [ “javaspeak”, ]` 的模式。如果数量多了，可以使用 `packages = setuptools.fin_packages()` 的方式，同时要辅之以注释（1）。
+- packages：用于声明包里面的“子包”。在目录结构中可以看到，`javaspeak`  是子目录，即“子包”，需要在这里进行声明。如果子包数量较少，声明方式可以使用 `packages = [ “javaspeak”, ]` 的模式。如果数量多了，可以使用 `packages = setuptools.fin_packages()` 的方式，同时要辅之以注释（1）。
 
 `setup.py` 文件配置好之后，就可以先在本地尝试一下，能不能作为包来安装。进入到 `laoqiproject` 目录，执行 `setup.py` 文件进行安装。
 
@@ -1164,9 +1167,9 @@ https://test.pypi.org/project/laoqipackage/1.0.0/
 
 ## 11.5 创建虚拟环境
 
-在实际的项目中，是不是像有的学习者那样，一定要学“最新版”的？不一定。实际的项目要求往往比较复杂，比如有一个比较“古老的”网站项目中使用了 Django 2.2（参阅第12章12.3节），现在又要新建一个网站，要求使用 Django 3 。如此，在本地计算机的开发环境中就出现了同一个包的不同版本冲突，如何解决？
+在实际的项目中，是不是一定要用“最新版”的模块或包呢？不一定。实际的项目要求往往比较复杂，比如有一个比较“古老的”网站项目中使用了 Django 2.2（参阅第12章12.3节），现在又要新建一个网站，要求使用 Django 3 。如此，在本地计算机的开发环境中就出现了同一个包的不同版本冲突，如何解决？
 
-我们希望是每个项目都有相对独立的开发环境，与系统配置、其他项目的配置之间相隔离，从而能在该项目中“为所欲为”。这种相对独立的开发环境就是 Python 中的**虚拟环境**（virtual environment）。
+我们希望是每个项目都有相对独立的开发环境，与系统配置、其他项目的配置之间相隔离，从而能在该项目中“为所欲为”。这种相对独立的开发环境就是 Python 中的**虚拟环境**（Virtual Environment）。
 
 在 Python 标准库中已经提供了创建虚拟环境的模块 `venv` ，下面就应用此模块演示创建虚拟环境的过程。
 
@@ -1182,7 +1185,7 @@ https://test.pypi.org/project/laoqipackage/1.0.0/
  % python -m venv myvenv
 ```
 
-同样也是在 `../codes` 目录内创建了一个名为 `myvenv` 的子目录，即虚拟环境目录。
+同样也是在 `../codes` 目录内创建了一个名为 `myvenv` 的子目录，这就是虚拟环境目录。
 
 进入到 `myvenv` 子目录中：
 
@@ -1223,10 +1226,10 @@ Package    Version
 pip        20.2.3
 setuptools 49.2.1
 WARNING: You are using pip version 20.2.3; however, version 21.2.1 is available.
-You should consider upgrading via the '/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/myvenv/bin/python -m pip install --upgrade pip' command.
+You should consider upgrading via the '/Users/qiwsir/Documents/my_books/codes/myvenv/bin/python -m pip install --upgrade pip' command.
 ```
 
-由上述操作发现，当前虚拟环境中除了列出来的两项，尚未安装其它模块，并且此环境中的 pip 版本是 20.2.3 。在11.4.1节，已经将本地计算机系统所安装的 pip 升级到 21.2.1 ，此处还是 Python 3.9 默认的 pip 版本，由此可见，虚拟环境相对系统环境是隔离的。
+由上述操作发现，当前虚拟环境中除了列出来的两项，尚未安装其它模块，并且此环境中的 pip 版本是 20.2.3 。在11.4.1节，已经将本地计算机系统所安装的 pip 升级到 21.2.1 ，而此处还是 Python 3.9 默认的 pip 版本，由此可见，虚拟环境相对系统环境是隔离的。
 
 ```shell
 (myvenv) qiwsir@qiwsirs-MacBook-Pro myvenv % pip install django
