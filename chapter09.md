@@ -1209,7 +1209,7 @@ class type(object)
 (<class 'object'>,)
 ```
 
-虽然没有为参数 `bases` 赋值，但 Python 中所有的类都是以 `object` 为基类，所以查看类 `Foo` 的父类，会得到上述结果。但这个类其实是“空空如也”的，它与之前定义过的 `class Foo:  pass` 一样。
+虽然没有为参数 `bases` 赋值，但 Python 中所有的类都是以 `object` 为基类，所以查看类 `Foo` 的父类，会得到上述结果。但这个类其实是“空空如也”的，它与之前定义过的 `class Foo:  pass` 一样。顺便提示，即使是 `type` 类也继承了 `object` 类（见前面执行 `help(type)` 后的显示结果）。
 
 再将类 `Foo` 实例化，当然能看到实例 `f` 是 `Foo` 类型，并且还可以仿照前面那样，不断查找下去，直到元类 `type` 。
 
@@ -1252,7 +1252,9 @@ mappingproxy({'name': 'learn python', '__module__': '__main__', '__doc__': None,
 
 类 `Bar` 实例化之后，也可以读取到实例的 `name` 和 `website` 两个属性的值，且实例类型为 `Bar` 。
 
-可以说，用  `type(name, bases, dict)` 形式，能定义出所需要的各种类型的类。但，在实践中，这种形式并不常用，而是喜欢用下面的方式：
+此处不妨将 `object` 和 `type` 进行比较：从继承关系上看，所有的类，包括 `type` ，都是以 `object` 为“祖”；从类的创建角度看，所有类都是以 `type` 为起点。
+
+虽然用  `type(name, bases, dict)` 形式，能定义出所需要的各种类型的类。但，在实践中，这种形式并不常用，而是喜欢用下面的方式：
 
 ```python
 >>> class Meta(type): pass
