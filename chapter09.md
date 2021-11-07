@@ -1252,7 +1252,7 @@ mappingproxy({'name': 'learn python', '__module__': '__main__', '__doc__': None,
 
 类 `Bar` 实例化之后，也可以读取到实例的 `name` 和 `website` 两个属性的值，且实例类型为 `Bar` 。
 
-此处不妨将 `object` 和 `type` 进行比较：从继承关系上看，所有的类，包括 `type` ，都是以 `object` 为“祖”；从类的创建角度看，所有类都是以 `type` 为起点。
+现在不妨简要比较 `object` 和 `type` 两个类：从继承关系上看，所有对象，包括 `type` ，都是以 `object` 为“祖”；从类的创建角度看，所有类都是以 `type` 为起点。
 
 虽然用  `type(name, bases, dict)` 形式，能定义出所需要的各种类型的类。但，在实践中，这种形式并不常用，而是喜欢用下面的方式：
 
