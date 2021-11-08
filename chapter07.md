@@ -117,6 +117,18 @@ if __name__=="__main__":
 Python --> pYTHON
 ```
 
+当然，上述函数并非是实现需求的最佳选择，如果使用位运算（本书略去此内容，有兴趣的读者可以深入研究），会得到一个有点魔幻的函数：
+
+```python
+>>> def toggle(s):
+...     return ''.join(chr(ord(c) ^ 32) for c in s)
+...
+>>> toggle("Python")
+'pYTHON'
+```
+
+此处并不要求读者理解上述函数，只是想传达一个信息：本书中的代码，不是最优，希望读者能在学习过程中，探索优化方法——“尽信书，不如无书”（《孟子》）
+
 > **自学建议**
 >
 > 编写函数，是对各类知识的综合运用，包括但不限于 Python 编程语言的知识、与问题相关的专业知识等。一般来讲，每个函数都是具有一定的抽象性，能够满足某一类常见的操作，比如前面所定义的加法函数 `add()` ，针对所有能够相加的两个对象并且所得的和能转化为浮点数的都适用。所以，在编写函数的时候，需要我们从具体的问题中抽象出一般的情况，分别设置好参数（数学中的的自变量）和返回值，在此基础上，编写“由参数到返回值”的语句。
@@ -1642,6 +1654,60 @@ filter(function or None, iterable) --> filter object
 当然，上面的代码也可以用 lambda 函数改写，请读者自行尝试。
 
 本节借用函数式编程的名义，介绍了 `map()` 和 `filter()` 两个内置函数以及 lambda 函数。从内容中读者也能认识到，这些函数均可以用以往学过的函数、列表解析等替代。所以，它们并非编程中的必须，只是可选项。
+
+### 7.4.4 运用内置函数
+
+第3章3.3.1节曾简要介绍了与数学运算相关的 Python 内置函数，其实本节中的 `map()` 和 `filter()` 也是内置函数的一员。Python 内置函数所针对的通常是一些基础需求或问题，在自定义函数中，如果恰当使用内置函数，不仅能缩短代码行数，更能增强可读性，哪至于优化性能。例如写一个函数判断列表容器中的字符串成员是否有回文（关于回文，请参阅第4章4.2.5节)，下面的函数 `contains_palindrome()` 是一种可行的方法：
+
+```python
+#coding:utf-8
+'''
+filename: palindrome.py
+'''
+
+def contains_palindrome(words):
+    for word in words:
+        if word == ''.join(reversed(word)):
+            return True
+    return False
+
+if __name__ == '__main__':
+    lst = ['why', 'your', 'eye', 'is', 'large']
+    print(contains_palindrome(lst))
+```
+
+程序的执行结果：
+
+```shell
+% python palindrome.py
+True
+```
+
+字符串 `lst` 中的成员 `'eye'` 是回文，因此 `contains_palindrome()` 返回了 `True` 。下面要用内置函数 `any()` 改造 `contains_palindrome()` 函数内的代码。
+
+```python
+def contains_palindrome_s(words):
+    return any(word == ''.join(reversed(word)) for word in words)
+```
+
+读者通过 `help(any)` 不难理解 `any()` 的作用。
+
+```python
+>>> lst = ['why', 'your', 'eye', 'is', 'large']
+>>> b = [word == ''.join(reversed(word)) for word in lst]
+>>> b
+[False, False, True, False, False]
+>>> any(b)
+True
+```
+
+`[word == ''.join(reversed(word)) for word in lst]` 以列表解析得到了一个用布尔值标识 `lst` 中的成员是否式回文的列表，在以此列表为 `any()` 的参数，则返回 `True` 。
+
+但是，在函数 `contains_palindrome_s()` 中并没有使用列表解析，而是使用了第9章9.7节将要学习的生成器解析，其中道理请参阅该节内容。
+
+与 `any()` 函数类似的另外一个内置函数是 `all()` ，留个读者探索使用它的时机。
+
+除了这两个内置函数之外，其他内置函数也当然要在编程中恰当应用。
 
 > **自学建议**
 >
