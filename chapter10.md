@@ -783,7 +783,7 @@ if __name__ == "__main__":
     print(f"{aver} is the average of {a} and {b}")
 ```
 
-执行后后的结果为：
+执行后的结果为：
 
 ```python
 % python debugprint.py

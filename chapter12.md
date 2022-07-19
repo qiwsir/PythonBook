@@ -956,7 +956,7 @@ from django.shortcuts import render
 from .models import Articles
 
 def book_title(request):  
-    posts = BlogArticles.objects.all()  
+    posts = Articles.objects.all()  
     return render(request, "book/titles.html", {"posts":posts})  
 ```
 
@@ -1059,7 +1059,7 @@ urlpatterns = [
 </ul>
 ```
 
-而后编辑 `./blog/views.py` ，增加响应查看文章请求的视图函数 `book_article()` 。
+而后编辑 `./book/views.py` ，增加响应查看文章请求的视图函数 `book_article()` 。
 
 ```python
 def book_article(request, article_id):
@@ -1105,7 +1105,7 @@ def book_article(request, article_id):
 </html>
 ```
 
-接着配置 URL，因为还是针对 book 这个应用而言，所以不需要修改 `./mysite/urls.py` ，只需要在 `./blog/urls.py` 文件中增加新的 URL 路径。
+接着配置 URL，因为还是针对 book 这个应用而言，所以不需要修改 `./mysite/urls.py` ，只需要在 `./book/urls.py` 文件中增加新的 URL 路径。
 
 ```python
 from django.conf.urls import url
@@ -1892,7 +1892,7 @@ data
               shutil.move(f"{train_dir}/{f}", train_dogs_dir)
 ```
 
-在代码 [11] 中将前面所创建的目录结构分别用变量引用，并且实现了图片移动。注释（1）中使用了标准库中的 `re` 模块，用正则表达式判断 `cat` 是否在文件名中。例如（在 Python 交互模式中演示）：
+在代码 [11] 中将前面所创建的目录结构分别用变量引用，并且实现了图片移动。注释（1）中使用了标准库中的 `re` 模块，用正则表达式判断字符串 `cat` 是否在文件名中。例如（在 Python 交互模式中演示）：
 
 ```python
 >>> import re
@@ -2367,7 +2367,7 @@ Python 中关于图片的库被称为 Python Imageing Library  ，简称 PIL ，
 [26]: tensor([[ 2.0083, -1.8386]], grad_fn=<AddmmBackward>)
 ```
 
-返回值 `preds` 是一个张量，按照代码块 [26] 的张量输出结果，可知这张图片是猫（第一个数大于第二个数，则是猫或狗）。如果用更直观地方式表述预测结果，可以：
+返回值 `preds` 是一个张量，按照代码块 [26] 的张量输出结果，可知这张图片是猫（第一个数大于第二个数，则是猫）。如果用更直观地方式表述预测结果，可以：
 
 ```python
 [27]: soft_max = nn.Softmax(dim=1)

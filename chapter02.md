@@ -20,7 +20,7 @@
 
 根据第1章1.7节所学得技能，在本地计算机启动 Python 交互模式（ Interactive Mode ），如图2-1-2所示，出现 `>>>` 提示符，即为 Python 交互模式（请区别于 Windows 的 CMD 窗口 或者 Linux 和 macOS 的终端中所显示的命令行，参阅第1章1.5节）。
 
-![image-20210425161320134](/Users/qiwsir/Documents/my_books/Python完全自学手册/images/chapter2-1-02.png)
+![image-20210425161320134](./images/chapter2-1-02.png)
 
 <center>图2-1-2 启动 Python 交互模式</center>
 
@@ -76,7 +76,7 @@ print("Hello World")
 
 **方法1：利用 IDE 调试**
 
-如图2-1-7所示，点击 VS Code 的菜单项中的“ Run ”，在下拉菜单选项中点击“ Ttart Debugging ”。
+如图2-1-7所示，点击 VS Code 的菜单项中的“ Run ”，在下拉菜单选项中点击“ Start Debugging ”。
 
 <img src="./images/chapter2-1-07.png" alt="image-20210426081234551" style="zoom:50%;" />
 
@@ -98,7 +98,7 @@ print("Hello World")
 
 **方法2：利用命令行运行**
 
-进入到命令行状态——注意不是交互模式，请参阅2.1.1节中的说明（如果用 Windows 操作系统，就要打开 CMD 窗口），并且进入到保存 `hello.py` 文件的目录（如果不进入该目录，应在文件名之前写明路径），如图2-1-10所示（提示：图示中的命令`ls`不是 Windows 的指令，请此类读者知悉）。
+进入到命令行状态——注意不是交互模式，请参阅2.1.1节中的说明（如果用 Windows 操作系统，就要打开 CMD 窗口），并且进入到保存 `hello.py` 文件的目录（如果不进入该目录，应在文件名之前写明路径），如图2-1-10所示（提示：图示中的命令`ls`不是 Windows 的指令，请读者知悉）。
 
 <img src="./images/chapter2-1-10.png" alt="image-20210426083846417" style="zoom:50%;" />
 
@@ -122,7 +122,7 @@ python hello.py
 
 ### 2.1.3 解释器
 
-经过第1章的1.2节和1.3节的自学，已经知道计算机能“认识”的是机器语言，2.1.2节所编写的 `hello.py` 程序，是用高级语言编写而成，计算机不能直接“认识”，为此要经过“翻译”过程。对于 Python 程序而言，用于“翻译”的叫做 Python 解释器（ Interpreter ）。目前常见的 Python 解释器包括：CPython、JPython、IPython、PyPy、IronPython 五个版本。当读者已经在本地计算机安装好 Python 之后（参阅第1章1.7节），就已经将其中最常用的一个解释器 CPython 安装好了。CPython  是使用 C语言开发的 Python 解释器，也是标准的 Python 解释器，是使用最广泛的 Python 解释器。
+自学了第1章的1.2节和1.3节后，已经知道计算机能“认识”的是机器语言，2.1.2节所编写的 `hello.py` 程序，是用高级语言编写而成，计算机不能直接“认识”，为此要经过“翻译”过程。对于 Python 程序而言，用于“翻译”的叫做 Python 解释器（ Interpreter ）。目前常见的 Python 解释器包括：CPython、JPython、IPython、PyPy、IronPython 五个版本。当读者已经在本地计算机安装好 Python 之后（参阅第1章1.7节），就已经将其中最常用的一个解释器 CPython 安装好了。CPython  是使用 C语言开发的 Python 解释器，也是标准的 Python 解释器，是使用最广泛的 Python 解释器。
 
 一般的解释器执行程序的方法有三种：
 
