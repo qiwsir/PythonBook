@@ -268,7 +268,7 @@ Do not execute main() funciton!
 ```python
 #coding:utf-8
 '''
-filename a_basic.py
+filename rust.py
 '''
 def rust_func():
     return "I learn Rust."
@@ -286,7 +286,7 @@ def a_basic_func():
 ```python
 #coding:utf-8
 '''
-filename a_basic.py
+filename a_python.py
 '''
 def a_python_func():
     return "I learn Python."
@@ -295,7 +295,7 @@ def a_python_func():
 ```python
 #coding:utf-8
 '''
-filename a_basic.py
+filename b_java.py
 '''
 def a_java()_func():
     return "I learn Java."
@@ -433,7 +433,7 @@ from . import b_pack
 
 如果读者按照前面的流程进行了操作，再看看此时的目录 `./mypack` ，其结构变成了图11-2-3所示：
 
-![image-20210724104042506](/Users/qiwsir/Documents/my_books/Python完全自学手册/images/chapter11-2-3.png)
+![image-20210724104042506](./images/chapter11-2-3.png)
 
 <center>图11-2-3 含有字节码的目录结构</center>
 
