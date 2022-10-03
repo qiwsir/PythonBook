@@ -905,7 +905,7 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 
 直到发现异常。
 
-在 `(Pdb)` 状态下输入 `q` 退回到 `>>>` Python 交互模式。
+在 `(Pdb)` 状态下输入 `q` 退回到命令行状态。
 
 除了一步一步地调试，也可以在程序中使用 `pdb` 模块，例如下面的修改：
 

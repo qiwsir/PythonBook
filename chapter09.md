@@ -323,9 +323,9 @@ AttributeError: 'Foo' object has no attribute 'book'
 
 在 Python 中，可以通过重写如下几个特殊方法，实现操控属性的目的：
 
--  `__getattr__(self, name)` ：访问实例的 `name` 属性，若它不存在，则此方法被调用。
+- `__getattr__(self, name)` ：访问实例的 `name` 属性，若它不存在，则此方法被调用。
 -  `__getattribute__(self, name)` ：访问实例的 `name` 属性，不论此属性是否存在，都要调用本方法。
--  `__setattr__(self, name, value)` ：如果给实例的 `name` 属性赋值，就调用这个方法。
+- `__setattr__(self, name, value)` ：如果给实例的 `name` 属性赋值，就调用这个方法。
 -   `__delattr__(self, name)` ：如果删除实例的属性 `name` ，则调用此方法。
 
 注意，为了便于在交互模式中调试，请读者先创建名为 `editattr.py` 文件，并依照说明编写有关代码，然后根据第8章8.5.2节所示的方法在文件的当前位置进入到交互模式，将文件当做模块，调用其中的类。

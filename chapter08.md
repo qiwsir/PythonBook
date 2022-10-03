@@ -1504,7 +1504,7 @@ public class PetSpeak {
 }
 ```
 
-如果读者没有学习过 Java ，对上述代码理解可能不是很顺畅，这不重要，只要能理解大概意思即可。观察`command(Pet p)` ，这种写法意味着 `command()` 所能接受的参数类型必须是 `Pet` 类型，其他类型不行。所以，必须创建 `interface Pet` 这个接口并且让类 `Cat` 和 `Dog` 继承它，然后才能用于 `command()` 方法（原文：I must create a hierarchy of Pet, and inherit Dog and Cat so that I can upcast them to the generic command() method）。
+如果读者没有学习过 Java ，对上述代码理解可能不是很顺畅，这不重要，只要能理解大概意思即可。观察`command(Pet p)` ，这种写法意味着 `command()` 所能接受的参数类型必须是 `Pet` 类型，其他类型不行。所以，必须创建 `interface Pet` 这个接口并且继承 `Cat` 和 `Dog` 类，然后才能用于 `command()` 方法（原文：I must create a hierarchy of Pet, and inherit Dog and Cat so that I can upcast them to the generic command() method）。
 
 然后，Bruce  Eckel 又写了一段实现上述功能的 Python 代码：
 

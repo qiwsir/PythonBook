@@ -297,7 +297,7 @@ def a_python_func():
 '''
 filename b_java.py
 '''
-def a_java()_func():
+def a_java_func():
     return "I learn Java."
 ```
 
