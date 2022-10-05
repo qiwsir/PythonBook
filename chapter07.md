@@ -1033,7 +1033,7 @@ UnboundLocalError: local variable 'a' referenced before assignment
 
 对比函数 `foo()` 和 `bar()` ，逻辑上似乎没有什么差别，都是要将 `a` 增加 `1` ，在这里却报错了。
 
-情节还会继续翻转，稍加改动，就免除了异常（请仔细观察下面代码与上述代码的异同）：
+情节还会继续反转，稍加改动，就免除了异常（请仔细观察下面代码与上述代码的异同）：
 
 ```python
 >>> def bar():
@@ -1104,7 +1104,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 在函数 `f()` 中调用 `locals()` 时，`locals()` 返回了表示函数的本地作用域的字典。注意，除了本地定义的变量 `s` 之外，本地作用域还包括函数参数 `p` 和 `q` ，它们也在 `f()` 的本地作用域内。
 
-现在回到前面反复翻转的问题上：
+现在回到前面反复反转的问题上：
 
 ```python
 >>> a = 1
