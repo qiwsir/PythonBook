@@ -1,7 +1,3 @@
-
-
-[TOC]
-
 # 第12章 应用举例
 
 > 忘记背后，努力面前，向着标杆直跑。
@@ -97,7 +93,7 @@ Python 标准库中有针对 I/O 的模块 `io` （https://docs.python.org/3/lib
 
 `_io` 是 `io` 的 C 语言表达。在 Python 中，会对某些模块用 C 语言重写，以进一步提高其运行速度。相应的模块名称就由 `modulename` 变为 `_modulename` 形式。
 
-综上所述，就明确了由变量 `f` 引用的对象是模块 `io` 中的 `TextIOWrapper` 类的实例对象——可称之为“文件对象”。
+综上所述，就明确了由变量 `f` 引用的对象是模块 `io` 中的 `TextIOWrapper` 类的实例对象——可称之为**文件对象**。
 
 从 `dir(f)` 的返回值中发现，其中包括了 `__iter__` 、`__next__` 这两个特殊方法，说明文件对象是迭代器（参阅第9章9.6节）。既然如此，就可以针对它使用循环语句了。
 
@@ -225,7 +221,7 @@ seek(cookie, whence=0, /)
 
 用 Office 工具打开文件 `python.docx` ，如图12-1-1所示。
 
-![image-20210729101347312](./images/chapter12-1-1.png)
+<img src="./images/chapter12-1-1.png" alt="image-20210729101347312" style="zoom: 33%;" />
 
 <center>图12-1-1 Word文档截图（局部）</center>
 
@@ -244,7 +240,7 @@ seek(cookie, whence=0, /)
 
 再次查看操作效果（重新打开该 Word文 件），效果如图12-1-2所示。
 
-![image-20210729101448454](./images/chapter12-1-2.png)
+<img src="./images/chapter12-1-2.png" alt="image-20210729101448454" style="zoom:33%;" />
 
 <center>图12-1-2 增加新段落之后的效果</center>
 
@@ -376,7 +372,7 @@ True
 
 有了工作表之后，就可以对单元格进行操作了。工作表中的单元格是以“行列式”形状排列，但是要注意：行的索引是从 1 开始；列的索引是从 A 开始（行列的最大值，根据版本的差异有所不同，针对一般操作可以认为足够大）。每个单元格用列和行的索引标识，如图12-1-3所示，A3、B2等，都可以看成相应单元格的名称。
 
-![img](./images/chapter12-1-3.png)
+<img src="./images/chapter12-1-3.png" alt="img" style="zoom:78%;" />
 
 <center>图12-1-3 工作表中的单元格</center>
 
@@ -476,7 +472,7 @@ ValueError: Row or column values must be at least 1
 
 ### 12.2.1 CSV 文件
 
-CSV，即 Comma-Separated Values，中文译为“逗号分隔值”，其文件以文本形式存储表格数据——这是一种轻量级存储数据的方式。通常，在 Excel 文件中，可以选择将当前文件保存为“ `.csv` ”格式。所有的 CSV 文件，也可以用电子表格软件打开。但是，CSV 文件与 Excel 文件有很多不同之处，比如：CSV 文件中所有值都是字符串；不能进行图文编辑等，它是一个文本文件。
+**CSV**，即 Comma-Separated Values，中文译为“逗号分隔值”，其文件以文本形式存储表格数据——这是一种轻量级存储数据的方式。通常，在 Excel 文件中，可以选择将当前文件保存为“ `.csv` ”格式。所有的 CSV 文件，也可以用电子表格软件打开。但是，CSV 文件与 Excel 文件有很多不同之处，比如：CSV 文件中所有值都是字符串；不能进行图文编辑等，它是一个文本文件。
 
 在 Python 的标准库中，有专门操作 CSV 文件的模块。
 
@@ -574,11 +570,11 @@ SQLite 是一个小型的关系型数据库，它最大的特点在于不需要�
 
 究竟有没有真的写入？如果笃信“眼见为实”——不一定真实，姑且满足直觉的需要——可以使用管理 SQLite 的 GUI 工具软件（比较多，读者可以自行选择），下面的演示中使用了 SQLite Studio ，打开当前已经创建的数据库和表，会看到如图12-2-1和图12-2-2所示的效果。
 
-![image-20210730103043000](./images/chapter12-2-1.png)
+<img src="./images/chapter12-2-1.png" alt="image-20210730103043000" style="zoom:30%;" />
 
 <center>图12-2-1 表 books 的结构</center>
 
-![image-20210730103429951](./images/chapter12-2-2.png)
+<img src="./images/chapter12-2-2.png" alt="image-20210730103429951" style="zoom:40%;" />
 
 <center>图12-2-2 表 books 的数据</center>
 
