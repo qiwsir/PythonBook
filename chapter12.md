@@ -679,7 +679,7 @@ Django 的官方网站（https://www.djangoproject.com/）上显示，撰写本�
 
 Django 中的**项目**（Project）可以看做是一个专有名词，后面还有一个与之有关的名词**应用**（Application）。所谓项目，可以理解为一个网站。
 
-在虚拟目录 `myvenv` 内，创建一个 Django 项目（要确认已经进入虚拟环境，参阅第11章11.5节），执行如下指令（本节演示中所有操作系统指令，均为 Linux 指令，请使用 Windows 系统的读者注意）：
+在虚拟目录 `myvenv` 内，创建一个 Django 项目（要确认已经进入虚拟环境，参阅第11章11.5节），执行如下指令（`ls` 为 Linux 指令，请使用 Windows 系统的读者注意）：
 
 ```shell
 (myvenv) myvenv % ls
@@ -689,7 +689,7 @@ bin		include		lib		pyvenv.cfg
 bin		include		lib		mysite		pyvenv.cfg
 ```
 
-指令 `django-admin startproject mysite` 创建名为 `mysite` 的项目，执行此指令后，在当前目录中新增了 `./mysite` 子目录。这个子目录并非是空的，Django 会默认为其添加如下内容（以下显示此时 `./mysite` 的结构）：
+指令 `django-admin startproject mysite` 创建名为 `mysite` 的项目，执行此指令后，在当前目录中新增了 `./mysite` 子目录。这个子目录并非是空的，Django 会默认为其添加如下内容（以下显示此时 `./mysite` 的结构，`tree` 为 Linux 指令）：
 
 ```shell
 (myvenv) myvenv % tree mysite
@@ -723,7 +723,7 @@ Quit the server with CONTROL-C.
 
 打开浏览器，在地址栏中输入 http://127.0.0.1:8000 或者 http://localhost:8000 ，就会看到图12-3-1所示界面。
 
-![image-20210730153207413](./images/chapter12-3-1.png)
+<img src="./images/chapter12-3-1.png" alt="image-20210730153207413" style="zoom:30%;" />
 
 <center>图12-3-1 网站默认首页</center>
 
@@ -733,7 +733,7 @@ Quit the server with CONTROL-C.
 
 项目已经创建好，网站也有了，接下来要实现网站的具体功能。在 Django 中，人们把这些具体的功能称为**应用**（Application）。
 
-结束图12-3-1所示的服务（按“Ctrl-C”组合键），继续在虚拟目录中执行如下操作：
+按“Ctrl-C”组合键，结束图12-3-1所示的服务，继续在虚拟目录中执行如下操作：
 
 ```shell
 (myvenv) mysite % ls
@@ -847,7 +847,7 @@ Running migrations:
 
 以上操作完成之后，已经在数据库 `db.sqlite3` 中创建了多个表，其中包括 `Articles` 类对应的表，图12-3-2显示的是当前已经有的表（其他表都是 Django 默认创建的。图示所用工具仍然是 12.2.2 节用过的软件）
 
-![image-20210730163803366](./images/chapter12-3-2.png)
+<img src="./images/chapter12-3-2.png" alt="image-20210730163803366" style="zoom:40%;" />
 
 <center>图12-3-2 Article 对应的表结构</center>
 
@@ -902,13 +902,13 @@ Quit the server with CONTROL-C.
 
 在浏览器的地址栏中输入 http://127.0.0.1:8000/admin/ ，打开图12-3-3所示的界面。
 
-![image-20210730171321987](./images/chapter12-3-3.png)
+<img src="./images/chapter12-3-3.png" alt="image-20210730171321987" style="zoom:33%;" />
 
 <center>图12-3-3 管理端登录界面</center>
 
 输入刚才创建的超级管理员的用户名和密码进入系统，如图12-3-4所示。
 
-![image-20210730171540685](./images/chapter12-3-4.png)
+<img src="./images/chapter12-3-4.png" alt="image-20210730171540685" style="zoom:33%;" />
 
 <center>图12-3-4 管理界面</center>
 
@@ -927,7 +927,7 @@ admin.site.register(Articles)
 
 在调试状态下，如果没有新增加的文件，只是修改了原有文件，则不需要重新启动 Django 服务（如果 Django 服务没有启动，请确保启动）。刷新图12-3-4所示的页面，即可看到图12-3-5所示的效果。
 
-![image-20210730172334663](./images/chapter12-3-5.png)
+<img src="./images/chapter12-3-5.png" alt="image-20210730172334663" style="zoom:30%;" />
 
 <center>图12-3-5 增加对 book 应用的管理</center>
 
@@ -1163,7 +1163,7 @@ Jupyter 是一款基于浏览器的开源的交互开发环境，常用于科学
 
 一般情况下，会自动打开本地计算机操作系统默认的浏览器，并显示图12-4-1所示效果。
 
-![image-20210731134019365](./images/chapter12-4-1.png)
+<img src="./images/chapter12-4-1.png" alt="image-20210731134019365" style="zoom:33%;" />
 
 <center>图12-4-1 JupyterLab 默认页面</center>
 
@@ -1179,25 +1179,25 @@ JupyterLab 所提供的各项功能，与通常 IDE 类似，此处不做详细�
 
 参照图12-4-3所示的功能，将当前文件改名为 `scicomputing.ipynb` ，并将左侧文件栏折叠收起。此外，从图示中还可看到其他关于文件和目录的基本操作，供读者参阅。
 
-![image-20210731135611338](./images/chapter12-4-3.png)
+<img src="./images/chapter12-4-3.png" alt="image-20210731135611338" style="zoom:53%;" />
 
 <center>图12-4-3 基本操作</center>
 
 然后点击菜单 `View` ，并选中如图12-4-4所示的项目，即可在代码块中显示行号。
 
-![image-20210731140300348](./images/chapter12-4-4.png)
+<img src="./images/chapter12-4-4.png" alt="image-20210731140300348" style="zoom:50%;" />
 
 <center>图12-4-4 显示代码块中的行号</center>
 
 将鼠标移动到代码块中并单击，如图12-4-5所示，开始输入一行代码，然后回车，输入第二行——注意，这里与 Python 交互模式不同，回车意味着换行，而不是执行当前行代码。输入完图12-4-5所示的所有代码。
 
-![image-20210731140826211](./images/chapter12-4-5.png)
+<img src="./images/chapter12-4-5.png" alt="image-20210731140826211" style="zoom:50%;" />
 
 <center>图12-4-5 编写代码</center>
 
 按照图12-4-5所示，点击该按钮，可以执行当前代码块；或者按组合键 `shift + Return/Enter` 执行，效果如图12-4-6所示。
 
-![image-20210731141304231](./images/chapter12-4-7.png)
+<img src="./images/chapter12-4-7.png" alt="image-20210731141304231" style="zoom:50%;" />
 
 <center>图12-4-6 执行代码块</center>
 
@@ -1215,7 +1215,7 @@ Python 生态中拥有非常丰富的支持科学计算的第三方库，常用�
 
 除了能在终端执行安装指令之外，在 JupyterLab 的代码块中也可以执行终端指令，如图12-4-7所示，在代码块中输入 `!pip install numpy` 并执行——注意前面的 `!` 符号。其效果等同于以往在终端执行安装 `pip install numpy` 指令。
 
-![image-20210731143118879](./images/chapter12-4-8.png)
+<img src="./images/chapter12-4-8.png" alt="image-20210731143118879" style="zoom:78%;" />
 
 <center>图12-4-7 在代码块中执行安装指令</center>
 
@@ -1227,7 +1227,7 @@ Python 生态中拥有非常丰富的支持科学计算的第三方库，常用�
 [3]: '1.19.4'       # 上述代码块的输出结果
 ```
 
-在数据科学中，引入一些常用的第三方库时，习惯于再命名一个别称（或简称），例如以 `np` 作为 `numpy` 的别称，并且这是一种习惯命名，如果非要以 `ny` 为别称，语法上没有问题，但不是大多数人的习惯——代码更多时候是给人看的。
+在数据科学中，引入一些常用的第三方库时，习惯于再命名一个别称，例如以 `np` 作为 `numpy` 的别称，并且这是一种习惯命名，如果非要以 `ny` 为别称，语法上没有问题，但不是大多数人的习惯——代码更多时候是给人看的。
 
 安装好基础库之后，再列举几个示例（随后几个小节内容），体会 Python 在科学计算中的应用。
 
@@ -1346,7 +1346,7 @@ Python 生态中拥有非常丰富的支持科学计算的第三方库，常用�
              [0, 0, 3, 0, 0, 0, 0, 0]], dtype=int64)
 ```
 
-本书作者在《机器学习数学基础》一书中，专门介绍了矩阵及其有关计算的 Python 实现方法，推荐有兴趣的读者深入学习参考。
+本书作者在《机器学习数学基础》一书中，专门介绍了矩阵及其有关计算的 Python 实现方法，推荐有兴趣的读者深入学习参考（http://math.itdiffer.com）。
 
 ### 12.4.4 解线性方程组
 
@@ -1406,7 +1406,7 @@ $\begin{cases}x_1+3x_2-4x_3+2x_4&=0\\3x_1-x_2+2x_3-x_4&=0\\-2x_1+4x_2-x_3+3x_4&=
 
 输出：
 
-![image-20210731164238118](./images/chapter12-4-9.png)
+<img src="./images/chapter12-4-9.png" alt="image-20210731164238118" style="zoom:53%;" />
 
 这就是该线性方程组的通解，如果对应到未知量，即：
 
@@ -1463,7 +1463,9 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 
 > **自学建议**
 >
-> 科学计算不仅仅是科研和工程项目的必备技能，也是后面所列举的数据分析、机器学习的基础。所以，有意在数据科学方向发展的读者务必要学习科学计算。首先，要具备相关的数学基础，其次要掌握相关计算的第三方包的引用，最后要将前两者应用到实际问题之中。也正是基于这些思考，我去年出版了《机器学习数学基础》，在这本书中，不强调传统数学教材中的“纸笔计算”，重点是在理解有关数学原理之后，用程序工具完成计算，并以贴近真实的问题为案例。有兴趣的读者不妨参阅。
+> 科学计算不仅仅是科研和工程项目的必备技能，也是后面所列举的数据分析、机器学习的基础。所以，有意在数据科学方向发展的读者务必要学习科学计算。首先，要具备相关的数学基础，其次要掌握相关计算的第三方包的引用，最后要将前两者应用到实际问题之中。也正是基于这些思考，我出版了《机器学习数学基础》，在这本书中，不强调传统数学教材中的“纸笔计算”，重点是在理解有关数学原理之后，用程序工具完成计算，并以贴近真实的问题为案例。有兴趣的读者不妨参阅。
+>
+> 《机器学习数学基础》的图书和视频课程介绍，请访问：http://math.itdiffer.com
 
 ## 12.5. 数据分析
 
@@ -1478,6 +1480,8 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 首先，到某电商平台上，利用网络爬虫技术（数据工程师如果会这项技术，如虎添翼），获得了一些文胸的评论数据，准备通过这些数据分析出消费者的消费取向。本节的重点是数据分析，网络爬虫技术留给读者研究。
 
 下面使用 Pandas 开始研究这些数据。Pandas 是数据科学中常用的第三方库，在 12.4.2 节已经安装，更多关于 Pandas 的使用方法，推荐参阅拙作《跟老齐学 Python：数据分析》（电子工业出版社出版）。
+
+以下操作均是在 Jupyter-lab 中完成。
 
 ```python
 [1]: import pandas as pd
@@ -1510,9 +1514,9 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 [3]: 	         creationTime	productColor	productSize	color
      0	2016-06-08 17:17:00	    22咖啡色	          75C	  棕色
      1	2017-04-07 19:34:25    	22咖啡色	          80B	  棕色
-     2	2016-06-18 19:44:56	      02粉色	         80C	 粉色
-     3	2017-08-03 20:39:18	     22咖啡色	        80B  	棕色
-     4	2016-07-06 14:02:08	     22咖啡色	        75B	  棕色
+     2	2016-06-18 19:44:56	      02粉色	           80C	   粉色
+     3	2017-08-03 20:39:18	     22咖啡色	          80B     棕色
+     4	2016-07-06 14:02:08	     22咖啡色	          75B	  棕色
 ```
 
 所显示的 `'color'` 列是清洗之后的数据，后续分析所用数据即为此列。
@@ -1558,7 +1562,7 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 
 输出图示：
 
-![image-20210802171400800](./images/chapter12-5-1.png)
+<img src="./images/chapter12-5-1.png" alt="image-20210802171400800" style="zoom:78%;" />
 
 从输出结果中可以一目了然知道当前数据集中，哪些颜色的样本较少——购买者少，哪些颜色的样本较多——购买者多。
 
@@ -1628,7 +1632,7 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 
 输出图示：
 
-![image-20210802175237920](./images/chapter12-5-2.png)
+<img src="./images/chapter12-5-2.png" alt="image-20210802175237920" style="zoom:67%;" />
 
 通过此图，也知道应该销售多大尺码的了。
 
@@ -1646,9 +1650,11 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 
 毋庸置疑，人工智能是个好东西，但是现在还找不到一个人人都信服的定义来说明它究竟是什么，本书作者更没有能力对它进行定义了。所以，究竟什么是人工智能，只能由读者自行查阅资料去学习了。图12-6-1显示了“人工智能”、“机器学习”和“深度学习”这三个常见术语之间的关系，本节将用两个案例，分别演示**机器学习**（Machine Learning）和**深度学习**（Deep Learning），让读者对它们有初步感受。
 
-![image-20210803100643609](./images/chapter12-6-1.png)
+<img src="./images/chapter12-6-1.png" alt="image-20210803100643609" style="zoom:50%;" />
 
 <center>图12-6-1 人工智能、机器学习和深度学习</center>
+
+以下两节的操作均是在 Jupyter-lab 中完成。
 
 ### 12.6.1 预测船员数量
 
@@ -1765,7 +1771,7 @@ $x_{std}^{(t)} = \frac{x^{(t)}-\mu_x}{\sigma_x}$​
 
 输出图示：
 
-![image-20210803182220314](./images/chapter12-6-2.png)
+<img src="./images/chapter12-6-2.png" alt="image-20210803182220314" style="zoom:70%;" />
 
 由于特征数量不多，用观察法就可以选出与特征 `crew` 有较强关系的特征，从而确定用于模型训练的数据集。
 
@@ -1800,7 +1806,7 @@ $x_{std}^{(t)} = \frac{x^{(t)}-\mu_x}{\sigma_x}$​
 [8]: 0.9282797824863903
 ```
 
-代码块 [8] 用三步完成了模型的创建、训练和测试，其中 `lrg.score()` 返回的是该模型实例的决定系数，通常记作 $R^2$ ，其计算方法是：
+代码块 [8] 用三步完成了模型的创建、训练和测试，其中 `lrg.score()` 返回的是该模型实例的决定系数或拟合优度（参阅拙作《机器学习数学基础》），通常记作 $R^2$ ，其计算方法是：
 
 $R^2 = 1-\frac{\sum_{i=1}^n(y^{true}_i-y^{pred}_i)^2}{\sum_{i=1}^n(y^{true}_i-\overline{y}^{true})^2}$
 
@@ -1832,11 +1838,11 @@ $R^2 = 1-\frac{\sum_{i=1}^n(y^{true}_i-y^{pred}_i)^2}{\sum_{i=1}^n(y^{true}_i-\o
 
 ### 12.6.2 猫狗二分类
 
-深度学习是机器学习的一个分支，目前常用的深度学习框架有 TensorFlow、PyTorch和飞桨等（飞桨，即 PaddlePaddle，全中文的官方文档，让学习者不为语言而担忧）。本小节中将以 PyTorch 演示一个经典的案例，让初学 Python 的读者对深度学习有感性地认识。所以，以下代码可不求甚解，只要能认识到所涉及到的基础知识并不陌生即可——除了 PyTorch 部分。
+深度学习是机器学习的一个分支，目前常用的深度学习框架有 TensorFlow、PyTorch和飞桨等（飞桨，即 PaddlePaddle）。本小节中将以 PyTorch 演示一个经典的案例，让初学 Python 的读者对深度学习有感性地认识。所以，以下代码可不求甚解，只要能认识到所涉及到的基础知识并不陌生即可——除了 PyTorch 部分。
 
 “Dogs vs. Cats”是一个传统的二分类问题，下面示例所用的数据集来自于 kaggle.com ，在项目网页（https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/）上可以看到两个压缩包（登录网站之后可以下载），`train.zip` 用作训练集（其中一部分作为验证集），`test.zip` 用作测试集。在训练集中（将所下载的 `train.zip` ，解压缩之后，放到 `./data/train` 目录中），所有图片都是用 `cat.<id>.jpg` 和 `dog.<id>.jpg` 格式命名，用图片文件的名称作为每张图片的标签（如图12-6-2所示）。
 
-![image-20210804135003373](./images/chapter12-6-3.png)
+<img src="./images/chapter12-6-3.png" alt="image-20210804135003373" style="zoom:33%;" />
 
 <center>图12-6-2 训练集中的图片</center>
 
@@ -1880,7 +1886,7 @@ data
 
       files = os.listdir(train_dir) 
       for f in files:
-          cat_search = re.search('cat', f)    # (1)
+          cat_search = re.search('cat', f)                    # (1)
           dog_search = re.search('dog', f)
           if cat_search:
               shutil.move(f'{train_dir}/{f}', train_cats_dir)  # (2)
@@ -2446,6 +2452,8 @@ id,label
 > 如果读者有意将来从事机器学习有关的工作，所要学习的知识除了编程语言之外（最常用的编程语言是 Python ，此外还有 R 、Julia 等），还包括12.4节中科学计算的有关内容。除此之外，针对机器学习和深度学习都有一些库或开发框架，使用它们就相当于“站在巨人肩膀上”，或者说找到了“生产力工具”，比如 scikit-learn 、PyTorch、Tensorflow、飞桨（PaddlePaddle）等。
 >
 > 以上所列都是进入机器学习领域的技术准备，除了这些之外，还有一个前置的知识准备：足够的数学知识（参阅拙作《机器学习数学基础》，电子工业出版社）。
+>
+> 此外，如果读者有意完整学习机器学习相关知识，可以参考我在如下链接所提供的资料：http://math.itdiffer.com/machinelearning.html
 
 ## 12.7 树莓派开发
 
@@ -2524,7 +2532,7 @@ id,label
 
 用鼠标点击图12-7-5中所示的“Python 3 (IDLE)”，就进入了与第1章1.7节中的图1-7-16同样的界面，只是树莓派中默认安装的 Python 版本可能不如本书中或者读者所使用的的版本高。若读者有兴趣提升树莓派中的 Python 版本，可以参考本书第1章。
 
-树莓派上也支持本书之前演示中所用的终端，如图12-7-5所示，鼠标点击终端按钮（图12-7-5所示的顶部右边第一个按钮），即可打开终端界面。如果在此界面直接输入 `python` 指令，也会进入 Python 交互模式，但是 Python 2 的交互模式，通常在 Linux 系统发行版中，会默认安装 Python 的两个版本（只有在最新的发行版系统中才逐渐移除了 Python 2）。若要进入 Python 3 的交互模施工，需要输入 `python3` 指令。
+树莓派上也支持本书之前演示中所用的终端，如图12-7-5所示，鼠标点击终端按钮（图12-7-5所示的顶部右边第一个按钮），即可打开终端界面。如果在此界面直接输入 `python` 指令，也会进入 Python 交互模式，但是 Python 2 的交互模式，通常在 Linux 系统发行版中，会默认安装 Python 的两个版本（只有在最新的发行版系统中才逐渐移除了 Python 2）。若要进入 Python 3 的交互模式，需要输入 `python3` 指令。
 
 总而言之，树莓派是一个“开机即用”的计算机，如果在它上面编写 Python 程序，与本书所讲过的方法完全相同。
 
@@ -2537,7 +2545,7 @@ id,label
 - 一个限流电阻
 - 三根杜邦线
 
-![image-20210830175356099](./images/chapter12-7-6.png)
+<img src="./images/chapter12-7-6.png" alt="image-20210830175356099" style="zoom:50%;" />
 
 <center>图12-7-6 实验器材</center>
 
@@ -2549,7 +2557,7 @@ pi@raspberrypi:~ $ pinout
 
 输出图12-7-7所示的结果，显示了树莓派各个引脚的含义（图12-7-6所示的树莓派右侧像针一样排列的，叫做引脚，共40个）。
 
-![image-20210830164638885](./images/chapter12-7-7.png)
+<img src="./images/chapter12-7-7.png" alt="image-20210830164638885" style="zoom:70%;" />
 
 <center>图12-7-7 输出树莓派引脚说明</center>
 
@@ -2563,23 +2571,23 @@ pi@raspberrypi:~ $ pinout
 
 接下来连接电路。本示例中的电路非常简单，只需要用杜邦线将发光二极管、电阻串联即可（如图12-7-9所示）。但是要注意发光二极管的两腿的长度不同，长腿要与电源的正极相连，短腿与电源的负极相连（如图12-7-10所示）。在图12-7-9的电路中，电阻所在一侧为发光二极管的长腿一侧。
 
-![image-20210830180938508](./images/chapter12-7-9.png)
+<img src="./images/chapter12-7-9.png" alt="image-20210830180938508" style="zoom:50%;" />
 
 <center>图12-7-9 串联电路</center>
 
-![image-20210830171929262](./images/chapter12-7-10.png)
+<img src="./images/chapter12-7-10.png" alt="image-20210830171929262" style="zoom:50%;" />
 
 <center>图12-7-10 发光二极管</center>
 
 为了安全，暂且断开树莓派的电源。然后将与发光二极管长腿相连的杜邦线插到树莓派的16号 GPIO 引脚上，将与发光二极管短腿相连的杜邦线插到14号 GND 引脚上，最终效果如图12-7-11所示。
 
-![image-20210830181856199](./images/chapter12-7-12.png)
+<img src="./images/chapter12-7-12.png" alt="image-20210830181856199" style="zoom:50%;" />
 
 <center>图12-7-11 连接效果</center>
 
 启动树莓派，打开菜单中的 Python 3（IDLE）（如图12-7-5所示），进入到了 Python 交互模式（如图12-7-12所示），点击菜单栏中的 “File-New File”，在打开的文本编辑界面中输入如下代码。
 
-![image-20210830173233551](./images/chapter12-7-11.png)
+<img src="./images/chapter12-7-11.png" alt="image-20210830173233551" style="zoom:67%;" />
 
 <center>图12-7-12 打开树莓派上的 Python 编辑器</center>				
 
