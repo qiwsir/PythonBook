@@ -54,11 +54,16 @@
 
 ## 本书在线阅读地址
 
-
+- [《Python 完全自学教程》github 仓库](https://github.com/qiwsir/PythonTutorialForSelf-learners)
+- [《Python 完全自学教程》微信公众号集合](http://www.itdiffer.com/self-learning.html)
 
 ## 本书 PDF 文件下载地址
 
+[《Python 完全自学教程》PDF ](https://github.com/qiwsir/PythonTutorialForSelf-learners/blob/main/Python%E5%AE%8C%E5%85%A8%E8%87%AA%E5%AD%A6%E6%95%99%E7%A8%8B.pdf)
 
+## 本书源码地址
+
+[《Python 完全自学教程》github 仓库](https://github.com/qiwsir/PythonTutorialForSelf-learners)
 
 ## 本书目录
 

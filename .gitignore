@@ -2,3 +2,8 @@
 .gitignore
 /.ipynb_checkpoints/
 /.ipynb_checkpoints/*
+/codes/.ipynb_checkpoints/
+/codes/data/.ipynb_checkpoints/
+/codes/.ipynb_checkpoints/*
+/codes/data/.ipynb_checkpoints/*
+/codes/.vscode/
