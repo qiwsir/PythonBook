@@ -1,0 +1,9 @@
+README.md
+langspeak.py
+setup.py
+javaspeak/__init__.py
+javaspeak/javaspeak.py
+laoqipackage.egg-info/PKG-INFO
+laoqipackage.egg-info/SOURCES.txt
+laoqipackage.egg-info/dependency_links.txt
+laoqipackage.egg-info/top_level.txt
