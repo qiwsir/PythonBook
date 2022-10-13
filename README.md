@@ -50,7 +50,7 @@
 
 ## 本书配套视频课程
 
-
+- [《Python 完全自学教程》视频课程](https://bfw.xet.tech/s/3cMBcz)
 
 ## 本书在线阅读地址
 
@@ -63,7 +63,7 @@
 
 ## 本书源码地址
 
-[《Python 完全自学教程》github 仓库](https://github.com/qiwsir/PythonTutorialForSelf-learners)
+[《Python 完全自学教程》github 仓库](https://github.com/qiwsir/PythonTutorialForSelf-learners/tree/main/codes)
 
 ## 本书目录
 
