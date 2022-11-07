@@ -873,12 +873,12 @@ True
 >>> first = '空花落尽酒倾漾'
 >>> second = '日上山融雪涨江'
 >>> third = '红焙浅瓯新火活'
->>> forth = '龙团小辗斗晴窗'
->>> poem = first + "，" + second + "。\n" + third + "，" + forth + "。"
+>>> fourth = '龙团小辗斗晴窗'
+>>> poem = first + "，" + second + "。\n" + third + "，" + fourth + "。"
 >>> print(poem)
 空花落尽酒倾漾，日上山融雪涨江。
 红焙浅瓯新火活，龙团小辗斗晴窗。
->>> poem2 = forth[::-1] + "，" + third[::-1] + "。\n" + second[::-1] + "，" + first[::-1] + "。"
+>>> poem2 = fourth[::-1] + "，" + third[::-1] + "。\n" + second[::-1] + "，" + first[::-1] + "。"
 >>> print(poem2)
 窗晴斗辗小团龙，活火新瓯浅焙红。
 江涨雪融山上日，漾倾酒尽落花空。
