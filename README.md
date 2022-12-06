@@ -26,9 +26,9 @@
 
   - 《机器学习数学基础》
 
-- 已发布的在线课程，请访问：http://www.itdiffer.com/lessons.html
+- 已发布的在线课程，请访问：https://github.com/qiwsir/itdiffer/blob/main/lessons.md
 
-**个人网站：** http://www.itdiffer.com
+**Github 首页：** https://github.com/qiwsir
 
 **微信公众号：**
 
@@ -38,7 +38,7 @@
 
 1. 本书以开源的形式发布，但版权归作者所有。如果有出版社愿意出版本书，请联系本作者。
 
-2. 本书在线阅读版：http://www.itdiffer.com/self-learning.html
+2. 本书在线阅读版：https://github.com/qiwsir/itdiffer/blob/main/self-learning.md
 
 3. 读者在阅读本书过程中，如果发现错误，请通过 github 提交，或者进入本书读者交流群告知作者，不胜感激。
 
@@ -46,7 +46,7 @@
 
 5. 请关注微信公众号，会有更多相关文章和资料提供。
 
-6. 更多有关 Python 编程语言的文章：http://www.itdiffer.com/python.html
+6. 更多有关 Python 编程语言的文章：https://github.com/qiwsir/itdiffer/blob/main/python.md
 
 ## 本书配套视频课程
 
@@ -67,7 +67,7 @@
 
 ## 本书目录
 
-- [第1章 开始自学](./chapter01)
+- [第1章 开始自学](./chapter01.md)
   - 1.1 必须自学
   - 1.2 编程语言
     - 1.2.1 机器语言
