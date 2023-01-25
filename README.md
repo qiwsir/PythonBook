@@ -40,7 +40,7 @@
 
 ## 本书下载地址
 
-[《Python 完全自学教程》PDF ](https://github.com/qiwsir/PythonTutorialForSelf-learners/blob/main/Python%E5%AE%8C%E5%85%A8%E8%87%AA%E5%AD%A6%E6%95%99%E7%A8%8B.pdf)
+百度网盘链接: https://pan.baidu.com/s/1CsDb3bJv10gM7tL2lPWskQ 提取码: 9k1n
 
 ## 其他资料
 
