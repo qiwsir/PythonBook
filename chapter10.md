@@ -88,7 +88,7 @@ Python 语言将常见的异常列为内置类型，表10-2-1列举了几种常�
 
 在程序中如果遇到了异常，为了能让程序继续运行，需要对异常进行处理。Python 提供了专门用于处理异常的语句——捕获异常，基本结构如图10-2-1所示。
 
-<img src="./images/chapter10-2-1.png" alt="image-20210719175631037" style="zoom:50%;" />
+![]()./images/chapter10-2-1.png)
 
 <center>图10-2-1 捕获异常的语句</center>
 
@@ -180,9 +180,9 @@ if __name__ == "__main__":
 ```python
 % python calculator.py 
 Traceback (most recent call last):
-  File "/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/calculator.py", line 19, in <module>
+  File "/Users/qiwsir/Documents/my_books/codes/calculator.py", line 19, in <module>
     result = cal.calc("7 / a")
-  File "/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/calculator.py", line 9, in calc
+  File "/Users/qiwsir/Documents/my_books/codes/calculator.py", line 9, in calc
     return eval(expression)
   File "<string>", line 1, in <module>
 NameError: name 'a' is not defined
@@ -351,9 +351,9 @@ if __name__ == "__main__":
 % python calculator.py
 零不能做分母，小学生都知道。
 Traceback (most recent call last):
-  File "/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/calculator.py", line 23, in <module>
+  File "/Users/qiwsir/Documents/my_books/codes/calculator.py", line 23, in <module>
     result = cal.calc("7 / 0")
-  File "/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/calculator.py", line 11, in calc
+  File "/Users/qiwsir/Documents/my_books/codes/calculator.py", line 11, in calc
     return eval(expression)
   File "<string>", line 1, in <module>
 ZeroDivisionError: division by zero
@@ -964,13 +964,13 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 
 如图10-4-1所示，单击左侧活动栏的 Run and Debug（运行和调试，如箭头（1）所示）按钮，进入到调试界面，点击箭头（2）所示的按钮或者按下快捷键 `F5` ，即可运行当前的 Python 程序（仍然以 `debugprint.py` 为例）。
 
-<img src="./images/chapter10-4-1.png" alt="image-20210828133718960" style="zoom:80%;" />
+![](./images/chapter10-4-1.png)
 
 <center>图10-4-1 VS Code 的调试按钮</center> 
 
 注意观察终端，会提示输入两个整数，依次输入之后，呈现图10-4-2所示的状态。
 
-![image-20210828134554364](./images/chapter10-4-2.png)
+![](./images/chapter10-4-2.png)
 
 <center>图10-4-2 VS Code 调试效果</center>
 
@@ -978,13 +978,13 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 
 **打断点**（Breakpoint）是调试程序的重要技能，在 VS Code 中，可以在任意逻辑行左侧点一下鼠标（如图10-4-3所示），则设置改行为断点，程序运行到此即暂停。
 
-<img src="./images/chapter10-4-3.png" alt="image-20210828135621150" style="zoom:67%;" />
+![](./images/chapter10-4-3.png)
 
 <center>图10-4-3 打断点</center>
 
 执行程序，当运行到图10-4-3所示的断点位置是，即显示图10-4-4所示的效果。
 
-<img src="./images/chapter10-4-4.png" alt="image-20210828135935056" style="zoom:67%;" />
+![](./images/chapter10-4-4.png)
 
 <center>图10-4-4 在断点处暂停</center>
 

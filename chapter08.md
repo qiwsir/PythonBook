@@ -47,7 +47,7 @@
 - “蓝图”，一种比喻说法，意思是根据“类”可以得到对象。这就好比一个汽车制造工厂，有了一个生产汽车的设计（包含图纸和生产线），根据这个设计就可以生产出很多汽车。“设计”（或“蓝图”）就相当于“类”，而“汽车”就相当于根据“类”而创建的“对象”——也称之为“实例”，这个过程叫做“实例化”或者“创建实例”（如图8-1-1所示）。
 - 在“类”中，要定义“属性”和“方法”。
 
-<img src="./images/chapter8-1-1.png" alt="image-20210630081745164" style="zoom:50%;" />
+![](./images/chapter8-1-1.png)
 
 <center>图8-1-1 类与蓝图的对比</center>
 
@@ -137,7 +137,7 @@ class SuperMan:                      # (1)
 
 结合代码和图8-2-1，学习简单的、常见的类如何定义。
 
-<img src="./images/chapter8-2-1.png" alt="image-20210701112440275" style="zoom:67%;" />
+![](./images/chapter8-2-1.png)
 
 <center>图8-2-1 简单类的结构</center>
 
@@ -614,7 +614,7 @@ id of self:140693646560224               # (6)
 
 结合图8-3-2，理解执行 `a.get_name()` 时实例对象通过 `self` “传递”的过程。
 
-<img src="./images/chapter8-3-2.png" alt="image-20210703151228267" style="zoom:67%;" />
+![](./images/chapter8-3-2.png)
 
 <center>图8-3-2 关于 self </center>
 
@@ -1072,9 +1072,9 @@ if __name__ == "__main__":
 ```python
  % python personinhe.py
 Traceback (most recent call last):
-  File "/Users/qiwsir/Documents/my_books/Python完全自学教程/codes/personinhe.py", line 27, in <module>
+  File "/Users/qiwsir/Documents/my_books/codes/personinhe.py", line 27, in <module>
     stu1.grade(99) 
-  File "/Users/qiwsir/Documents/my_books/Python完全自学教程/codes/personinhe.py", line 21, in grade
+  File "/Users/qiwsir/Documents/my_books/codes/personinhe.py", line 21, in grade
     print(f"{self.name}'s grade is {n}")
 AttributeError: 'Student' object has no attribute 'name'
 ```
@@ -1469,7 +1469,7 @@ if __name__ == "__main__":
 >
 > 此外，还可以在 IDE 中实现类似操作，以 VS Code 为例，通过“终端”也能实现类似的操作（如图8-5-2所示）
 >
-> <img src="./images/chapter8-5-2.png" alt="image-20210710152554174" style="zoom:80%;" />
+![](./images/chapter8-5-2.png)
 >
 > <center>图8-5-2 在 VS Code 中进入交互模式</center>
 
@@ -1973,14 +1973,14 @@ class Celsius:
 >>> person.temperature = -300      # (12)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-  File "/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/temperature.py", line 16, in temperature
+  File "/Users/qiwsir/Documents/my_books/codes/temperature.py", line 16, in temperature
     raise ValueError("Temperature below -273 is not possible")
 ValueError: Temperature below -273 is not possible
   
 >>> del person.temperature         # (13)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-  File "/Users/qiwsir/Documents/my_books/Python完全自学手册/codes/temperature.py", line 21, in temperature
+  File "/Users/qiwsir/Documents/my_books/codes/temperature.py", line 21, in temperature
     raise AttributeError("Can't delete attribute")
 AttributeError: Can't delete attribute
 ```
@@ -2046,7 +2046,7 @@ Python 之禅中有这样一句：命名空间是个绝妙的主意，我们应�
 
 图8-8-1显示了上述三种命名空间之间的关系——近似于第7章图7-3-2。
 
-<img src="./images/chapter8-8-1.png" alt="image-20210825092709217" style="zoom:40%;" />
+![](./images/chapter8-8-1.png)
 
 <center>图8-8-1 命名空间的关系</center>
 
@@ -2101,7 +2101,7 @@ NameError: name 'lang' is not defined
 
 由于以作用域为边界，命名空间之间实现了彼此独立，即便是同样的名称，也可以使它们之间不发生冲突。图8-8-2显示了作用域和命名空间的关系，并且对应显示了它们所具有的层级特点。
 
-<img src="./images/chapter8-8-2.png" alt="image-20210825150108190" style="zoom: 33%;" />
+![](./images/chapter8-8-2.png)
 
 <center>图8-8-2 作用域和命名空间的关系</center>
 
@@ -2109,7 +2109,7 @@ NameError: name 'lang' is not defined
 >
 > 至此关于 Python 语言的最基本知识，已经自学完毕，但并不意味着应用这些基本知识的能力也同步实现，就一般情况而言，还需要学习者通过足量的练习，才能具备解决实际问题的能力。
 >
-> 练习可以有两类，一类是单项的知识技能训练，比如与本书配套的在线资料（参阅 www.itdiffer.com）中提供的练习题目，这类练习的目的在于加强对相关知识的理解和运用。另一类是解决实际问题，这类练习具有实践性、综合性的特征，旨在通过项目实战提升解决实际问题的综合能力。后者是在前者基础上开展的，所以建议学习者务必不要好高骛远。
+> 练习可以有两类，一类是单项的知识技能训练，比如与本书中提供的练习题目，这类练习的目的在于加强对相关知识的理解和运用。另一类是解决实际问题，这类练习具有实践性、综合性的特征，旨在通过项目实战提升解决实际问题的综合能力。后者是在前者基础上开展的，所以建议学习者务必不要好高骛远。
 
 
 

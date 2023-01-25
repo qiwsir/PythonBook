@@ -44,7 +44,7 @@ Python 发明人选择了 `{ }` ，你是否也想到了这个？如果是，则
 - 符号 `{}` 里面的成员是“**键值对**”（*key: value* pairs），键值对与键值对之间用英文状态的逗号分割。
 - 所谓键值对，即两个对象之间建立对应关系，并以英文冒号作为分隔符，冒号左侧的称为**键**（ Key ），右侧的称为此键所对应的**值**（ Value ）。键与值配对，组成一个字典中的单元，称为“键值对”。
 
-<img src="./images/chapter5-1-1.png" alt="image-20210524162913414" style="zoom:50%;" />
+![](./images/chapter5-1-1.png)
 
 <center>图5-1-1 字典的组成</center>
 
@@ -289,7 +289,7 @@ setdefault(key, default=None, /) method of builtins.dict instance
 
 首先从交互模式中退回到终端，并执行图5-1-2所示的操作。输入指令并执行后，会自动安装，一般需要等待一会。
 
-<img src="./images/chapter5-1-2.png" alt="image-20210603174545006" style="zoom:50%;" />
+![](./images/chapter5-1-2.png)
 
 <center>图5-1-2 安装 translate 库</center>
 
@@ -565,7 +565,7 @@ popitem() method of builtins.dict instance
 
 **LIFO** ，即“Last in, First out”，译为“后进先出”，这是计算机科学中插入、删除数据一种原则，例如，一种名为**栈**（ Stack ）的数据结构，只能在栈顶执行插入和删除操作。先进入的数据就被压入到栈底，后进入的在栈顶；执行删除操作时，就要先删除位于栈顶的后进入的操作，故“后进先出”（如图5-1-3所示）。
 
-<img src="./images/chapter5-1-3.png" alt="image-20210604150108447" style="zoom:50%;" />
+![](./images/chapter5-1-3.png)
 
 <center>图5-1-3 栈示意图</center>
 
@@ -994,7 +994,9 @@ True
 
 给定集合 $A$ 、$B$ ，定义运算 $\cup$ 为：
 
-$$A\cup B = \{e|e\in A 或 e \in B\}$$
+$$
+A\cup B = \{e|e\in A 或 e \in B\}
+$$
 
 $A\cup B$ 称为 $A$ 和 $B$ 的并集。
 
@@ -1220,7 +1222,7 @@ True
 
 仅以每个列表中的前三个为例，所发现的结果是不是有点“反直觉”：当注释（1）执行完之后，两个不同的容器里面居然“装着”同一个对象。如果用更严谨但稍显啰嗦的语言表述：执行了注释（1）的 `copy()`  方法之后，得到的用变量 `lst2` 引用的列表与 `lst1` 引用的列表不是同一个对象，但两个列表中的成员，是同一个对象（如图5-3-1所示）。
 
-<img src="./images/chapter5-3-1.png" alt="image-20210607181208041" style="zoom:70%;" />
+![](./images/chapter5-3-1.png)
 
 <center>图5-3-1 列表浅拷贝后对象关系</center>
 
@@ -1236,7 +1238,7 @@ True
 
 注释（4）令列表 `list1` 的第一个位置引用对象 `9` ，其他不变，如图5-3-2所示。
 
-<img src="./images/chapter5-3-2.png" alt="image-20210607182702327" style="zoom:67%;" />
+![](./images/chapter5-3-2.png)
 
 <center>图5-3-2 更改列表中成员</center>
 
@@ -1261,7 +1263,7 @@ False
 
 继续延续前面的思想——列表中的成员位置引用了对象。如图5-3-3所示，列表 `lst3` 和 `lst4` 的索引 `2` 的位置都引用了同一个列表对象。
 
-<img src="./images/chapter5-3-3.png" alt="image-20210609152724658" style="zoom:67%;" />
+![](./images/chapter5-3-3.png)
 
 <center>图5-3-3 列表中含列表</center>
 
@@ -1373,5 +1375,5 @@ False
 >
 > - 根据本书内容，对每一种内置对象类型进行总结，最好能绘制思维导图。
 > - 阅读每种内置对象的普通方法的官方文档或帮助文档，从而加深对其调用方式的理解。
-> - 完成本书在线资料中提供的练习题（访问 http://www.itdiffer.com/self-learning.html 查阅练习题）。
+> - 完成本书在线资料中提供的练习题（见[【关于本书】](./README.md)）。
 

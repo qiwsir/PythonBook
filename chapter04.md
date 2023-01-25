@@ -142,14 +142,14 @@ ord(c, /)
 
 - 注释（3）使用一对单引号（英文状态）包裹若干字符，定义了字符串对象。如图4-2-1所示，以此为例显示了定义字符串的形式。
 
-<img src="./images/chapter4-2-1.png" alt="image-20210514154012591" style="zoom:50%;" />
+![](./images/chapter4-2-1.png)
 
 <center>图4-2-1 定义字符串的形式</center>
 
 - 注释（4）使用一对双引号（英文状态）定义字符串。
 - 注释（5）使用一对“三引号”——此处使用的是三个“双引号”，用三个“单引号”亦然——定义字符串，俗称“多行字符串”，其内部允许使用换行（敲“回车键”），如图4-2-2所示。
 
-<img src="./images/chapter4-2-2.png" alt="image-20210514155246687" style="zoom: 50%;" />
+![](./images/chapter4-2-2.png)
 
 <center>图4-2-2 输入多行字符串</center>
 
@@ -694,7 +694,7 @@ index(...) method of builtins.str instance
 
   为了直观地理解上述操作结果，用图4-2-4指明每个表达式中检索的索引范围。
 
-  <img src="./images/chapter4-2-4.png" alt="image-20210517162937995" style="zoom:67%;" />
+  ![](./images/chapter4-2-4.png)
 
   <center>图4-2-4 索引范围示意</center>
 
@@ -704,7 +704,7 @@ index(...) method of builtins.str instance
 
 Python 语言中关于字符串切片的一般操作形式如图4-2-5所示——这种形式适用于所有的序列类对象。
 
-<img src="./images/chapter4-2-5.png" alt="image-20210519092050433" style="zoom:50%;" />
+![](./images/chapter4-2-5.png)
 
 <center>图4-2-5 切片的形式</center>
 
@@ -732,7 +732,7 @@ Python 语言中关于字符串切片的一般操作形式如图4-2-5所示—�
 
 以注释（21）的切片为例，得到了字符串 `'python book'` 的部分字符组成的字符串——就如同从原来字符串上“切”下来“片段”一样，故曰“切片”。如图4-2-6所示，从索引是 `1` （含）的位置开始，依次将索引是 `1、2、3、4、5、6、7` 的字符“切”出来，到索引是 `8` （不含）的位置之前结束。
 
-<img src="./images/chapter4-2-6.png" alt="image-20210519095959006" style="zoom:67%;" />
+![](./images/chapter4-2-6.png)
 
 <center>图4-2-6 字符串切片示意</center> 
 
@@ -820,7 +820,7 @@ True
 
 对照图4-2-6，不难理解上述操作，此处不再赘述。不过，在前面解释 `step` 时，曾指出它的值还可以是负整数——“迈出 `-1` 步，难道是向后走吗？”，说对了。
 
-<img src="./images/chapter4-2-7.png" alt="image-20210519131523235" style="zoom:67%;" />
+![](./images/chapter4-2-7.png)
 
 <center>图4-2-7 步长是正整数</center>
 
@@ -839,7 +839,7 @@ True
 
 有向量知识的读者肯定知道（关于向量的知识请参阅拙作《机器学习数学基础》），在一维空间中，正数常常表示与规定正方向同向的向量，负数常常表示与规定正方向反向的向量。在图4-2-7中，已经规定了正方向，如果步长是正整数，则意味着“切”的方向与正方向同向；如果步长是负整数，显然意味着“切”的方向与正方向反向，即“从右开始，向左切”，此时“先看到”的是字符 `'o'` ，其索引是 `8` 或 `-3`——作为 `start` 的值；“后看到”的是字符 `'y'`，其索引是 `1` 或 `-10`——作为 `end` 的值，如图4-2-8所示，并按照“从右向左”的顺序将成员从字符串中“切”出来。
 
-<img src="./images/chapter4-2-8.png" alt="image-20210519134312726" style="zoom:67%;" />
+![](./images/chapter4-2-8.png)
 
 <center>图4-2-8 步长是负整数</center>
 
@@ -905,7 +905,7 @@ True
 
 在 Python 中，调用任何对象的方法都使用图4-2-9所示的形式。
 
-<img src="./images/chapter4-2-9.png" alt="image-20210519160847156" style="zoom:50%;" />
+![](./images/chapter4-2-9.png)
 
 <center>图4-2-9 对象的方法</center>
 
@@ -1154,7 +1154,7 @@ format(...)
 
 对于 `format("python", "physics")` 中作为参数的两个字符串，按照4.2.4节的索引思想，也给它们“编号”。第一个字符串编号为 `0`——这是 Python 的惯例，从“0”开始计数——这个位置的字符串 ` "python"` 对应于替代域 `{0}` ；同理，第二个字符串 `"physics"` 对应于替代域 `{1}` 。像这样，根据位置给方法“传入”的参数称为**位置参数**（ positional argument ）。替代域中的数字 `0、1` 分别对应于位置参数的顺序“编号”（如图4-2-10所示）。
 
-<img src="/Users/qiwsir/Documents/my_books/Python完全自学手册/images/chapter4-2-10.png" alt="image-20210520182241388" style="zoom:50%;" />
+![](./images/chapter4-2-10.png)
 
 <center>图4-2-10 format() 的位置参数</center>  
 
@@ -1167,7 +1167,7 @@ format(...)
 'I like physics and python'
 ```
 
-<img src="./images/chapter4-2-11.png" alt="image-20210521090001184" style="zoom:50%;" />
+![](./images/chapter4-2-11.png)
 
 <center>图4-2-11 format() 的关键词参数</center>
 

@@ -257,7 +257,7 @@ Do not execute main() funciton!
 
 通常，“包”是有一定层次的目录结构，它由一些 `.py` 文件或者子目录组成，并且，每个目录中要包含名为 `__init__.py` 的文件。如图11-2-1所示，创建了一个名为 `mypack` 的目录，在该目录内有一个`__init__.py` 文件和一个名为 `rust.py` 的文件，另外有两个子目录 `a_pack` 和 `b_pack` ——即两个“子包”，在这两个子目录中分别创建了图中所显示的 `.py` 文件（注意：图示中的 `tree` 是 Linux 命令，用于显示目录结构。使用 Windows 操作系统的读者不要搬用）。
 
-<img src="./images/chapter11-2-1.png" alt="image-20210724090418868" style="zoom:78%;" />
+![](./images/chapter11-2-1.png)
 
 <center>图11-2-1 mypack 包的目录结构</center> 
 
@@ -305,7 +305,7 @@ def a_java_func():
 
 首先，在 `mypack` 所在目录中进入到交互模式（如图11-2-2所示，目录 `./codes` 里有包 `mypack` ，即在 `./codes` 处进入 Python 交互模式）。
 
-<img src="./images/chapter11-2-2.png" alt="image-20210724091517123" style="zoom:78%;" />
+![](./images/chapter11-2-2.png)
 
 <center>图11-2-2 在当前位置进入交互模式</center>
 
@@ -431,7 +431,7 @@ from . import b_pack
 
 如果读者按照前面的流程进行了操作，再看看此时的目录 `./mypack` ，其结构变成了图11-2-3所示：
 
-<img src="./images/chapter11-2-3.png" alt="image-20210724104042506" style="zoom:78%;" />
+![](./images/chapter11-2-3.png)
 
 <center>图11-2-3 含有字节码的目录结构</center>
 
@@ -811,7 +811,7 @@ pip 安装好之后，就可以用它管理本地的第三方包，比如安装�
 
 在安装某个第三方包之前，特别建议先到 PyPI 官方网站找到该包，了解其基本情况，特别是它能支持的 Python 版本，以及最新版本的发布时间。例如 `requests` 包（提醒：要非常认真地在搜索结果中观察名称，避免“李鬼”冒充“李逵”），在 PyPI 上显示了如图11-4-2所示的内容。
 
-<img src="./images/chapter11-4-2.png" alt="image-20210727134608720" style="zoom:78%;" />
+![](./images/chapter11-4-2.png)
 
 <center>图11-4-2 requests 包页面部分截图</center>
 
@@ -1112,7 +1112,7 @@ Required-by:
 
   执行此命令之后，会自动做一些事情，最终在 `./dist` 目录中会看到 `.whl` 和 `.gz` 文件（如图11-4-5所示）。
 
-  <img src="./images/chapter11-4-5.png" alt="image-20210728085400352" style="zoom:78%;" />
+![](./images/chapter11-4-5.png)
 
   <center>图11-4-5 生成分发文件</center>
 
@@ -1151,7 +1151,7 @@ https://test.pypi.org/project/laoqipackage/1.0.0/
 
 当看到以上执行结果的最后一行，说明包已经成功地发布了，打开网址 https://test.pypi.org/project/laoqipackage/1.0.0/ 查看效果，如图11-4-6所示。
 
-<img src="./images/chapter11-4-6.png" alt="image-20210728090043175" style="zoom:78%;" />
+![](./images/chapter11-4-6.png)
 
 <center>图11-4-6 已经发布的包</center>
 
@@ -1296,6 +1296,3 @@ qiwsir@qiwsirs-MacBook-Pro ~ %
 > **自学建议**
 >
 > 到目前为止，读者已经学完了 Python 的基础知识，这些知识虽然已经能够支持一般的项目开发，但我认为重点不在于此，而在于通过借助本书学习，自学能力得到了培养和提升，才是最大的收获。从此之后，读者面对项目中所遇到的任何新知识，都有有信心和能力快速掌握。
-
-
-

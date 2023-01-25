@@ -79,7 +79,7 @@ You raise me up.
 
 变量 `f` 所引用的对象是某类的实例，只不过这个类的名称长了一些。为了理解它，先要从 I/O 说起。所谓 “I/O”，就是 “Input/Output”。其实以往使用的 `print()` 也属于 I/O，只不过是输出在控制台界面罢了。文件，是另外一种形式的 I/O 。
 
-Python 标准库中有针对 I/O 的模块 `io` （https://docs.python.org/3/library/io.html）。对于 I/O 而言，所有的输入输出内容都可以看做数据流（streams，简称“流”），在模块 io 的官方网页，有这样一句话：Core tools for working with streams ，它概括了 模块 `io` 的基本作用。打开文件所用的内置函数 `open()` 也是由模块 io 来定义的。注意，这里说的是 `io` ，而在前面所显示的 `f` 的类（或类型）中，是 `_io` （前面有单下划线），这两者有什么关系？
+Python 标准库中有针对 I/O 的模块 `io` （<https://docs.python.org/3/library/io.html>）。对于 I/O 而言，所有的输入输出内容都可以看做数据流（streams，简称“流”），在模块 io 的官方网页，有这样一句话：Core tools for working with streams ，它概括了 模块 `io` 的基本作用。打开文件所用的内置函数 `open()` 也是由模块 io 来定义的。注意，这里说的是 `io` ，而在前面所显示的 `f` 的类（或类型）中，是 `_io` （前面有单下划线），这两者有什么关系？
 
 ```python
 >>> import io
@@ -221,7 +221,7 @@ seek(cookie, whence=0, /)
 
 用 Office 工具打开文件 `python.docx` ，如图12-1-1所示。
 
-<img src="./images/chapter12-1-1.png" alt="image-20210729101347312" style="zoom: 33%;" />
+![](./images/chapter12-1-1.png)
 
 <center>图12-1-1 Word文档截图（局部）</center>
 
@@ -240,7 +240,7 @@ seek(cookie, whence=0, /)
 
 再次查看操作效果（重新打开该 Word文 件），效果如图12-1-2所示。
 
-<img src="./images/chapter12-1-2.png" alt="image-20210729101448454" style="zoom:33%;" />
+![](./images/chapter12-1-2.png)
 
 <center>图12-1-2 增加新段落之后的效果</center>
 
@@ -252,7 +252,7 @@ Word 文档通常还要有图，可以用下面的方法插入图：
 >>> d.save('python.docx')
 ```
 
-以上简要地介绍了对 Word 文件的基本编辑方法，除了上述操作之外，还可以实现更复杂的编辑操作，对这方面有需要的读者，不妨参阅官方文档（https://python-docx.readthedocs.io/en/latest/index.html）
+以上简要地介绍了对 Word 文件的基本编辑方法，除了上述操作之外，还可以实现更复杂的编辑操作，对这方面有需要的读者，不妨参阅官方文档（<https://python-docx.readthedocs.io/en/latest/index.html>）
 
 在12.1.1节，曾使用 `open()` 函数实现了对文件的读写操作（示例中是 `.txt` 格式的文件），那么这个函数是否可用于 Word 文件？
 
@@ -306,7 +306,7 @@ b'PK\x03\x04\x14\x00\x00\x00\x08\x00WR\xfdR\xfc\xa7\xae\xd0\x9b\x01\x00\x00\xfc\
 
 跌宕起伏的发展历程，正所谓“江山代有才人出，各领风骚数百年”。Excel 的江湖地位会被谁代替？此问题留给预言家去研究吧。我们现在要做的是找一个能操作 Excel 文件的第三方包。
 
-如同针对 Word 的第三方包一样，有很多包能够操作 Excel ，此处仅以 OpenPyXL 为例，其官方网站：https://openpyxl.readthedocs.io/en/stable/index.html 。毫无疑问，还是要先安装：
+如同针对 Word 的第三方包一样，有很多包能够操作 Excel ，此处仅以 OpenPyXL 为例，其官方网站：<https://openpyxl.readthedocs.io/en/stable/index.html> 。毫无疑问，还是要先安装：
 
 ```shell
 % pip install openpyxl
@@ -372,7 +372,7 @@ True
 
 有了工作表之后，就可以对单元格进行操作了。工作表中的单元格是以“行列式”形状排列，但是要注意：行的索引是从 1 开始；列的索引是从 A 开始（行列的最大值，根据版本的差异有所不同，针对一般操作可以认为足够大）。每个单元格用列和行的索引标识，如图12-1-3所示，A3、B2等，都可以看成相应单元格的名称。
 
-<img src="./images/chapter12-1-3.png" alt="img" style="zoom:78%;" />
+![](./images/chapter12-1-3.png)
 
 <center>图12-1-3 工作表中的单元格</center>
 
@@ -570,11 +570,11 @@ SQLite 是一个小型的关系型数据库，它最大的特点在于不需要�
 
 究竟有没有真的写入？如果笃信“眼见为实”——不一定真实，姑且满足直觉的需要——可以使用管理 SQLite 的 GUI 工具软件（比较多，读者可以自行选择），下面的演示中使用了 SQLite Studio ，打开当前已经创建的数据库和表，会看到如图12-2-1和图12-2-2所示的效果。
 
-<img src="./images/chapter12-2-1.png" alt="image-20210730103043000" style="zoom:30%;" />
+![](./images/chapter12-2-1.png)
 
 <center>图12-2-1 表 books 的结构</center>
 
-<img src="./images/chapter12-2-2.png" alt="image-20210730103429951" style="zoom:40%;" />
+![](./images/chapter12-2-2.png)
 
 <center>图12-2-2 表 books 的数据</center>
 
@@ -651,13 +651,13 @@ GUI 工具软件中查询仅能满足“眼睛”的需要，如果要在程序�
 >>> conn.close()
 ```
 
-SQLite 是一个小巧的数据库，用途广泛，特别是对于终端应用。建议读者可以结合官方网站（https://docs.python.org/3.5/library/sqlite3.html），了解更多关于此数据库的知识。
+SQLite 是一个小巧的数据库，用途广泛，特别是对于终端应用。建议读者可以结合官方网站（<https://docs.python.org/3.5/library/sqlite3.html>），了解更多关于此数据库的知识。
 
 在开发实践中所用到的数据库，特别是网站开发中，一般比 SQLite 更复杂一些，比如 PostgreSQL、MySQL 等。除了关系型数据库外，还有非关系型数据库，比如 MongoDB 等。在 Python 程序中操作这类数据库，也都有专门的的“轮子”——包（或模块），基本流程与本节所介绍的有类似之处。如果在项目中用到或有兴趣学习，可以搜索专门资料查阅。
 
 > **自学建议**
 >
-> 针对数据库，Python 提供了通用数据库接口（Generic Database Interfaces and APIs），网址是 https://wiki.python.org/moin/DatabaseInterfaces ，其中介绍了 Python 支持的关系型数据库、非关系型数据库、数据仓库和图数据库等。在 PyPI 上，可以找到针对每种数据库的第三方包（有的不止一个）。
+> 针对数据库，Python 提供了通用数据库接口（Generic Database Interfaces and APIs），网址是 <https://wiki.python.org/moin/DatabaseInterfaces> ，其中介绍了 Python 支持的关系型数据库、非关系型数据库、数据仓库和图数据库等。在 PyPI 上，可以找到针对每种数据库的第三方包（有的不止一个）。
 >
 > 数据库是各类应用的基础，特别是大数据技术日新月异的今天。不论读者将来从事哪个细分领域的研发，都应该学习一些数据库的相关知识，最低标准是能够使用常用的 SQL 语句。
 
@@ -671,7 +671,7 @@ Python 生态中，提供了很多制作网站的包——更习惯的说法是*
 
 下面使用 Django 框架，简要演示用它快速制作网站的流程。
 
-Django 的官方网站（https://www.djangoproject.com/）上显示，撰写本节内容时所发布的最新版是 Django 3.2.5 ，此前 Django 有过 2.x 和 1.x 的各个版本。读者在阅读到本书并调试代码的时候，或者阅读其他有关资料时，务必注意版本问题，不同版本之间会有所差异。此外，围绕 Django 框架还有很多第三方插件（亦即 Python 语言的包或模块），它们也有所适用的版本。
+Django 的官方网站（<https://www.djangoproject.com/>）上显示，撰写本节内容时所发布的最新版是 Django 3.2.5 ，此前 Django 有过 2.x 和 1.x 的各个版本。读者在阅读到本书并调试代码的时候，或者阅读其他有关资料时，务必注意版本问题，不同版本之间会有所差异。此外，围绕 Django 框架还有很多第三方插件（亦即 Python 语言的包或模块），它们也有所适用的版本。
 
 其实，在第11章11.5节，已经在虚拟环境中安装了 Django ，下面就启动该虚拟环境，在其中用 Django 框架制作网站。
 
@@ -683,10 +683,10 @@ Django 中的**项目**（Project）可以看做是一个专有名词，后面�
 
 ```shell
 (myvenv) myvenv % ls
-bin		include		lib		pyvenv.cfg
+bin  include  lib  pyvenv.cfg
 (myvenv) myvenv % django-admin startproject mysite
 (myvenv) myvenv % ls
-bin		include		lib		mysite		pyvenv.cfg
+bin  include  lib  mysite  pyvenv.cfg
 ```
 
 指令 `django-admin startproject mysite` 创建名为 `mysite` 的项目，执行此指令后，在当前目录中新增了 `./mysite` 子目录。这个子目录并非是空的，Django 会默认为其添加如下内容（以下显示此时 `./mysite` 的结构，`tree` 为 Linux 指令）：
@@ -718,12 +718,12 @@ Quit the server with CONTROL-C.
 
 这样我们就把一个基于 Django 的网站跑起来了，由提示信息可知：
 
-- 可以通过 http://127.0.0.1:8000/ 访问本网站；
+- 可以通过 <http://127.0.0.1:8000/> 访问本网站；
 - 结束当前服务的方法是按 Ctrl-C 组合键。
 
-打开浏览器，在地址栏中输入 http://127.0.0.1:8000 或者 http://localhost:8000 ，就会看到图12-3-1所示界面。
+打开浏览器，在地址栏中输入 <http://127.0.0.1:8000> 或者 <http://localhost:8000> ，就会看到图12-3-1所示界面。
 
-<img src="./images/chapter12-3-1.png" alt="image-20210730153207413" style="zoom:30%;" />
+![](./images/chapter12-3-1.png)
 
 <center>图12-3-1 网站默认首页</center>
 
@@ -737,7 +737,7 @@ Quit the server with CONTROL-C.
 
 ```shell
 (myvenv) mysite % ls
-db.sqlite3	manage.py	mysite
+db.sqlite3 manage.py mysite
 ```
 
 与12.3.1节所看到的 `./mysite` 目录结构相比较，这里多了一个文件 `db.sqlite3` ，这个文件就是12.2.2节所介绍过的 SQLite 数据库文件，Django 默认使用此类型的数据库，本节的浮光掠影地演示中，也使用这个数据库。
@@ -747,7 +747,7 @@ db.sqlite3	manage.py	mysite
 ```shell
 (myvenv) mysite % python manage.py startapp book
 (myvenv) mysite % ls
-book		db.sqlite3	manage.py	mysite
+book  db.sqlite3 manage.py mysite
 ```
 
 指令 `python manage.py startapp book` 创建一个名为 `book` 的应用，并在当前目录中以子目录 `./book` 的形式表现。这个子目录中也不是空的，默认配置如下：
@@ -847,7 +847,7 @@ Running migrations:
 
 以上操作完成之后，已经在数据库 `db.sqlite3` 中创建了多个表，其中包括 `Articles` 类对应的表，图12-3-2显示的是当前已经有的表（其他表都是 Django 默认创建的。图示所用工具仍然是 12.2.2 节用过的软件）
 
-<img src="./images/chapter12-3-2.png" alt="image-20210730163803366" style="zoom:40%;" />
+![](./images/chapter12-3-2.png)
 
 <center>图12-3-2 Article 对应的表结构</center>
 
@@ -900,15 +900,15 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
 
-在浏览器的地址栏中输入 http://127.0.0.1:8000/admin/ ，打开图12-3-3所示的界面。
+在浏览器的地址栏中输入 <http://127.0.0.1:8000/admin/> ，打开图12-3-3所示的界面。
 
-<img src="./images/chapter12-3-3.png" alt="image-20210730171321987" style="zoom:33%;" />
+![](./images/chapter12-3-3.png)
 
 <center>图12-3-3 管理端登录界面</center>
 
 输入刚才创建的超级管理员的用户名和密码进入系统，如图12-3-4所示。
 
-<img src="./images/chapter12-3-4.png" alt="image-20210730171540685" style="zoom:33%;" />
+![](./images/chapter12-3-4.png)
 
 <center>图12-3-4 管理界面</center>
 
@@ -927,7 +927,7 @@ admin.site.register(Articles)
 
 在调试状态下，如果没有新增加的文件，只是修改了原有文件，则不需要重新启动 Django 服务（如果 Django 服务没有启动，请确保启动）。刷新图12-3-4所示的页面，即可看到图12-3-5所示的效果。
 
-<img src="./images/chapter12-3-5.png" alt="image-20210730172334663" style="zoom:30%;" />
+![](./images/chapter12-3-5.png)
 
 <center>图12-3-5 增加对 book 应用的管理</center>
 
@@ -960,7 +960,7 @@ def book_title(request):
 
  return 语句中的 `render()` 函数的作用是将数据渲染到指定模板上（关于模板，见下文内容）。`render()` 的第一个参数必须是 `request` ，然后是模板位置和所传送的数据，数据是用类字典的形式传送给模板的。
 
-在 `render()` 中出现的` book/titles.html` 就是标题列表的前端展示页面——被称为“模板”。在每一个应用中都可以有一个专门的模板目录。进入应用 book 的目录 `./book` ，建立一个子目录 `./templates` ，名称和位置必须如此，再按照如下方式建立有关文件和子目录。
+在 `render()` 中出现的`book/titles.html` 就是标题列表的前端展示页面——被称为“模板”。在每一个应用中都可以有一个专门的模板目录。进入应用 book 的目录 `./book` ，建立一个子目录 `./templates` ，名称和位置必须如此，再按照如下方式建立有关文件和子目录。
 
 ```shell
 (myvenv) book % tree templates
@@ -1035,7 +1035,7 @@ urlpatterns = [
 ]
 ```
 
-重启 Django 服务，在浏览器中输入 http://127.0.0.1:8000/book/ ，会看到图12-3-7所示界面，显示了文章标题。
+重启 Django 服务，在浏览器中输入 <http://127.0.0.1:8000/book/> ，会看到图12-3-7所示界面，显示了文章标题。
 
 ![image-20210731090524965](./images/chapter12-3-7.png)
 
@@ -1143,9 +1143,9 @@ urlpatterns = [
 
 科学计算是科学、工程等项目中必不可少的，MATLAB 曾风光一时，但它是收费的，并且有“被禁”的风险——坚决反对用盗版软件，“被禁”不是盗版的理由。其实，Python ——开源、免费——是做科学计算的选择之一，它不仅能做 MATLAB 所能做的一切，还能做它不能做的。所以隆重推荐，在科学计算上选用 Python 。
 
-### 12.4.1 Jupyter 
+### 12.4.1 Jupyter
 
-Jupyter 是一款基于浏览器的开源的交互开发环境，常用于科学计算、数据科学、机器学习等业务中。其官方网站是：https://jupyter.org/ ，目前有 JupyterLab 和 Jupyter Notebook ，一般认为 JupyterLab 更趋近于 IDE，功能多于 Jupyter Notebook。下面以 JupyterLab 为例，演示安装和使用方法。
+Jupyter 是一款基于浏览器的开源的交互开发环境，常用于科学计算、数据科学、机器学习等业务中。其官方网站是：<https://jupyter.org/> ，目前有 JupyterLab 和 Jupyter Notebook ，一般认为 JupyterLab 更趋近于 IDE，功能多于 Jupyter Notebook。下面以 JupyterLab 为例，演示安装和使用方法。
 
 ```shell
 % pip install jupyterlab
@@ -1163,7 +1163,7 @@ Jupyter 是一款基于浏览器的开源的交互开发环境，常用于科学
 
 一般情况下，会自动打开本地计算机操作系统默认的浏览器，并显示图12-4-1所示效果。
 
-<img src="./images/chapter12-4-1.png" alt="image-20210731134019365" style="zoom:33%;" />
+![](./images/chapter12-4-1.png)
 
 <center>图12-4-1 JupyterLab 默认页面</center>
 
@@ -1179,25 +1179,25 @@ JupyterLab 所提供的各项功能，与通常 IDE 类似，此处不做详细�
 
 参照图12-4-3所示的功能，将当前文件改名为 `scicomputing.ipynb` ，并将左侧文件栏折叠收起。此外，从图示中还可看到其他关于文件和目录的基本操作，供读者参阅。
 
-<img src="./images/chapter12-4-3.png" alt="image-20210731135611338" style="zoom:53%;" />
+![](./images/chapter12-4-3.png)
 
 <center>图12-4-3 基本操作</center>
 
 然后点击菜单 `View` ，并选中如图12-4-4所示的项目，即可在代码块中显示行号。
 
-<img src="./images/chapter12-4-4.png" alt="image-20210731140300348" style="zoom:50%;" />
+![](./images/chapter12-4-4.png)
 
 <center>图12-4-4 显示代码块中的行号</center>
 
 将鼠标移动到代码块中并单击，如图12-4-5所示，开始输入一行代码，然后回车，输入第二行——注意，这里与 Python 交互模式不同，回车意味着换行，而不是执行当前行代码。输入完图12-4-5所示的所有代码。
 
-<img src="./images/chapter12-4-5.png" alt="image-20210731140826211" style="zoom:50%;" />
+![](./images/chapter12-4-5.png)
 
 <center>图12-4-5 编写代码</center>
 
 按照图12-4-5所示，点击该按钮，可以执行当前代码块；或者按组合键 `shift + Return/Enter` 执行，效果如图12-4-6所示。
 
-<img src="./images/chapter12-4-7.png" alt="image-20210731141304231" style="zoom:50%;" />
+![](./images/chapter12-4-7.png)
 
 <center>图12-4-6 执行代码块</center>
 
@@ -1215,7 +1215,7 @@ Python 生态中拥有非常丰富的支持科学计算的第三方库，常用�
 
 除了能在终端执行安装指令之外，在 JupyterLab 的代码块中也可以执行终端指令，如图12-4-7所示，在代码块中输入 `!pip install numpy` 并执行——注意前面的 `!` 符号。其效果等同于以往在终端执行安装 `pip install numpy` 指令。
 
-<img src="./images/chapter12-4-8.png" alt="image-20210731143118879" style="zoom:78%;" />
+![](./images/chapter12-4-8.png)
 
 <center>图12-4-7 在代码块中执行安装指令</center>
 
@@ -1334,7 +1334,7 @@ Python 生态中拥有非常丰富的支持科学计算的第三方库，常用�
       csrm = csr_matrix((data, (row, col)), shape=(3, 8))
       csrm
 [13]: <3x8 sparse matrix of type '<class 'numpy.longlong'>'
-      	      with 3 stored elements in Compressed Sparse Row format>
+             with 3 stored elements in Compressed Sparse Row format>
 ```
 
 现在得到的压缩矩阵 `csrm` 如果转化为数组，与前面创建的 `sm` 一样。
@@ -1346,7 +1346,7 @@ Python 生态中拥有非常丰富的支持科学计算的第三方库，常用�
              [0, 0, 3, 0, 0, 0, 0, 0]], dtype=int64)
 ```
 
-本书作者在《机器学习数学基础》一书中，专门介绍了矩阵及其有关计算的 Python 实现方法，推荐有兴趣的读者深入学习参考（http://math.itdiffer.com）。
+本书作者在《机器学习数学基础》一书中，专门介绍了矩阵及其有关计算的 Python 实现方法，推荐有兴趣的读者深入学习参考。
 
 ### 12.4.4 解线性方程组
 
@@ -1354,11 +1354,15 @@ Python 生态中拥有非常丰富的支持科学计算的第三方库，常用�
 
 例如，求方程组的解：
 
-$\begin{cases}-x_1 + 3x_2 - 5x_3 &= -3 \\2x_1 -2x_2 + 4x_3 &= 8 \\ x_1 + 3x_2 &= 6\end{cases}$
+$$
+\begin{cases}-x_1 + 3x_2 - 5x_3 &= -3 \\2x_1 -2x_2 + 4x_3 &= 8 \\ x_1 + 3x_2 &= 6\end{cases}
+$$
 
 用矩阵的方式，可以将方程组表示为：
 
-$\begin{bmatrix}-1&3&-5\\2&-2&4\\1&3&0\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}=\begin{bmatrix}-3\\8\\6\end{bmatrix}$
+$$
+\begin{bmatrix}-1&3&-5\\2&-2&4\\1&3&0\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}=\begin{bmatrix}-3\\8\\6\end{bmatrix}
+$$
 
 然后，编写如下代码：
 
@@ -1376,7 +1380,9 @@ $\begin{bmatrix}-1&3&-5\\2&-2&4\\1&3&0\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\
 
 但是，如果遇到这样的方程组：
 
-$\begin{cases}x_1+3x_2-4x_3+2x_4&=0\\3x_1-x_2+2x_3-x_4&=0\\-2x_1+4x_2-x_3+3x_4&=0\\3x_1+9x_2-7x_3+6x_4&=0\end{cases}$
+$$
+\begin{cases}x_1+3x_2-4x_3+2x_4&=0\\3x_1-x_2+2x_3-x_4&=0\\-2x_1+4x_2-x_3+3x_4&=0\\3x_1+9x_2-7x_3+6x_4&=0\end{cases}
+$$
 
 还是使用前面的函数，对此方程组求解。
 
@@ -1406,11 +1412,13 @@ $\begin{cases}x_1+3x_2-4x_3+2x_4&=0\\3x_1-x_2+2x_3-x_4&=0\\-2x_1+4x_2-x_3+3x_4&=
 
 输出：
 
-<img src="./images/chapter12-4-9.png" alt="image-20210731164238118" style="zoom:53%;" />
+![](./images/chapter12-4-9.png)
 
 这就是该线性方程组的通解，如果对应到未知量，即：
 
-$\begin{cases}x_1=\frac{x_4}{10}\\x_2=-\frac{7}{10}x_4\\x_3=0\\x_4=x_4\end{cases}$
+$$
+\begin{cases}x_1=\frac{x_4}{10}\\x_2=-\frac{7}{10}x_4\\x_3=0\\x_4=x_4\end{cases}
+$$
 
 其中 $x_4$ 是自由变量。
 
@@ -1420,7 +1428,9 @@ $\begin{cases}x_1=\frac{x_4}{10}\\x_2=-\frac{7}{10}x_4\\x_3=0\\x_4=x_4\end{cases
 
 假设有人制造了一个骰子，他声称是均匀的，也就是假设分布律为：
 
-$H_0:P(X=i)=\frac{1}{6}, (i=1,2,3,4,5,6)$
+$$
+H_0:P(X=i)=\frac{1}{6}, (i=1,2,3,4,5,6)
+$$
 
 为了证明自己的判断，他做了 $n=6\times10^{10}$​ 次投掷试验，并将各个点数出现的次数记录下来（为了便于观察，出现次数用 $10^{10}$​ 加或减一个数表示。
 
@@ -1464,8 +1474,6 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 > **自学建议**
 >
 > 科学计算不仅仅是科研和工程项目的必备技能，也是后面所列举的数据分析、机器学习的基础。所以，有意在数据科学方向发展的读者务必要学习科学计算。首先，要具备相关的数学基础，其次要掌握相关计算的第三方包的引用，最后要将前两者应用到实际问题之中。也正是基于这些思考，我出版了《机器学习数学基础》，在这本书中，不强调传统数学教材中的“纸笔计算”，重点是在理解有关数学原理之后，用程序工具完成计算，并以贴近真实的问题为案例。有兴趣的读者不妨参阅。
->
-> 《机器学习数学基础》的图书和视频课程介绍，请访问：http://math.itdiffer.com
 
 ## 12.5. 数据分析
 
@@ -1487,12 +1495,12 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 [1]: import pandas as pd
      datas = pd.read_csv("./data/bra.csv")
      datas.head()
-[1]: 	         creationTime	productColor	productSize
-     0	2016-06-08 17:17:00	     22咖啡色	        75C
-     1	2017-04-07 19:34:25	     22咖啡色	        80B
-     2	2016-06-18 19:44:56	      02粉色	         80C
-     3	2017-08-03 20:39:18	     22咖啡色	        80B
-     4	2016-07-06 14:02:08	     22咖啡色	        75B
+[1]:           creationTime productColor productSize
+     0 2016-06-08 17:17:00      22咖啡色         75C
+     1 2017-04-07 19:34:25      22咖啡色         80B
+     2 2016-06-18 19:44:56       02粉色          80C
+     3 2017-08-03 20:39:18      22咖啡色         80B
+     4 2016-07-06 14:02:08      22咖啡色         75B
 ```
 
 将获取到的数据保存在了 `bra.csv` 文件中，读取其中的前几条，先对数据有直观认识。接下来要认真地查看特征 `'productColor'` 中的数据。
@@ -1511,12 +1519,12 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 ```python
 [3]: cleaned_datas = pd.read_csv("./data/cleaned_data.csv", index_col=0)
      cleaned_datas.head()
-[3]: 	         creationTime	productColor	productSize	color
-     0	2016-06-08 17:17:00	    22咖啡色	          75C	  棕色
-     1	2017-04-07 19:34:25    	22咖啡色	          80B	  棕色
-     2	2016-06-18 19:44:56	      02粉色	           80C	   粉色
-     3	2017-08-03 20:39:18	     22咖啡色	          80B     棕色
-     4	2016-07-06 14:02:08	     22咖啡色	          75B	  棕色
+[3]:           creationTime productColor productSize color
+     0 2016-06-08 17:17:00     22咖啡色           75C   棕色
+     1 2017-04-07 19:34:25     22咖啡色           80B   棕色
+     2 2016-06-18 19:44:56       02粉色            80C    粉色
+     3 2017-08-03 20:39:18      22咖啡色           80B     棕色
+     4 2016-07-06 14:02:08      22咖啡色           75B   棕色
 ```
 
 所显示的 `'color'` 列是清洗之后的数据，后续分析所用数据即为此列。
@@ -1535,9 +1543,9 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
      for f in sorted(mpl_fonts):
          print('\t' + f)
 [4]: all font list get from matplotlib.font_manager:
-           	.Aqua Kana
-          	.Arabic UI Display
-          	.Arabic UI Text
+            .Aqua Kana
+           .Arabic UI Display
+           .Arabic UI Text
             ... #(省略部分输出)
             Songti SC
             ... #(省略部分输出)
@@ -1562,7 +1570,7 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 
 输出图示：
 
-<img src="./images/chapter12-5-1.png" alt="image-20210802171400800" style="zoom:78%;" />
+![](./images/chapter12-5-1.png)
 
 从输出结果中可以一目了然知道当前数据集中，哪些颜色的样本较少——购买者少，哪些颜色的样本较多——购买者多。
 
@@ -1608,12 +1616,12 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
      size_6 = size_5.str.replace('X', 'D')
      datas['size'] = size_6
      datas.head()
-[7]: 	         creationTime	productColor	productSize	size
-     0	2016-06-08 17:17:00	    22咖啡色	         75C	   C
-     1	2017-04-07 19:34:25	    22咖啡色	         80B	   B
-     2	2016-06-18 19:44:56	      02粉色       	  80C   	C
-     3	2017-08-03 20:39:18	    22咖啡色	         80B	   B
-     4	2016-07-06 14:02:08	    22咖啡色	         75B	   B
+[7]:           creationTime productColor productSize size
+     0 2016-06-08 17:17:00     22咖啡色          75C    C
+     1 2017-04-07 19:34:25     22咖啡色          80B    B
+     2 2016-06-18 19:44:56       02粉色          80C    C
+     3 2017-08-03 20:39:18     22咖啡色          80B    B
+     4 2016-07-06 14:02:08     22咖啡色          75B    B
 ```
 
 新增的 `size` 列就是清洗的结果，下面对该特征进行分组统计，然后绘制饼图，显示不同尺寸的文胸的分布。
@@ -1632,7 +1640,7 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 
 输出图示：
 
-<img src="./images/chapter12-5-2.png" alt="image-20210802175237920" style="zoom:67%;" />
+![](./images/chapter12-5-2.png)
 
 通过此图，也知道应该销售多大尺码的了。
 
@@ -1642,7 +1650,7 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 >
 > 1997年11月，统计学家吴建福提出将统计学重命名为“数据科学”，同时统计学家应称为“数据科学家”。现在一般认为数据科学（data science）综合了多个领域的理论和技术，包括但不限于统计分析、数据挖掘、机器学习等，其目标是从数据中提取出有价值的部分，应用于相关的数据产品之中。
 >
-> 在我的个人网站（www.itdiffer.com）有关于数据科学的学习内容和职业发展的讲座资料，有兴趣的读者可以参考。
+> 在本网站上有关于数据科学的学习内容和职业发展的讲座资料，对此感兴趣的读者可以参考。
 
 ## 12.6 机器学习
 
@@ -1650,7 +1658,7 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 
 毋庸置疑，人工智能是个好东西，但是现在还找不到一个人人都信服的定义来说明它究竟是什么，本书作者更没有能力对它进行定义了。所以，究竟什么是人工智能，只能由读者自行查阅资料去学习了。图12-6-1显示了“人工智能”、“机器学习”和“深度学习”这三个常见术语之间的关系，本节将用两个案例，分别演示**机器学习**（Machine Learning）和**深度学习**（Deep Learning），让读者对它们有初步感受。
 
-<img src="./images/chapter12-6-1.png" alt="image-20210803100643609" style="zoom:50%;" />
+![](./images/chapter12-6-1.png)
 
 <center>图12-6-1 人工智能、机器学习和深度学习</center>
 
@@ -1670,12 +1678,12 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 [1]: import pandas as pd
      df = pd.read_csv("./data/cruise.csv")
      df.head()
-[1]: 	    Ship_name	... length	cabins	passenger_density	  crew
-     0	    Journey	...	  5.94	  3.55	            42.64	  3.55
-     1	      Quest	...	  5.94	  3.55	            42.64	  3.55
-     2	Celebration	...	  7.22	  7.43	            31.80	  6.70
-     3	   Conquest	...	  9.53	 14.88	            36.99	 19.10
-     4	    Destiny	...	  8.92	 13.21	            38.36	 10.00
+[1]:      Ship_name ... length cabins passenger_density   crew
+     0     Journey ...   5.94   3.55             42.64   3.55
+     1       Quest ...   5.94   3.55             42.64   3.55
+     2 Celebration ...   7.22   7.43             31.80   6.70
+     3    Conquest ...   9.53  14.88             36.99  19.10
+     4     Destiny ...   8.92  13.21             38.36  10.00
 ```
 
 如果读者调试上述代码，可以显示完整的特征名称，这里因为排版的需要，将部分特征省略。也可以用下面的操作将所有特征名称单独显示出来。
@@ -1691,15 +1699,15 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 
 ```python
 [3]: df.describe()
-[3]: 	            Age	     Tonnage	passengers	    length	    cabins	passenger_density	       crew
-     count	158.000000	158.000000	158.000000	158.000000	158.000000	            158.000000	158.000000
-      mean	 15.689873	 71.284671	 18.457405	  8.130633	  8.830000	             39.900949	  7.794177
-       std	  7.615691	 37.229540	  9.677095	  1.793474	  4.471417	              8.639217	  3.503487
-       min	  4.000000	  2.329000	  0.660000	  2.790000	  0.330000	             17.700000	  0.590000
-       25%	 10.000000	 46.013000	 12.535000	  7.100000	  6.132500	             34.570000	  5.480000
-       50%	 14.000000	 71.899000	 19.500000	  8.555000	  9.570000	             39.085000	  8.150000
-       75%	 20.000000	 90.772500	 24.845000	  9.510000	 10.885000	             44.185000	  9.990000
-       max	 48.000000	220.000000	 54.000000	 11.820000	 27.000000	             71.430000	 21.000000
+[3]:              Age      Tonnage passengers     length     cabins passenger_density        crew
+     count 158.000000 158.000000 158.000000 158.000000 158.000000             158.000000 158.000000
+      mean  15.689873  71.284671  18.457405   8.130633   8.830000              39.900949   7.794177
+       std   7.615691  37.229540   9.677095   1.793474   4.471417               8.639217   3.503487
+       min   4.000000   2.329000   0.660000   2.790000   0.330000              17.700000   0.590000
+       25%  10.000000  46.013000  12.535000   7.100000   6.132500              34.570000   5.480000
+       50%  14.000000  71.899000  19.500000   8.555000   9.570000              39.085000   8.150000
+       75%  20.000000  90.772500  24.845000   9.510000  10.885000              44.185000   9.990000
+       max  48.000000 220.000000  54.000000  11.820000  27.000000              71.430000  21.000000
 ```
 
 由上述描述性统计可知，这个数据集共有 158 个样本。比较各个特征，数据范围分布“不平衡”，比如特征 `Age` 的数据范围是 `4~48` ，`Tonnage` 的数据则分布在 `2.329~220` 之间，从统计量标准差 `std` 也能观察到这种“不平衡”。如果将这样的数据直接用于模型训练，会导致不同特征对模型的影响有较大差异。所以，必须要经过“特征工程”这一步，对原始数据进行变换之后，才能用于训练模型。
@@ -1708,19 +1716,21 @@ $\chi^2 = \sum_{i=1}^k\frac{(np_i-f_i)^2}{np_i}$
 
 所谓标准化，是指“标准差标准化”，即根据平均值和标准差计算每个数据的标准分数：
 
-$x_{std}^{(t)} = \frac{x^{(t)}-\mu_x}{\sigma_x}$​
+$$
+x_{\text{std}}^{t}=\frac{x^t-\mu_x}{\sigma_x}
+$$
 
 有的资料将“标准化”和“区间化”笼统地称为“归一化”，这种说法并不正确，因为这是两个完全不同的计算方法，若有意深入理解，请参阅拙作《数据准备和特征工程》第3章3.6节（电子工业出版社）。
 
-在 Python 中有一个实现机器学习的常用的第三方库：Scikit-learn ，官方网站：https://scikit-learn.org/ 。依照惯例，先安装再使用。
+在 Python 中有一个实现机器学习的常用的第三方库：Scikit-learn ，官方网站：<https://scikit-learn.org/> 。依照惯例，先安装再使用。
 
-```shell
+```
 % pip install scikit-learn
 ```
 
 安装好之后，继续在 JupyterLab 中执行如下代码，实现对数据集 `df` 中某些特征中数值的标准化。
 
-```python
+```
 [4]: from sklearn.preprocessing import StandardScaler
      stdsc = StandardScaler()
      X_std = stdsc.fit_transform(df.iloc[:,2:])
@@ -1743,15 +1753,15 @@ $x_{std}^{(t)} = \frac{x^{(t)}-\mu_x}{\sigma_x}$​
 
 代码块 [2] 输出的特征，并不是都与特征 `crew` 的预测有关的，如何选出相关的特征呢？一种比较简单的方法就是计算各个特征之间的相关系数。
 
-在下面的代码中，使用了另外一个数据可视化的第三方库：Seaborn（官方网站：https://seaborn.pydata.org/），它的安装方法是：
+在下面的代码中，使用了另外一个数据可视化的第三方库：Seaborn（官方网站：<https://seaborn.pydata.org/>），它的安装方法是：
 
-```shell
+```
 % pip install seaborn
 ```
 
 利用 Seaborn，能够比较容易地绘制相关系数矩阵的可视化图示（关于相关系数，请参阅拙作《机器学习数学基础》，电子工业出版社）。
 
-```python
+```
 [5]: import seaborn as sns
      import numpy as np
      cols = df.columns[2:]
@@ -1771,21 +1781,21 @@ $x_{std}^{(t)} = \frac{x^{(t)}-\mu_x}{\sigma_x}$​
 
 输出图示：
 
-<img src="./images/chapter12-6-2.png" alt="image-20210803182220314" style="zoom:70%;" />
+![](./images/chapter12-6-2.png)
 
 由于特征数量不多，用观察法就可以选出与特征 `crew` 有较强关系的特征，从而确定用于模型训练的数据集。
 
 ```python
 [6]: cols_selected = ['Tonnage', 'passengers', 'length', 'cabins','crew']
-     X = df[cols_selected].iloc[:,0:4].values    # 特征
-     y = df[cols_selected]['crew'].values        # 标签
+     X = df[cols_selected].iloc[:,0:4].values    
+     y = df[cols_selected]['crew'].values        
      X_std = StandardScaler().fit_transform(X)
      y_std = StandardScaler().fit_transform(y.reshape(-1,1))
 ```
 
 代码块 [6] 中所得到的 `X_td` 和 `y_td` 分别是经过标准化变换之后的数据集，然后将此它们划分为训练集和测试集两部分。
 
-```python
+```
 [7] :from sklearn.model_selection import train_test_split
      X_train, X_test, y_train, y_test = train_test_split( X_std, y_std, 
                                                          test_size=0.4, 
@@ -1800,15 +1810,17 @@ $x_{std}^{(t)} = \frac{x^{(t)}-\mu_x}{\sigma_x}$​
 
 ```python
 [8]: from sklearn.linear_model import LinearRegression
-     lrg = LinearRegression()     # 创建模型实例
-     lrg.fit(X_train, y_train)    # 用训练集数据训练模型
-     lrg.score(X_test, y_test)    # 用测试集数据测试模型
+     lrg = LinearRegression()     
+     lrg.fit(X_train, y_train)    
+     lrg.score(X_test, y_test)    
 [8]: 0.9282797824863903
 ```
 
 代码块 [8] 用三步完成了模型的创建、训练和测试，其中 `lrg.score()` 返回的是该模型实例的决定系数或拟合优度（参阅拙作《机器学习数学基础》），通常记作 $R^2$ ，其计算方法是：
 
-$R^2 = 1-\frac{\sum_{i=1}^n(y^{true}_i-y^{pred}_i)^2}{\sum_{i=1}^n(y^{true}_i-\overline{y}^{true})^2}$
+$$
+R^2 = 1-\frac{\sum_{i=1}^n(y^{true}_i-y^{pred}_i)^2}{\sum_{i=1}^n(y^{true}_i-\overline{y}^{true})^2}
+$$
 
 显然，$R^2$ 的值最大是 1 ，它也可以为负数（模型太差了），但此值不是模型预测结果的正确率，虽然越接近于 1 表示预测结果越准确。请读者特别注意，有一些不严肃的资料将 `lrg.score()` 的结果解释得太随性了。
 
@@ -1840,9 +1852,9 @@ $R^2 = 1-\frac{\sum_{i=1}^n(y^{true}_i-y^{pred}_i)^2}{\sum_{i=1}^n(y^{true}_i-\o
 
 深度学习是机器学习的一个分支，目前常用的深度学习框架有 TensorFlow、PyTorch和飞桨等（飞桨，即 PaddlePaddle）。本小节中将以 PyTorch 演示一个经典的案例，让初学 Python 的读者对深度学习有感性地认识。所以，以下代码可不求甚解，只要能认识到所涉及到的基础知识并不陌生即可——除了 PyTorch 部分。
 
-“Dogs vs. Cats”是一个传统的二分类问题，下面示例所用的数据集来自于 kaggle.com ，在项目网页（https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/）上可以看到两个压缩包（登录网站之后可以下载），`train.zip` 用作训练集（其中一部分作为验证集），`test.zip` 用作测试集。在训练集中（将所下载的 `train.zip` ，解压缩之后，放到 `./data/train` 目录中），所有图片都是用 `cat.<id>.jpg` 和 `dog.<id>.jpg` 格式命名，用图片文件的名称作为每张图片的标签（如图12-6-2所示）。
+“Dogs vs. Cats”是一个传统的二分类问题，下面示例所用的数据集来自于 kaggle.com ，在项目网页（<https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/>）上可以看到两个压缩包（登录网站之后可以下载），`train.zip` 用作训练集（其中一部分作为验证集），`test.zip` 用作测试集。在训练集中（将所下载的 `train.zip` ，解压缩之后，放到 `./data/train` 目录中），所有图片都是用 `cat.<id>.jpg` 和 `dog.<id>.jpg` 格式命名，用图片文件的名称作为每张图片的标签（如图12-6-2所示）。
 
-<img src="./images/chapter12-6-3.png" alt="image-20210804135003373" style="zoom:33%;" />
+![](./images/chapter12-6-3.png)
 
 <center>图12-6-2 训练集中的图片</center>
 
@@ -1854,7 +1866,7 @@ $R^2 = 1-\frac{\sum_{i=1}^n(y^{true}_i-y^{pred}_i)^2}{\sum_{i=1}^n(y^{true}_i-\o
 
 经过上述操作之后，得到了如下所示的目录结构：
 
-```python
+```
 % tree data -d
 data
 ├── test
@@ -1904,13 +1916,13 @@ True
 False
 ```
 
-关于模块 `re` 的更多内容，可以参考官方文档（https://docs.python.org/3/library/re.html）。
+关于模块 `re` 的更多内容，可以参考官方文档（<https://docs.python.org/3/library/re.html>）。
 
-注释（2）中使用的 `shutil` 模块也是 Python 标准库的一员，函数 `shutil.move()` 能够将文件移动到指定目录中（ shutil 模块的官方文档地址：https://docs.python.org/3/library/shutil.html）。
+注释（2）中使用的 `shutil` 模块也是 Python 标准库的一员，函数 `shutil.move()` 能够将文件移动到指定目录中（ shutil 模块的官方文档地址：<https://docs.python.org/3/library/shutil.html>）。
 
 运行代码块 [11] 后，将猫和狗的图片分别放在了两个不同的目录中，在 Jupyter 中可以这样查看（ `ls` 是 Linux 命令）：
 
-```python
+```
 [12]: print("目录 train_dir 中已经没有图片")
       !ls {train_dir} | head -n 5
 
@@ -1940,7 +1952,7 @@ False
 
 在 `./data/train/cats` 和 `./data/train/dogs` 两个目录中，各有 12500 张图片，再从每个目录中取一部分（此处取 1000 张）图片分别放到对应的验证集目录 `./data/val/cats` 和 `./data/val/dogs` 中。
 
-```python
+```
 [13]: dogs_files = os.listdir(train_dogs_dir)
       cats_files = os.listdir(train_cats_dir)
 
@@ -1977,7 +1989,7 @@ False
 
 **2. 训练模型**
 
-数据已经组织好了，即将使用 PyTorch 创建并训练模型。PyTorch 的官方网站是：https://pytorch.org/ ，它提供了非常友好的 Python 接口，与其他第三方包一样，安装后即可使用。
+数据已经组织好了，即将使用 PyTorch 创建并训练模型。PyTorch 的官方网站是：<https://pytorch.org/> ，它提供了非常友好的 Python 接口，与其他第三方包一样，安装后即可使用。
 
 ```shell
 % pip install torch torchvision
@@ -2328,7 +2340,7 @@ visualize_model(model_conv)
           return out
 ```
 
-Python 中关于图片的库被称为 Python Imageing Library  ，简称 PIL ，其中 Pillow 是 PIL 的一个常用分支（同样是一个库），其官方网站是：https://pillow.readthedocs.io/。安装方法如下：
+Python 中关于图片的库被称为 Python Imageing Library  ，简称 PIL ，其中 Pillow 是 PIL 的一个常用分支（同样是一个库），其官方网站是：<https://pillow.readthedocs.io/>。安装方法如下：
 
 ```shell
 % pip install Pillow
@@ -2439,12 +2451,12 @@ id,label
 
 ```python
 [31]: df.sample(5)     # 随机选出 5 条记录
-[31]:       	id	   label
-      5548	5548	0.999494
-      8238	8238	0.998453
-      8961	8961	0.999983
-      4762	4762	0.003668
-      2623	2623	0.000197
+[31]:        id    label
+      5548 5548 0.999494
+      8238 8238 0.998453
+      8961 8961 0.999983
+      4762 4762 0.003668
+      2623 2623 0.000197
 ```
 
 > **自学建议**
@@ -2453,7 +2465,7 @@ id,label
 >
 > 以上所列都是进入机器学习领域的技术准备，除了这些之外，还有一个前置的知识准备：足够的数学知识（参阅拙作《机器学习数学基础》，电子工业出版社）。
 >
-> 此外，如果读者有意完整学习机器学习相关知识，可以参考我在如下链接所提供的资料：http://math.itdiffer.com/machinelearning.html
+> 此外，如果读者有意完整学习机器学习相关知识，可以参考本网站中的有关内容。
 
 ## 12.7 树莓派开发
 
@@ -2461,7 +2473,7 @@ id,label
 
 ### 12.7.1 树莓派概要
 
-树莓派（Raspberry Pi）是一款基于 Linux 的单片机（single-chip microcomputer）——中央处理器（CPU）、存储器、定时计数器、各种输入输出接口等集成在一块集成电路芯片上的微型计算机。自2012年发布第一代产品以来，颇受广大学生和开发者喜欢，因为它不仅集中了常用的单片机功能，最重要的是价格便宜。撰写本节时，从树莓派的官方网站（https://www.raspberrypi.org/）可知，目前最新型号是 Raspberry Pi 4 ，如图12-7-1所示。
+树莓派（Raspberry Pi）是一款基于 Linux 的单片机（single-chip microcomputer）——中央处理器（CPU）、存储器、定时计数器、各种输入输出接口等集成在一块集成电路芯片上的微型计算机。自2012年发布第一代产品以来，颇受广大学生和开发者喜欢，因为它不仅集中了常用的单片机功能，最重要的是价格便宜。撰写本节时，从树莓派的官方网站（<https://www.raspberrypi.org/>）可知，目前最新型号是 Raspberry Pi 4 ，如图12-7-1所示。
 
 ![image-20210807101618786](./images/chapter12-7-2.png)
 
@@ -2545,7 +2557,7 @@ id,label
 - 一个限流电阻
 - 三根杜邦线
 
-<img src="./images/chapter12-7-6.png" alt="image-20210830175356099" style="zoom:50%;" />
+![](./images/chapter12-7-6.png)
 
 <center>图12-7-6 实验器材</center>
 
@@ -2557,11 +2569,11 @@ pi@raspberrypi:~ $ pinout
 
 输出图12-7-7所示的结果，显示了树莓派各个引脚的含义（图12-7-6所示的树莓派右侧像针一样排列的，叫做引脚，共40个）。
 
-<img src="./images/chapter12-7-7.png" alt="image-20210830164638885" style="zoom:70%;" />
+![](./images/chapter12-7-7.png)
 
 <center>图12-7-7 输出树莓派引脚说明</center>
 
-为了更清晰地与真实设备对照，也可以使用图12-7-8所示的图片（图片来源：https://www.bigmessowires.com/2018/05/26/raspberry-pi-gpio-programming-in-c/）。
+为了更清晰地与真实设备对照，也可以使用图12-7-8所示的图片（图片来源：<https://www.bigmessowires.com/2018/05/26/raspberry-pi-gpio-programming-in-c/>）。
 
 ![img](./images/chapter12-7-8.png)
 
@@ -2571,25 +2583,25 @@ pi@raspberrypi:~ $ pinout
 
 接下来连接电路。本示例中的电路非常简单，只需要用杜邦线将发光二极管、电阻串联即可（如图12-7-9所示）。但是要注意发光二极管的两腿的长度不同，长腿要与电源的正极相连，短腿与电源的负极相连（如图12-7-10所示）。在图12-7-9的电路中，电阻所在一侧为发光二极管的长腿一侧。
 
-<img src="./images/chapter12-7-9.png" alt="image-20210830180938508" style="zoom:50%;" />
+![](./images/chapter12-7-9.png)
 
 <center>图12-7-9 串联电路</center>
 
-<img src="./images/chapter12-7-10.png" alt="image-20210830171929262" style="zoom:50%;" />
+![](./images/chapter12-7-10.png)
 
 <center>图12-7-10 发光二极管</center>
 
 为了安全，暂且断开树莓派的电源。然后将与发光二极管长腿相连的杜邦线插到树莓派的16号 GPIO 引脚上，将与发光二极管短腿相连的杜邦线插到14号 GND 引脚上，最终效果如图12-7-11所示。
 
-<img src="./images/chapter12-7-12.png" alt="image-20210830181856199" style="zoom:50%;" />
+![](./images/chapter12-7-12.png)
 
 <center>图12-7-11 连接效果</center>
 
 启动树莓派，打开菜单中的 Python 3（IDLE）（如图12-7-5所示），进入到了 Python 交互模式（如图12-7-12所示），点击菜单栏中的 “File-New File”，在打开的文本编辑界面中输入如下代码。
 
-<img src="./images/chapter12-7-11.png" alt="image-20210830173233551" style="zoom:67%;" />
+![](./images/chapter12-7-11.png)
 
-<center>图12-7-12 打开树莓派上的 Python 编辑器</center>				
+<center>图12-7-12 打开树莓派上的 Python 编辑器</center>    
 
 ```python
 import RPi.GPIO as GPIO
@@ -2618,4 +2630,3 @@ GPIO.cleanup()              # 结束
 > **自学建议**
 >
 > 对于学生和业余爱好者而言，树莓派是一个性价比很高的开发平台，通过它能够控制很多电子设备，将“软件”和“硬件”结合起来。诚然，这还需要读者具备相关的电子学知识。
-

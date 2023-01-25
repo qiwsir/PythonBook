@@ -14,7 +14,7 @@
 
 如图7-1-1所示，是自定义**函数**（Function）的基本格式。
 
-<img src="./images/chapter7-1-1.png" alt="image-20210623102042856" style="zoom:50%;" />
+![](./images/chapter7-1-1.png)
 
 <center>图7-1-1 定义函数</center>
 
@@ -188,7 +188,9 @@ before return
 
 将此过程写成数学式，即：
 
-$\begin{split}\begin{cases}a_0 = 0&(n=0)\\a_1=1&(n=1)\\a_n=a_{n-1}+a_{n-2}&(n\ge2)\end{cases}\end{split}$
+$$
+\begin{split}\begin{cases}a_0 = 0&(n=0)\\a_1=1&(n=1)\\a_n=a_{n-1}+a_{n-2}&(n\ge2)\end{cases}\end{split}
+$$
 
 根据此数学式得到的数列，如：$0,1,1,2,3,5,8,13,21,\cdots$​​​ ，就是斐波那契数列。接下来的任务是研究如何用 Python 编写计算斐波那契数列的函数。
 
@@ -291,7 +293,7 @@ a is [1, 2, 3, 99, 99], id is 140374963517312
 - 在函数 `bar()` 里面对参数 `a` 追加一个对象（如注释（7）所示）——实质上是调用参数或变量 `a` 所引用的对象的 `append()` 方法。
 - “将 `lst` 传给函数 `bar(a)` ”的本质就是参数 `a` 与变量 `lst` 都引用了列表对象 `[1, 2, 3]` （如图7-1-2所示），因此，当函数内部注释（7）向该列表追加成员之后，函数外面的 `lst` 引用的列表内的成员也随之变化——内外列表本质是同一个对象。
 
-<img src="./images/chapter7-1-2.png" alt="image-20210624103615492" style="zoom:50%;" />
+![](./images/chapter7-1-2.png)
 
 <center>图7-1-2 参数与对象关系</center>
 
@@ -313,7 +315,7 @@ TypeError: foo() missing 1 required positional argument: 'c'
 
 读者如果阅读更多关于编程语言函数资料，常会看到**形参**（Formal Parameter）和**实参**（Actual Parameter）这两个术语。以函数 `foo()` 为例，如图7-1-3所示，当调用它时，圆括号内的对象就是函数的实参，即 Arguments（论据、实例）；定义它时，圆括号内的就是形参，即 Parameters（参数）。
 
-<img src="./images/chapter7-1-3.png" alt="image-20210624110739989" style="zoom:50%;" />
+![](./images/chapter7-1-3.png)
 
 <center>图7-1-3 形参与实参</center>
 
@@ -699,7 +701,7 @@ Python 内置函数 `range()` 返回的是可迭代的 range 对象，第6章6.3
 
 从本书一开始，就在使用“对象”这个术语，并且前面几章一直在学习 Python 内置对象。本章学习的函数，在 Python 中也是对象。也正是由于这个特点，使得 Python 中的函数有很多更优异的表现，减少了编程的苦恼——保持秀发。
 
-<img src="./images/chapter7-3-1.png" alt="image-20210625103429270" style="zoom:67%;" />
+![](./images/chapter7-3-1.png)
 
 <center>图7-3-1 几种编程语言发明者</center>
 
@@ -1832,11 +1834,15 @@ RecursionError: maximum recursion depth exceeded
 
 阶乘是所有介绍递归的资料中都必须要选择的案例，本书也不免俗。其数学定义如下：
 
-$$n! = 1\times2\times\cdots\times n$$
+$$
+n! = 1\times2\times\cdots\times n
+$$
 
 如果用适合于应用递归的方式表示，则为：
 
-$$n!=\begin{cases}1 & n=0,1\\n\times(n-1)! & n\ge 2\end{cases}$$
+$$
+n!=\begin{cases}1 & n=0,1\\n\times(n-1)! & n\ge 2\end{cases}
+$$
 
 与上面的示例一样，基本事件是不需要递归就可以实现的；更复杂的事件则可简化，也就是将其简化为基本事件之一:
 
@@ -1848,7 +1854,7 @@ $$n!=\begin{cases}1 & n=0,1\\n\times(n-1)! & n\ge 2\end{cases}$$
 
 例如计算 $4!$​​ ，用递归算法，其过程如图7-5-1所示。依次计算 $4!$​​ 、$3!$​​ 和 $2!$​​  ，直到 $n = 1$​​ 时的终止条件，无需进一步递归就可以计算 $1!$​​ 。
 
-<img src="./images/chapter7-5-1.png" style="zoom:40%;" />
+![](./images/chapter7-5-1.png)
 
 <center>图7-5-1 4! 递归计算过程</center>
 

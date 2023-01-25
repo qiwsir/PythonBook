@@ -3,7 +3,7 @@
 > 自学并不是什么神秘的东西，一个人一辈子自学的时间总是比在学校学习的时间长，没有老师的时候总是比有老师的时候多。
 > ——华罗庚
 
-<center><img src="./images/chapter1-00-huoluogeng.jpg" alt="图片" width=200/></center>
+![](./images/chapter1-00-huoluogeng.jpg)
 
 <center>华罗庚</center>
 
@@ -21,7 +21,7 @@
 
 > 收集了一些学习者的典型问题，可以通过下面的链接访问，供读者参考。有则改之，无则加勉。
 >
-> http://www.itdiffer.com/their-learning.html
+> [https://lqlab.readthedocs.io/en/latest/their-learning.html](https://lqlab.readthedocs.io/en/latest/their-learning.html)
 
 通常而言，程序员的职业生涯不是三年五载就结束了。姑且按照当前某些媒体热炒的“三十五岁”危机来计算（这是无稽之谈），从大学毕业到危机时期，也大约十年。这十年中，软件开发技术相较于在学校所学，肯定会有很大变化——更何况在学校内的课堂上所学是否匹配于工作实际，也是值得探讨的；这十年中，软件开发技术相较于职业生涯初期也肯定会有很大变化；这十年中，更可能是“不在学校学习，没有老师教”。那么，应该如何应对这十年的变化？毫无疑问，必须自学！自学各种新知识、新技术，甚至于自学老知识、老技术。
 
@@ -31,9 +31,9 @@
 
 >**自学建议**
 >
->为了能让自学坚持长久，可以将"可视化管理"应用到自学过程中。在网站（www.itdiffer.com）中提供了一张针对本书内容的自学管理表，读者可以借用它管理自学过程。访问链接如下：
+>为了能让自学坚持长久，可以将"可视化管理"应用到自学过程中。我提供了一张针对本书内容的自学管理表，读者可以借用它管理自学过程。
 >
->http://www.itdiffer.com/self-learning.html
+>与本书配套的《自学管理表》下载地址：百度网盘：链接: [https://pan.baidu.com/s/1yrRG4axCZZ5dEwl9TWP9Gw](https://pan.baidu.com/s/1yrRG4axCZZ5dEwl9TWP9Gw) 提取码: jqjj
 
 ## 1.2 编程语言
 
@@ -67,7 +67,7 @@
 
 **汇编语言**（Assembly Language）是二进制代码的文本形式，使用便于记忆的书写格式表达机器语言指令。如图1-2-3所示，是一段在 X86 计算机、64 位 Linux 操作系统运行的汇编语言程序。即使不理解这段程序，也能看出来，相对于机器语言，对人的友好度已经有了很大提高。
 
-<img src="./images/chapter1-12-03.jpg" alt="图片" style="zoom:67%;" />
+![](./images/chapter1-12-03.jpg)
 
 <center>图1-2-3 汇编语言示例</center>
 
@@ -79,7 +79,7 @@
 
 **高级编程语言**（或“高级语言”，High-level Programming Language）是面向人的编程语言—— It is for Humans ——这不是某一种语言，而是一类语言。一般我们把“机器语言”和“汇编语言”归类为“低级语言”，除此之外的都称为高级语言（如图1-2-4所示）
 
-<center><img src="./images/chapter1-12-04.jpg" alt="图片" width=300 /></center>
+![](./images/chapter1-12-04.jpg)
 
 <center>图1-2-4 编程语言分类</center>
 
@@ -135,7 +135,7 @@
 
 在1.2节中已经简要介绍了编程语言，本书将要介绍的编程语言是一种名为 Python 的高级编程语言。为什么要学习这种编程语言，其解释是仁者见仁智者见智。先看看由 TIOBE 提供的2021年10月的编程语言排行榜（如图1-4-1所示，来源：https://www.tiobe.com/tiobe-index/ ）。
 
-<img src="./images/chapter1-4-1.png" alt="image-20210810182715314" style="zoom:78%;" />
+![](./images/chapter1-4-1.png)
 
 <center>图1-4-1 编程语言排行榜</center>
 
@@ -145,7 +145,7 @@
 
 一种“已过而立之年”的编程语言，缘何有如此魅力？ 还要从“初心”开始谈起。
 
-<img src="./images/chapter1-14-02.png" alt="img" style="zoom:78%;" />
+![](./images/chapter1-14-02.png)
 
 <center>图1-4-2 Guido van Rossum<br>（源自：https://zh.wikipedia.org/wiki/Python）</center>
 
@@ -161,7 +161,7 @@ Python 语言的发明人是**吉多·范罗苏姆**（Guido van Rossum）。关
 
 下图是 PyPI 网站的首页（ pypi.org ），这个网站专门发布开发者编写的 Python 第三方库（参阅第11章11.4节），至撰写这段内容为止，此网站上已经有 298,220 个项目（如图1-4-3所示，到第11章11.4节时，会看到此图的变化）。毫不夸张地说，PyPI 的第三方库几乎涵盖了常规开发的各个领域——需要开发什么，先来这里搜一下，看看有没有“轮子”。正是有如此庞大的生态系统，才让程序员用 Python 语言实现了“以人为本，节省开发者时间”的要求。
 
-<img src="./images/chapter1-14-01.png" alt="image-20210412142556766" style="zoom:67%;" />
+![](./images/chapter1-14-01.png)
 
 <center>图1-4-3 PyPI 首页</center>
 
@@ -193,19 +193,19 @@ Windows 操作系统的全称是“ Microsoft Windows ”，翻译为“视窗�
 
 首先，打开能够输入命令的窗口——俗称“ CMD 窗口”。以 Windows 10 为例，可以有多种方法打开这个窗口。例如：在“开始菜单”中找到“ Windows 系统”里面的“命令提示符”，如图1-5-1所示：
 
-![点击查看源网页](./images/chapter1-15-01.jpg)
+![](./images/chapter1-15-01.jpg)
 
 <center>图1-5-1 开始菜单中的“命令提示符”</center>
 
 用鼠标点击此项，打开如同图1-5-2所示的窗口，观察此时窗口界面中闪动的光标，提示我们可以在这里输入命令。
 
-<img src="./images/chapter1-15-02.png" alt="image-20210414134105302" style="zoom:50%;" />
+![](./images/chapter1-15-02.png)
 
 <center>图1-5-2 命令行输入窗口</center>
 
 另外一种打开“CMD 窗口”的方法是使用快捷键“ Win + R ”，如图1-5-3所示。
 
-<img src="./images/chapter1-15-03.png" style="zoom:70%;" />
+![](./images/chapter1-15-03.png)
 
 <center>图1-5-3 快捷键 Win+R</center>
 
@@ -234,7 +234,7 @@ Windows 操作系统的全称是“ Microsoft Windows ”，翻译为“视窗�
 
 注意，在 Windows 中输入命令，不区分大小写。如图1-5-5所示，以显示当前位置的目录和文件为例，当输入了 `DIR`（或者 `dir` ）之后，敲回车即可。
 
-![截图1618382781](./images/chapter1-15-05.png)
+![](./images/chapter1-15-05.png)
 
 <center>图1-5-5 DIR 命令和结果</center>
 
@@ -248,21 +248,21 @@ Windows 操作系统的全称是“ Microsoft Windows ”，翻译为“视窗�
 
 ### 1.5.2 Linux
 
-<img src="./images/chapter1-15-09.png" alt="Linux官方的吉祥物，一隻叫Tux的企鵝" style="zoom:10%;" />
+![](./images/chapter1-15-09.png)
 
 <center>图1-5-6 Linux 吉祥物 Tux</center>
 
 Linux 是一种开源操作系统，它以 Unix 为基础，发明人是 Linus Torvalds（如图1-5-7所示）。这是一位令众多程序员膜拜的、为 IT 业做出卓越贡献的开发者，他除了发明 Linux 操作系统之外，还发明了一种源码管理系统 Git ，是目前广泛应用的源码管理工具。
 
-<img src="./images/chapter1-15-06.jpg" alt="LinuxCon Europe Linus Torvalds" style="zoom:20%;" />
+![](./images/chapter1-15-06.jpg)
 
 <center>图1-5-7 Linux 操作系统的发明人 Linus Torvalds</center>
 
 Linux 被认为是开源软件的典型案例，只要遵循 GNU 通用公共许可证（ GPL ），任何个人和机构均可以自由地使用 Linux 的所有源代码，也可以自由地修改和再发布。由此，就诞生了很多基于 Linux 的操作系统，一般称它们是 Linux 发行版，比如应用于个人计算机的 Ubuntu 、Linux Mint ，应用于服务器的 Red Hat 、CentOS 等。还有一个知名度很高的移动终端操作系统 Android ，也是基于 Linux 内核。
 
-图1-5-8所示为一种比较常用的 Linux 发行版 Ubuntu（https://ubuntu.com/）的桌面，它同样提供了“所见即所得”的视窗操作——只需要点鼠标。也有很多桌面应用软件供用户选择，比如办公套件 LibreOffice 、浏览器 Firefox 、图像编辑器 GIMP 等。可以说，在 Windows 系统中常用的应用软件，在 Linux 系统中都有功能类似的替代品——除了杀毒软件，因为 Linux 的安全性高、病毒较少，乃至于没有必要再安装专门的杀毒软件。
+图1-5-8所示为一种比较常用的 Linux 发行版 [Ubuntu](https://ubuntu.com/)的桌面，它同样提供了“所见即所得”的视窗操作——只需要点鼠标。也有很多桌面应用软件供用户选择，比如办公套件 LibreOffice 、浏览器 Firefox 、图像编辑器 GIMP 等。可以说，在 Windows 系统中常用的应用软件，在 Linux 系统中都有功能类似的替代品——除了杀毒软件，因为 Linux 的安全性高、病毒较少，乃至于没有必要再安装专门的杀毒软件。
 
-<img src="./images/chapter1-5-07.jpg" alt="Ubuntu 20.04 LTS arrives | Ubuntu" style="zoom:67%;" />
+![](./images/chapter1-5-07.jpg)
 
 <center>图1-5-8 Ubuntu桌面</center>
 
@@ -274,7 +274,7 @@ Linux 被认为是开源软件的典型案例，只要遵循 GNU 通用公共许
 
 以 Ubuntu 为例，通常使用快捷键组合“ Ctrl + Alt + T ”，即可打开**终端**（如图1-5-9所示），然后在终端输入命令，即可完成相应操作。
 
-<img src="./images/chapter1-15-08.png" alt="A Terminal window on a Ubuntu desktop." style="zoom:78%;" />
+![](./images/chapter1-15-08.png)
 
 <center>图1-5-9 Ubuntu 的终端</center>
 
@@ -318,7 +318,7 @@ macOS 具有非常友好的视窗操作界面，并且与硬件配合堪称天�
 >
 > 如果读者现在使用的就是苹果公司生产的个人计算机，比如 MacBook Pro 等，那么就请打开 Launchpad（启动板），找到 Terminal（终端），打开之后，显示了输入命令的窗口，但这个窗口内的视觉效果不好，所以，多数人更喜欢另外一个名为 iTerm 2 的应用（如图1-5-10所示）。
 
-<img src="./images/chapter1-15-10.png" alt="image-20210417170624893" style="zoom:30%;" />
+![](./images/chapter1-15-10.png)
 
 <center>图1-5-10 iTerm 2 窗口</center>
 
@@ -332,7 +332,7 @@ macOS 具有非常友好的视窗操作界面，并且与硬件配合堪称天�
 
 网站首页如图1-6-1所示，先注意观察网站的结构。在最醒目的 logo 之上有一行栏目（称为第一行）：Python、PSF、Docs、PyPI、Jobs、Community ，并且用倒三角形的符号指示当前位置是“ Python ”。在 logo 之下还有一行栏目（称为第二行）：About 、Downloads 、Documentation 、Community 、Success Stories 、News 、Events 。
 
-<img src="./images/chapter1-6-01.png" alt="image-20210417172926150" style="zoom:30%;" />
+![](./images/chapter1-6-01.png)
 
 <center>图1-6-1 Python官网首页</center>
 
@@ -342,7 +342,7 @@ macOS 具有非常友好的视窗操作界面，并且与硬件配合堪称天�
 
 将鼠标移动到“ About ”上面，暂不要点击，即可看到图1-6-2所示内容，这里以最简洁的语言概述了 Python 语言特点：Python is a programming language that lets you work more quickly and integrate your systems more effectively 。
 
-![image-20210417174408690](./images/chpater1-6-02.png)
+![](./images/chpater1-6-02.png)
 
 <center>图1-6-2 介绍 Python</center>
 
@@ -363,7 +363,7 @@ macOS 具有非常友好的视窗操作界面，并且与硬件配合堪称天�
 
 把鼠标滑动到“ Downloads ”栏目上（不点击鼠标），会自动出现如图1-6-3所示的效果，显示“ Download for Mac OS X ”及下面的下载按钮和有关说明。但是，若读者亲自操作，所看到的很可能与图示不同，因为此处所显示的内容是网站根据访问者所用的操作系统，显示当前可下载的最新版本的 Python 安装程序。图1-6-3所显示的内容，即表示我在编写本书的时候，使用的是 macOS 操作系统（参阅1.5.3节），网站针对此操作系统，提供当前可下载的最新的 Python 版本是“ Python 3.9.4 ”。点击写有“ Python 3.9.4 ”字样的按钮，就可以下载此版本的 Python 安装程序。也就是说，读者如果按照本书建议进行学习，通过此操作能够下载到与自己所用操作系统相匹配的最新发布的 Python 安装程序（不一定是 Python 3.9.4 ，可能会高于此版本）。
 
-![image-20210418194049507](./images/chapter1-6-03.png)
+![](./images/chapter1-6-03.png)
 
 <center>图1-6-3 下载 Python 安装程序</center>
 
@@ -371,7 +371,7 @@ macOS 具有非常友好的视窗操作界面，并且与硬件配合堪称天�
 
 当把鼠标滑动到“ Downlloads ”栏目的下拉菜单中的“ All releases ”，并点击之，会打开网址 https://www.python.org/downloads/ ，这里列出了所有已经发布的各个版本的 Python 安装程序，图1-6-4即为我在编写本书时从此页面上得到的截图，其中显示了不同状态下的 Python 版本。请读者特别关注 Python 2.7 ，这是 Python 2.x  的最高版，已经在2020年元旦停止支持（end-of-life），但是，这并不意味着此版本不可用。
 
-![image-20210419104720240](./images/chapter1-6-04.png)
+![](./images/chapter1-6-04.png)
 
 <center>图1-6-4 维护着的 Python 版本</center>
 
@@ -381,7 +381,7 @@ Python 的版本可能会成为初学者的困扰，在1.7节会就此有比较�
 
 如果在图1-6-3所示的下拉菜单中，进入“ Windows ”，即打开网址 https://www.python.org/downloads/windows/ ，显示所有针对 Windows 操作系统的各个版本的 Python 安装程序。图1-6-5是从此网页中获得的部分截图（读者打开此网址时，可能与截图显示的版本不同），其中显示了当前最新发布版本——包含 Python 3 和 Python 2 两类。对于 Python 3.9.4 版，在列表中显示了不同的安装程序文件，点击超级链接即可下载。其中的“ embeddable package ”表示压缩文件；“ installer ”表示安装程序的可执行文件；“ 32-bit ”和“ 64-bit ”表示适用于不同位操作系统。
 
-![image-20210419111006084](./images/chapter1-6-05.png)
+![](./images/chapter1-6-05.png)
 
 <center>图1-6-5 适用于 Windows 的 Python 各版本安装程序</center>
 
@@ -389,7 +389,7 @@ Python 的版本可能会成为初学者的困扰，在1.7节会就此有比较�
 >
 > 以 Windows 10 为例，右键点击“此电脑”，然后选择“属性”，即可看到图1-6-6所示窗口，从中可知：本计算机的“系统类型”是“64位操作系统，基于 x64 的处理器”，也就是此台计算机中的 Windows 10 即为64位操作系统。
 
-<img src="./images/chapter1-6-07.png" alt="image-20210419132514816" style="zoom:70%;" />
+![](./images/chapter1-6-07.png)
 
 <center>图1-6-6 64位操作系统</center>
 
@@ -399,7 +399,7 @@ Python 的版本可能会成为初学者的困扰，在1.7节会就此有比较�
 
 使用 macOS 操作系统的读者，自然要从图1-6-3所示的下拉菜单中进入“ Mac OS X ”项，打开 https://www.python.org/downloads/mac-osx/ ，该页面的部分截图如图1-6-7所示（此截图为读者编写本书时所见，与读者所见页面可能有异）。
 
-<img src="./images/chapter1-6-06.png" alt="image-20210419112919811" style="zoom:78%;" />
+![]()./images/chapter1-6-06.png)
 
 <center>图1-6-7 适用于 macOS 的 Python 各版本安装程序</center>
 
@@ -408,7 +408,7 @@ Python 的版本可能会成为初学者的困扰，在1.7节会就此有比较�
 - Download macOS 64-bit Intel installer：对应的是应用于 Intel 公司 CPU 的安装程序；
 - Download macOS 64-bit universal2 installer：对应的是应用于苹果公司自研 CPU 的安装程序（如图1-6-8所示，即为一款应用了苹果 M1 芯片的 MacBook Pro 计算机的“ Finder - About This Mac ”截图）。
 
-![image-20210421112212057](./images/chapter1-6-10.png)
+![](./images/chapter1-6-10.png)
 
 <center>图1-6-8 使用了苹果 M1 芯片的计算机</center>
 
@@ -416,7 +416,7 @@ Python 的版本可能会成为初学者的困扰，在1.7节会就此有比较�
 
 进入图1-6-3所示的“ Downloads ”下拉菜单“ Source code ”项，打开 https://www.python.org/downloads/source/ 网址（图1-6-9为编写本节时页面的部分截图），即可得到各个 Python 版本的源代码下载列表。
 
-<img src="./images/chapter1-6-08.png" alt="image-20210419140055517" style="zoom:78%;" />
+![](./images/chapter1-6-08.png)
 
 <center>图1-6-9 Python 各版本源码</center>
 
@@ -432,7 +432,7 @@ Python 的版本可能会成为初学者的困扰，在1.7节会就此有比较�
 
 图1-6-10所示的是鼠标滑动到“ Documentation ”栏目的显示效果，在其下拉菜单中，对学习者而言，最重要也是最常用的就是“ Docs ”项，它是本书——也是所有关于 Python 语言的图书——的唯一权威参考资料，其他各项是为开发者、学习者提供的有关资料，读者可以参考。
 
-<img src="./images/chapter1-6-09.png" alt="image-20210419171649613" style="zoom:77%;" />
+![](./images/chapter1-6-09.png)
 
 <center>图1-6-10 Documentation 栏目及其下拉菜单</center>
 
@@ -555,7 +555,7 @@ Python 的版本可能会成为初学者的困扰，在1.7节会就此有比较�
 
    <center>图1-7-11 Windows 10 开始菜单的“此电脑”</center>
 
-   <img src="./images/chapter1-7-11.png" alt="14" style="zoom:80%;" />
+   ![](./images/chapter1-7-11.png)
 
    <center>图1-7-12 高级系统设置</center>
 
@@ -579,7 +579,7 @@ Python 的版本可能会成为初学者的困扰，在1.7节会就此有比较�
 
 途径一，从“开始”菜单中找到刚刚安装的 Python 程序，如图1-7-16所示，点击其中的“ IDLE(Python 3.9 64-bit) ”，即可显示图1-7-17所示的界面。
 
-<img src="./images/chapter1-7-15.png" alt="image-20210422133720394" style="zoom:67%;" />
+![](./images/chapter1-7-15.png)
 
 <center>图1-7-16 “开始”菜单中的 Python</center>
 
@@ -601,7 +601,7 @@ Python 的版本可能会成为初学者的困扰，在1.7节会就此有比较�
 
 Ubuntu 操作系统的最大特点是不需要单独安装 Python ，只要此操作系统在计算机上安装好了，Python 开发环境作为默认的配置项已经安装好，正所谓“开箱即用”。打开1.5.2节中的图1-5-9所示的终端，直接输入 `python3` 指令并回车（注意输入的内容），显示效果图1-7-19所示，从图示中可以看到 Ubuntu 20.04 中默认支持的 Python 3.8.5 。不同版本 Ubuntu 系统中默认安装的 Python 版本会有差异，在使用的时候要注意分辨。
 
-![image-20210422164354397](./images/chapter1-7-18.png)
+![](./images/chapter1-7-18.png)
 
 <center>图1-7-19 Ubuntu 默认的 Python</center>
 
@@ -634,7 +634,7 @@ sudo apt install python3.9
 
 图1-7-20是上述指令的执行过程截图。
 
-![image-20210422154345098](./images/chapter1-7-19.png)
+![](./images/chapter1-7-19.png)
 
 <center>图1-7-20 Python3.9 安装过程</center>
 
@@ -752,7 +752,7 @@ sudo ln -s /usr/python/bin/pip3.9 /usr/bin/pip
 >
 > “人非生而知之者，孰能无惑”，互联网是解决自学者之“惑”的最佳选择，无他。请抛弃“我是初学者，所以我不会”的心理（这与“我弱我有理”、“不跟我玩我就哭”有相通之处）。
 >
-> 诚然，除了上述方法之外，还可以到学习群里问一问。本书的学习讨论群已经发布到网站上：http://www.itdiffer.com/self-learning.html ；亦或请教身边的高人。
+> 诚然，除了上述方法之外，还可以到学习群里问一问。本书的学习讨论群已经发布到[本网站上](./README.md)；亦或请教身边的高人。
 
 ## 1.8 IDE 简介
 

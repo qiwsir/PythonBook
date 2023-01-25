@@ -24,7 +24,7 @@
 
 如果读者用 `help()` 函数查看已经学过的内置对象类型，比如 `help(int)` ，会看到它们也是以类的形式定义的（如图9-1-1所示）。
 
-<img src="./images/chapter9-1-1.png" alt="image-20210710142650594" style="zoom:70%;" />
+![](./images/chapter9-1-1.png)
 
 <center>图9-1-1 整数的类就是整数类型</center>
 
@@ -1186,7 +1186,7 @@ class Derivative:
 
 一切最终归结到 `type` ，它就是开始。在汉语中，描述这种特征的时候，常用一个字：“元”。从哲学上说，“元”指世界统一的基础、世界的组织细胞、世界的具体存在和表现形式。那么，对于 `type` 而言，也可以用“元”来命名了，且 `type` 还是类，故称之为**元类**（Metaclass）。图9-5-1显示了 `type` 等类与实例之间的关系。
 
-<img src="./images/chapter9-5-1.png" alt="image-20210717091157004" style="zoom:70%;" />
+![](./images/chapter9-5-1.png)
 
 <center>图9-5-1 实例、类和元类</center>
 

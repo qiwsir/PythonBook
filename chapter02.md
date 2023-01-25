@@ -10,7 +10,7 @@
 
 如果哪一本讲解编程语言、特别是面向初学者的书，不是从打印“ Hello World ”开始，可以说它忘记了“初心”。自从1978年出版的经典名著《The C Programming Language》开始（如图2-1-1所示），学习编程语言的第一行代码就是打印“ Hello World ”，这已经成为代代相传的光荣传统。
 
-<img src="./images/chapter2-1-01.png" style="zoom:33%;" />
+![](./images/chapter2-1-01.png)
 
 <center>图2-1-1 The C Programming Language</center>
 
@@ -46,7 +46,7 @@
 
 若从交互模式退回到命令行状态，可以输入 `exit()` 函数，如图2-1-4所示——请注意区分两种状态：命令行和交互模式。
 
-<img src="./images/chapter2-1-04.png" alt="image-20210425175200926" style="zoom:50%;" />
+![](./images/chapter2-1-04.png)
 
 <center>图2-1-4 退出“交互模式”，返回到命令行</center>
 
@@ -66,7 +66,7 @@ print("Hello World")
 
 其效果如图2-1-6所示，并保存此文件。
 
-<img src="./images/chapter2-1-06.png" alt="image-20210426082058292" style="zoom: 33%;" />
+![](./images/chapter2-1-06.png)
 
 <center>图2-1-6 输入代码后的文件</center>
 
@@ -76,7 +76,7 @@ print("Hello World")
 
 如图2-1-7所示，点击 VS Code 的菜单项中的“ Run ”，在下拉菜单选项中点击“ Start Debugging ”。
 
-<img src="./images/chapter2-1-07.png" alt="image-20210426081234551" style="zoom:50%;" />
+![](./images/chapter2-1-07.png)
 
 <center>图2-1-7 选择 Strat Debugging 项</center>
 
@@ -98,7 +98,7 @@ print("Hello World")
 
 进入到命令行状态——注意不是交互模式，请参阅2.1.1节中的说明（如果用 Windows 操作系统，就要打开 CMD 窗口），然后进入到保存 `hello.py` 文件的目录（如果不进入该目录，应在文件名之前写明路径），如图2-1-10所示（提示：图示中的命令`ls`不是 Windows 的指令，请读者知悉）。
 
-<img src="./images/chapter2-1-10.png" alt="image-20210426083846417" style="zoom:50%;" />
+![](./images/chapter2-1-10.png)
 
 <center>图2-1-10 程序文件所在目录</center>
 
@@ -110,7 +110,7 @@ python hello.py
 
 即可运行 `hello.py` 文件，其效果如图2-1-11所示，显示了运行效果——打印出“Hello World”字样。
 
-<img src="./images/chapter2-1-11.png" alt="image-20210426090706573" style="zoom:50%;" />
+![](./images/chapter2-1-11.png)
 
 <center>图2-1-11 运行 Python 程序文件</center>
 
@@ -256,7 +256,7 @@ print("Life is short. You need Python.")    # 打印一行英文字符。
 
 在上面的示例中，一行注释使用的是英文，另一行是中文。然后调试上述代码，正常地显示了打印的结果（如图2-2-1所示），这说明 Python 解释器在执行此程序的时候，并没有受到所增加的注释影响——注释是给人看的，“机器不看”。
 
-<img src="./images/chapter2-2-01.png" alt="image-20210428140742349" style="zoom: 50%;" />
+![](./images/chapter2-2-01.png)
 
 <center>图2-2-1 调试增加注释后的程序</center>
 
@@ -301,11 +301,11 @@ print("Hello World")    # print a string.
 
 常用的 IDE 提供了实现多行“注释”以及取消的快捷操作。以 VS Code 为例，如图2-2-3所示，将第6、7、8、9三行代码选中之后，使用快捷键组合“ COMMAND + / ”（或“ CTRL + / ”），即可将选中的多行“注释”了（此处的“注释”是动词，或者说是“名词用作动词”，意思是“将多行代码变成了注释”。如图2-2-4所示）。这个组合键可以实现“注释”和“取消注释”的切换，即选中多个已注释的行之后，通过此组合键可以取消注释。
 
-<img src="./images/chapter2-2-03.png" alt="image-20210428160421093" style="zoom: 33%;" />
+![](./images/chapter2-2-03.png)
 
 <center>图2-2-3 选中多行</center>
 
-<img src="./images/chapter2-2-04.png" alt="image-20210428161111616" style="zoom: 33%;" />
+![](./images/chapter2-2-04.png)
 
 <center>图2-2-4 实现对多行的注释</center>
 
@@ -422,7 +422,7 @@ print("Hello World")    # print a string.
 2. 变量 `x` 引用上面计算结果，如图2-3-1中的②所示，相当于执行 `x =  4` ；
 3. 所以，注释（8）的执行结果是 `4`。
 
-<img src="./images/chapter2-2-05.png" alt="image-20210430141205952" style="zoom: 33%;" />
+![](./images/chapter2-2-05.png)
 
 <center>图2-3-1 变量与对象的关系</center>
 
@@ -478,7 +478,7 @@ SyntaxError: invalid syntax
 
 以上常见的四种变量命名形式，不同的开发团队会根据自己的喜好选择，开发者应该服从团队的规定——内部统一。在本书中，选择使用“蛇形式”，这也是 Python 中比较流行的命名普通变量的形式（ Python，即“蟒蛇”，图2-3-2为其图标）。
 
-<img src="./images/chapter2-3-02.png" alt="logo" style="zoom:33%;" />
+![](./images/chapter2-3-02.png)
 
 <center>图2-3-2 Python 语言的图标</center>
 
