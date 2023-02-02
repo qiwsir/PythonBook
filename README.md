@@ -27,7 +27,6 @@
 2. 读者在阅读本书过程中，如果发现错误，请通过 github 提交，或者进入本书读者交流群告知作者，不胜感激。
 3. 读者交流 QQ 群：26913719 ，群名称是：**Code Craft**
 4. 请关注微信公众号，会有更多相关文章和资料提供。
-5. 在左侧目录【文章-Python编程语言】中查看更多有关 Python 编程语言的文章。
 
 ## 配套视频课程
 
@@ -50,6 +49,10 @@
 ## 源码地址
 
 [《Python 完全自学教程》github 仓库](https://github.com/qiwsir/PythonTutorialForSelf-learners/tree/main/codes)
+
+## 在线讨论区
+
+[https://github.com/qiwsir/PythonBook/discussions](https://github.com/qiwsir/PythonBook/discussions)
 
 ## 目录
 
