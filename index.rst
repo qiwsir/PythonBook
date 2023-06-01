@@ -37,3 +37,4 @@ LQLab
    chapter11
    chapter12
    clossingword
+   reading/index

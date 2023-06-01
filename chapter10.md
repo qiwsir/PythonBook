@@ -88,7 +88,7 @@ Python 语言将常见的异常列为内置类型，表10-2-1列举了几种常�
 
 在程序中如果遇到了异常，为了能让程序继续运行，需要对异常进行处理。Python 提供了专门用于处理异常的语句——捕获异常，基本结构如图10-2-1所示。
 
-![]()./images/chapter10-2-1.png)
+![](./images/chapter10-2-1.png)
 
 <center>图10-2-1 捕获异常的语句</center>
 
@@ -436,6 +436,10 @@ AssertionError: author is not other
 ```
 
 理解了上述内容之后，再回头阅读刚刚在 `calculator.py` 中增加的 assert 语句，肯定能理解了。
+
+**注**
+
+关于 `try ... excep ...` 在编程实践的应用中，有一个 **EAFP 原则，**，具体内容请阅读：[EAFP 原则](https://lqpybook.readthedocs.io/en/latest/reading/eafp.html) 。在这篇文章中，特别提醒读者，不要写“bare except”代码。
 
 ### 10.2.2 else 和 finally 分支
 
