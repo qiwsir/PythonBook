@@ -16,7 +16,7 @@ build:
 
   tools:
 
-    python: "3.11"
+    python: "3.9"
 
     # You can also specify other tool versions:
 
