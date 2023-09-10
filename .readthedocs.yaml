@@ -31,7 +31,7 @@ build:
 
 sphinx:
 
-  configuration: .conf.py
+  configuration: docs/conf.py
 
   # You can configure Sphinx to use a different builder, for instance use the dirhtml builder for simpler URLs
 
