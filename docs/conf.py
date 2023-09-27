@@ -14,7 +14,7 @@ author = 'LaoQi'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    'myst_parser'
+    'myst_parser',
 ]
 
 myst_enable_extensions = [
@@ -43,5 +43,5 @@ html_theme_options = {
     "home_page_in_toc": True
 }
 html_title = "LQLab"
-html_logo = "./_static/logo.png"
-html_favicon = "./_static/icon.ico"
+html_logo = ".././_static/logo.png"
+html_favicon = ".././_static/icon.ico"
