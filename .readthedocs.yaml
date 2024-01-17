@@ -11,9 +11,10 @@ version: 2
 # Set the OS, Python version and other tools you might need
 
 build:
-
+  os: "ubuntu"
+  
   tools:
-    os: "ubuntu"
+    
     python: "3.9"
 
     # You can also specify other tool versions:
