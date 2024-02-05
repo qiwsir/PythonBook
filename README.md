@@ -30,7 +30,7 @@
 
 ## 配套视频课程
 
-- [《Python 完全自学教程》视频课程](https://bfw.xet.tech/s/3cMBcz)
+- [《Python 完全自学教程》视频课程](https://ytky.cn/series/XL100116xxxxxx)（课程中包括 AI 技术支持的问答功能）
 
 ## 其他阅读地址
 
